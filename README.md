@@ -1,2 +1,2 @@
-# fisikaportal
-Website belajar Fisika
+# FisikaPortal
+JELAJAHI ALAM SEMESTA MELALUI FISIKA
