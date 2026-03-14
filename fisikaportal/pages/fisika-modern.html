@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisika Modern — FisikaPortal</title>
+  <meta name="description" content="Fisika modern: relativitas khusus Einstein, dilatasi waktu, E=mc², radiasi benda hitam, efek fotolistrik, dan dualisme gelombang-partikel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(32, 178, 170, 0.1) 0%, rgba(32, 178, 170, 0.05) 100%);"></div>
+  <div class="header-ghost">MODERN</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Fisika Modern</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Fisika Modern</span></h1>
+  <p class="page-desc">Relativitas khusus Einstein, mekanika kuantum, dan prinsip ketidakpastian Heisenberg.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="clock"></i>Relativitas</span>
+        <span class="page-tag"><i data-feather="star"></i>E=mc²</span>
+        <span class="page-tag"><i data-feather="sun"></i>Kuantum</span>
+        <span class="page-tag"><i data-feather="help-circle"></i>Heisenberg</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="clock"></i>Relativitas Khusus</div>
+      <a class="sb-link" href="#relativitas"><i data-feather="book"></i>Postulat Einstein</a>
+      <a class="sb-link" href="#dilatasi"><i data-feather="clock"></i>Dilatasi Waktu</a>
+      <a class="sb-link" href="#kontraksi"><i data-feather="minimize-2"></i>Kontraksi Panjang</a>
+      <a class="sb-link" href="#relativitas-massa"><i data-feather="box"></i>Massa Relativistik</a>
+      <a class="sb-link" href="#energi-massa"><i data-feather="battery-charging"></i>Energi Massa Einstein</a>
+      <a class="sb-link" href="#transformasi"><i data-feather="zap"></i>Transformasi Lorentz</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="sun"></i>Awal Kuantum</div>
+      <a class="sb-link" href="#planck"><i data-feather="sun"></i>Radiasi Benda Hitam & Planck</a>
+      <a class="sb-link" href="#fotolistrik"><i data-feather="zap"></i>Efek Fotolistrik</a>
+      <a class="sb-link" href="#compton"><i data-feather="zap"></i>Efek Compton</a>
+      <a class="sb-link" href="#de-broglie"><i data-feather="radio"></i>Dualisme Gelombang-Partikel</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="cpu"></i>Mekanika Kuantum Dasar</div>
+      <a class="sb-link" href="#heisenberg"><i data-feather="help-circle"></i>Prinsip Ketidakpastian</a>
+      <a class="sb-link" href="#schrodinger"><i data-feather="file-text"></i>Persamaan Schrödinger</a>
+      <a class="sb-link" href="#kotak"><i data-feather="box"></i>Partikel dalam Kotak</a>
+      <a class="sb-link" href="#terobosan"><i data-feather="arrow-right"></i>Efek Terobosan Kuantum</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-soal"><i data-feather="star"></i>Contoh Soal</a>
+    </div>
+    </aside>
+
+  <main class="main-content">
+
+    <!-- RELATIVITAS -->
+    <section class="content-section" id="relativitas">
+      <h2 class="section-heading"><span class="icon"><i data-feather="globe"></i></span> Relativitas Khusus Einstein</h2>
+      <h3 class="sub-heading">Dua Postulat Einstein (1905)</h3>
+      <div class="two-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Postulat I — Relativitas</div>
+          <p>Hukum-hukum fisika berlaku sama dalam semua kerangka acuan inersial (bergerak lurus beraturan).</p>
+          <p>Tidak ada eksperimen yang dapat membedakan antara kerangka diam dan kerangka bergerak konstan.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Postulat II — Kecepatan Cahaya</div>
+          <p>Kecepatan cahaya dalam vakum bernilai sama (\(c = 3 \times 10^8\) m/s) bagi semua pengamat, tidak bergantung pada gerak sumber atau pengamat.</p>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Faktor Lorentz (γ)</div>
+        <div class="formula-main">\[ \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} = \frac{1}{\sqrt{1-\beta^2}} \quad (\beta = v/c) \]</div>
+        <div class="formula-vars">γ ≥ 1 selalu. γ → ∞ ketika v → c. Pada v ≪ c, γ ≈ 1.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="dilatasi">
+      <h3 class="sub-heading">Dilatasi Waktu</h3>
+      <div class="definition">
+        Jam yang bergerak relatif terhadap pengamat berdetak lebih lambat — waktu "melar" pada kerangka yang bergerak.
+      </div>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Dilatasi Waktu</div>
+        <div class="formula-main">\[ \Delta t = \gamma\,\Delta t_0 = \frac{\Delta t_0}{\sqrt{1-v^2/c^2}} \]</div>
+        <div class="formula-vars">
+          <span>Δt₀</span> = waktu proper (diukur dalam kerangka diam benda, selalu minimum) &nbsp;|&nbsp;
+          <span>Δt</span> = waktu yang diukur pengamat yang melihat benda bergerak (selalu lebih besar)
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="clock"></i></div>
+        <div><strong>Paradoks kembar:</strong> Si A bepergian dengan roket cepat kembali lebih muda dari si B yang diam. Ini bukan paradoks — efeknya asimetris karena A mengalami percepatan.</div>
+      </div>
+    
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="clock"></i> Dilatasi Waktu &amp; Kontraksi Panjang — Ringkasan Visual</div>
+        <svg viewBox="0 0 540 190" class="diagram-svg" aria-label="Relativitas diagram">
+          <defs>
+            <marker id="arr-rel" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#778DA9"/></marker>
+            <marker id="arr-gold" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-teal" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+          </defs>
+          <!-- Kerangka diam -->
+          <rect x="20" y="25" width="220" height="65" rx="8" fill="rgba(65,90,119,0.15)" stroke="#415A77" stroke-width="1.5"/>
+          <text x="130" y="20" font-size="10" fill="#778DA9" text-anchor="middle" font-weight="700">KERANGKA DIAM (S)</text>
+          <text x="40" y="50" font-size="9" fill="#E0E1DD">Waktu: t₀ (waktu proper)</text>
+          <text x="40" y="66" font-size="9" fill="#E0E1DD">Panjang: L₀ (panjang proper)</text>
+          <text x="40" y="82" font-size="9" fill="#778DA9">Pengamat diam terhadap kejadian</text>
+          <!-- Arrow down -->
+          <line x1="130" y1="92" x2="130" y2="114" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-gold)"/>
+          <text x="136" y="107" font-size="8" fill="#C9A84C">γ &gt; 1</text>
+          <!-- Kerangka bergerak -->
+          <rect x="20" y="118" width="220" height="62" rx="8" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="130" y="114" font-size="10" fill="#C9A84C" text-anchor="middle" font-weight="700">KERANGKA GERAK (S′, kecepatan v)</text>
+          <text x="40" y="140" font-size="9" fill="#C9A84C">Waktu: t = γt₀  →  MELAMBAT</text>
+          <text x="40" y="155" font-size="9" fill="#4E9E9E">Panjang: L = L₀/γ  →  MEMENDEK</text>
+          <text x="40" y="170" font-size="9" fill="#778DA9">Pengamat bergerak relatif terhadap S</text>
+          <!-- Gamma formula -->
+          <rect x="280" y="25" width="240" height="170" rx="8" fill="rgba(13,27,42,0.6)" stroke="#415A77" stroke-width="1"/>
+          <text x="400" y="50" font-size="10" fill="#778DA9" text-anchor="middle" font-weight="700">FAKTOR LORENTZ γ</text>
+          <text x="400" y="72" font-size="11" fill="#C9A84C" text-anchor="middle" font-family="monospace">γ = 1/√(1−v²/c²)</text>
+          <!-- v table -->
+          <line x1="295" y1="85" x2="505" y2="85" stroke="#415A77" stroke-width="1"/>
+          <text x="340" y="99" font-size="9" fill="#778DA9" text-anchor="middle">v/c</text>
+          <text x="450" y="99" font-size="9" fill="#778DA9" text-anchor="middle">γ</text>
+          <line x1="295" y1="103" x2="505" y2="103" stroke="#415A77" stroke-width="0.5"/>
+          <text x="340" y="117" font-size="9" fill="#E0E1DD" text-anchor="middle">0.1</text><text x="450" y="117" font-size="9" fill="#E0E1DD" text-anchor="middle">1.005</text>
+          <text x="340" y="131" font-size="9" fill="#E0E1DD" text-anchor="middle">0.5</text><text x="450" y="131" font-size="9" fill="#4E9E9E" text-anchor="middle">1.155</text>
+          <text x="340" y="145" font-size="9" fill="#E0E1DD" text-anchor="middle">0.9</text><text x="450" y="145" font-size="9" fill="#C9A84C" text-anchor="middle">2.294</text>
+          <text x="340" y="159" font-size="9" fill="#E0E1DD" text-anchor="middle">0.99</text><text x="450" y="159" font-size="9" fill="#C96060" text-anchor="middle">7.089</text>
+          <text x="340" y="173" font-size="9" fill="#E0E1DD" text-anchor="middle">0.999</text><text x="450" y="173" font-size="9" fill="#C96060" text-anchor="middle">22.37</text>
+          <line x1="295" y1="181" x2="505" y2="181" stroke="#415A77" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+    <section class="content-section" id="kontraksi">
+      <h3 class="sub-heading">Kontraksi Panjang (Lorentz)</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-blue)">
+        <div class="formula-label">Kontraksi Panjang</div>
+        <div class="formula-main">\[ L = \frac{L_0}{\gamma} = L_0\sqrt{1-v^2/c^2} \]</div>
+        <div class="formula-vars">
+          <span>L₀</span> = panjang proper (diukur dalam kerangka diam benda, selalu maksimum) &nbsp;|&nbsp;
+          <span>L</span> = panjang terukur pengamat yang melihat benda bergerak (selalu lebih pendek)
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="ruler"></i></div>
+        <div>Kontraksi hanya terjadi pada arah gerak. Arah tegak lurus tidak mengalami kontraksi. L = L₀ hanya ketika v = 0.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="relativitas-massa">
+      <h3 class="sub-heading">Momentum & Massa Relativistik</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Momentum Relativistik</div>
+          <div class="formula-main">\[ p = \gamma mv = \frac{mv}{\sqrt{1-v^2/c^2}} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Massa Relativistik</div>
+          <div class="formula-main">\[ m_{rel} = \gamma m_0 \]</div>
+          <div class="formula-vars"><span>m₀</span> = massa diam (rest mass)</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon"><i data-feather="slash"></i></div>
+        <div>Tidak ada benda bermassa istirahat yang dapat mencapai kecepatan c — diperlukan energi tak terhingga. Foton (massa diam = 0) bergerak tepat dengan kecepatan c.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="energi-massa">
+      <h3 class="sub-heading">Kesetaraan Massa–Energi</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Energi Total Relativistik</div>
+        <div class="formula-main">\[ E = \gamma m_0 c^2 = \frac{m_0 c^2}{\sqrt{1-v^2/c^2}} \]</div>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Energi Diam</div>
+          <div class="formula-main">\[ E_0 = m_0 c^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Kinetik Relativistik</div>
+          <div class="formula-main">\[ E_k = (\gamma - 1)m_0c^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hubungan E–p</div>
+          <div class="formula-main">\[ E^2 = (pc)^2 + (m_0c^2)^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Untuk Foton (m₀ = 0)</div>
+          <div class="formula-main">\[ E = pc = hf = \frac{hc}{\lambda} \]</div>
+        </div>
+      </div>
+      <div class="info-card gold">
+        <div class="info-card-title">Satuan energi dalam fisika partikel</div>
+        <p>1 eV = 1,602 × 10⁻¹⁹ J &nbsp;|&nbsp; 1 MeV = 10⁶ eV &nbsp;|&nbsp; 1 GeV = 10⁹ eV</p>
+        <p>Massa proton: 938,3 MeV/c² &nbsp;|&nbsp; Massa elektron: 0,511 MeV/c²</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="transformasi">
+      <h3 class="sub-heading">Transformasi Lorentz</h3>
+      <div class="formula-box">
+        <div class="formula-label">Transformasi Koordinat (S → S', S' bergerak dengan v ke kanan)</div>
+        <div class="formula-main">\[ x' = \gamma(x - vt), \quad t' = \gamma\!\left(t - \frac{vx}{c^2}\right) \]</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Penjumlahan Kecepatan Relativistik</div>
+        <div class="formula-main">\[ u' = \frac{u - v}{1 - uv/c^2} \]</div>
+        <div class="formula-vars">Selalu: |u'| ≤ c jika |u| ≤ c dan |v| ≤ c</div>
+      </div>
+    </section>
+
+    <!-- AWAL KUANTUM -->
+    <section class="content-section" id="planck">
+      <h2 class="section-heading"><span class="icon"><i data-feather="moon"></i></span> Awal Mekanika Kuantum</h2>
+      <h3 class="sub-heading">Radiasi Benda Hitam & Hipotesis Planck</h3>
+      <div class="definition">
+        <strong>Benda hitam</strong> adalah objek ideal yang menyerap semua radiasi elektromagnetik yang jatuh padanya dan memancarkan kembali sesuai suhunya.
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Hukum Pergeseran Wien</div>
+          <div class="formula-main">\[ \lambda_{max} T = b \]</div>
+          <div class="formula-vars"><span>b</span> = 2,898 × 10⁻³ m·K (konstanta Wien)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hukum Stefan-Boltzmann</div>
+          <div class="formula-main">\[ P = \sigma A T^4 \]</div>
+          <div class="formula-vars">σ = 5,67 × 10⁻⁸ W/m²·K⁴</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hipotesis Planck: Kuantisasi Energi</div>
+          <div class="formula-main">\[ E = nhf \quad (n = 0,1,2,...) \]</div>
+          <div class="formula-vars"><span>h</span> = 6,626 × 10⁻³⁴ J·s (Konstanta Planck)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Rumus Radiasi Planck</div>
+          <div class="formula-main">\[ u(\lambda,T) = \frac{8\pi hc}{\lambda^5}\frac{1}{e^{hc/\lambda k_BT}-1} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="fotolistrik">
+      <h3 class="sub-heading">Efek Fotolistrik (Einstein, 1905)</h3>
+      <p>Cahaya menumbuk permukaan logam dan mengeluarkan elektron. Energi foton diserap satu-satu oleh elektron.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Persamaan Efek Fotolistrik</div>
+        <div class="formula-main">\[ E_k^{max} = hf - \phi = hf - hf_0 \]</div>
+        <div class="formula-vars">
+          <span>φ = hf₀</span> = fungsi kerja logam (energi minimum untuk melepas elektron) &nbsp;|&nbsp;
+          <span>f₀</span> = frekuensi ambang &nbsp;|&nbsp;
+          <span>E_k^max</span> = energi kinetik maksimum elektron yang keluar
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Tegangan Penghenti</div>
+        <div class="formula-main">\[ eV_s = E_k^{max} = hf - \phi \]</div>
+        <div class="formula-vars">V_s = tegangan yang cukup untuk menghentikan semua elektron</div>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Efek fotolistrik membuktikan sifat partikel cahaya (foton). E_k tidak bergantung pada intensitas cahaya, hanya pada frekuensi. Intensitas hanya mempengaruhi jumlah elektron yang keluar.</div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="zap"></i> Diagram Efek Fotolistrik</div>
+        <svg viewBox="0 0 500 175" class="diagram-svg" aria-label="Efek fotolistrik">
+          <defs>
+            <marker id="arr-photo" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-e" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+          </defs>
+          <!-- Logam -->
+          <rect x="20" y="65" width="180" height="90" rx="6" fill="rgba(65,90,119,0.25)" stroke="#415A77" stroke-width="2"/>
+          <text x="110" y="130" font-size="10" fill="#778DA9" text-anchor="middle" font-weight="700">LOGAM</text>
+          <text x="110" y="145" font-size="8" fill="#415A77" text-anchor="middle">Fungsi kerja: φ</text>
+          <!-- Foton datang -->
+          <line x1="20" y1="40" x2="80" y2="65" stroke="#C9A84C" stroke-width="2.5" marker-end="url(#arr-photo)" stroke-dasharray="5,3"/>
+          <text x="18" y="35" font-size="9" fill="#C9A84C">hf (foton)</text>
+          <line x1="20" y1="25" x2="80" y2="68" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-photo)" stroke-dasharray="5,3" opacity="0.6"/>
+          <line x1="20" y1="55" x2="78" y2="75" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-photo)" stroke-dasharray="5,3" opacity="0.4"/>
+          <!-- Elektron terlepas -->
+          <circle cx="130" cy="65" r="5" fill="#4E9E9E"/>
+          <line x1="130" y1="60" x2="180" y2="25" stroke="#4E9E9E" stroke-width="2" marker-end="url(#arr-e)"/>
+          <text x="185" y="22" font-size="9" fill="#4E9E9E">e⁻ terlepas</text>
+          <text x="185" y="33" font-size="8" fill="#4E9E9E">Ek = hf − φ</text>
+          <!-- Tidak terlepas jika f < f0 -->
+          <line x1="20" y1="120" x2="60" y2="120" stroke="#C96060" stroke-width="2" stroke-dasharray="4,2"/>
+          <circle cx="60" cy="120" r="4" fill="#C96060"/>
+          <text x="18" y="112" font-size="8" fill="#C96060">f &lt; f₀</text>
+          <text x="18" y="123" font-size="8" fill="#C96060">tidak</text>
+          <text x="18" y="133" font-size="8" fill="#C96060">terlepas</text>
+          <!-- Energy level diagram -->
+          <rect x="260" y="25" width="220" height="145" rx="8" fill="rgba(13,27,42,0.6)" stroke="#415A77" stroke-width="1"/>
+          <text x="370" y="48" font-size="9.5" fill="#778DA9" text-anchor="middle" font-weight="700">DIAGRAM ENERGI</text>
+          <!-- Vakum -->
+          <line x1="275" y1="65" x2="470" y2="65" stroke="#E0E1DD" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="472" y="68" font-size="8" fill="#E0E1DD">E = 0 (vakum)</text>
+          <!-- hf arrow -->
+          <line x1="300" y1="140" x2="300" y2="68" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-photo)"/>
+          <text x="305" y="110" font-size="8" fill="#C9A84C">hf</text>
+          <!-- phi -->
+          <line x1="340" y1="140" x2="340" y2="65" stroke="#C96060" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="345" y="100" font-size="8" fill="#C96060">φ (fungsi kerja)</text>
+          <!-- Ek -->
+          <line x1="400" y1="65" x2="400" y2="42" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e)"/>
+          <text x="408" y="57" font-size="8" fill="#4E9E9E">Ek</text>
+          <!-- Surface -->
+          <line x1="275" y1="140" x2="470" y2="140" stroke="#415A77" stroke-width="2"/>
+          <text x="370" y="157" font-size="8" fill="#415A77" text-anchor="middle">permukaan logam (level Fermi)</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="compton">
+      <h3 class="sub-heading">Efek Compton</h3>
+      <p>Hamburan foton oleh elektron bebas menghasilkan pergeseran panjang gelombang foton — bukti momentum foton.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-teal)">
+        <div class="formula-label">Pergeseran Compton</div>
+        <div class="formula-main">\[ \Delta\lambda = \lambda' - \lambda = \frac{h}{m_e c}(1 - \cos\theta) \]</div>
+        <div class="formula-vars">
+          <span>h/m_ec</span> = λ_C = 2,426 × 10⁻¹² m (panjang gelombang Compton elektron) &nbsp;|&nbsp;
+          <span>θ</span> = sudut hamburan foton
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="de-broglie">
+      <h3 class="sub-heading">Dualisme Gelombang–Partikel (de Broglie)</h3>
+      <div class="definition">
+        <strong>Hipotesis de Broglie (1924):</strong> Materi pun memiliki sifat gelombang. Setiap partikel bermassa m bergerak dengan kecepatan v memiliki panjang gelombang terkait.
+      </div>
+      <div class="formula-box" style="border-left-color:var(--accent-blue)">
+        <div class="formula-label">Panjang Gelombang de Broglie</div>
+        <div class="formula-main">\[ \lambda = \frac{h}{p} = \frac{h}{mv} \]</div>
+        <div class="formula-vars">Untuk partikel relativistik: \(\lambda = h/\gamma m_0 v\)</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="zoom-in"></i></div>
+        <div>Sifat gelombang elektron dikonfirmasi oleh eksperimen difraksi Davisson-Germer (1927). Prinsip ini dipakai dalam <strong>mikroskop elektron</strong> yang resolusinya jauh melampaui mikroskop optik.</div>
+      </div>
+    </section>
+
+    <!-- MEKANIKA KUANTUM -->
+    <section class="content-section" id="heisenberg">
+      <h2 class="section-heading"><span class="icon"><i data-feather="shuffle"></i></span> Mekanika Kuantum Dasar</h2>
+      <h3 class="sub-heading">Prinsip Ketidakpastian Heisenberg</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-pink)">
+        <div class="formula-label">Ketidakpastian Posisi–Momentum</div>
+        <div class="formula-main">\[ \Delta x \cdot \Delta p_x \geq \frac{\hbar}{2} \]</div>
+        <div class="formula-vars"><span>ℏ</span> = h/2π = 1,055 × 10⁻³⁴ J·s (konstanta Planck tereduksi)</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Ketidakpastian Energi–Waktu</div>
+        <div class="formula-main">\[ \Delta E \cdot \Delta t \geq \frac{\hbar}{2} \]</div>
+        <div class="formula-vars">Menjelaskan lebar alami garis spektral dan ketidakstabilan partikel virtual</div>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="circle"></i></div>
+        <div>Prinsip ketidakpastian bukan tentang keterbatasan alat ukur — ini adalah sifat fundamental alam. Posisi dan momentum tidak bisa keduanya pasti secara bersamaan, bukan hanya tidak bisa diukur secara bersamaan.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="schrodinger">
+      <h3 class="sub-heading">Persamaan Schrödinger</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Persamaan Schrödinger Bergantung Waktu</div>
+        <div class="formula-main">\[ i\hbar\frac{\partial\psi}{\partial t} = \hat{H}\psi = \left[-\frac{\hbar^2}{2m}\nabla^2 + V\right]\psi \]</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan Schrödinger Tak Bergantung Waktu</div>
+        <div class="formula-main">\[ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi = E\psi \]</div>
+        <div class="formula-vars"><span>ψ</span> = fungsi gelombang &nbsp;|&nbsp; |ψ|² = rapat probabilitas menemukan partikel</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="bar-chart"></i></div>
+        <div>Interpretasi Born: |ψ(x,t)|²dx adalah probabilitas menemukan partikel antara x dan x+dx. Normalisasi: ∫|ψ|²dx = 1.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kotak">
+      <h3 class="sub-heading">Partikel dalam Kotak (Sumur Potensial Tak Terhingga)</h3>
+      <p>Partikel dalam kotak 1D dengan dinding tak tembus (V = ∞ di luar 0 &lt; x &lt; L):</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Fungsi Gelombang</div>
+          <div class="formula-main">\[ \psi_n(x) = \sqrt{\frac{2}{L}}\sin\!\left(\frac{n\pi x}{L}\right) \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Terkuantisasi</div>
+          <div class="formula-main">\[ E_n = \frac{n^2\pi^2\hbar^2}{2mL^2} = \frac{n^2 h^2}{8mL^2} \]</div>
+          <div class="formula-vars">n = 1, 2, 3, … (bilangan kuantum utama)</div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="hash"></i></div>
+        <div>Energi minimum (n=1) bukan nol: \(E_1 = h^2/8mL^2\). Ini <strong>energi titik nol</strong> — konsekuensi langsung prinsip ketidakpastian Heisenberg.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="terobosan">
+      <h3 class="sub-heading">Efek Terobosan Kuantum (Quantum Tunneling)</h3>
+      <p>Partikel dapat menembus penghalang potensial meskipun energinya lebih kecil dari tinggi penghalang — fenomena yang tidak ada analog klasiknya.</p>
+      <div class="formula-box">
+        <div class="formula-label">Koefisien Transmisi (Penghalang Tipis)</div>
+        <div class="formula-main">\[ T \approx e^{-2\kappa L} \quad\text{di mana}\quad \kappa = \frac{\sqrt{2m(V_0 - E)}}{\hbar} \]</div>
+        <div class="formula-vars"><span>L</span> = lebar penghalang &nbsp;|&nbsp; <span>V₀</span> = tinggi penghalang &nbsp;|&nbsp; <span>E</span> = energi partikel</div>
+      </div>
+      <div class="three-col">
+        <div class="info-card teal">
+          <div class="info-card-title">Fusi Nuklir di Matahari</div>
+          <p>Proton-proton menembus penghalang Coulomb melalui tunneling, memungkinkan reaksi fusi pada suhu bintang.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Peluruhan Alpha</div>
+          <p>Partikel alfa "terobos" keluar dari inti atom melalui tunneling, menghasilkan radioaktivitas alpha.</p>
+        </div>
+        <div class="info-card gold">
+          <div class="info-card-title">Scanning Tunneling Microscope</div>
+          <p>STM menggunakan tunneling elektron untuk memetakan permukaan material dengan resolusi atom.</p>
+        </div>
+      </div>
+    </section>
+
+<section class="content-section" id="osn-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Fisika Modern · Relativitas Khusus</span>
+        </div>
+        <div class="osn-title">Tumbukan Relativistik & Penciptaan Partikel</div>
+        <div class="osn-body">
+          <p>Sebuah proton (\(m_p = 938{,}3 \text{ MeV}/c^2\)) bergerak dengan energi kinetik \(K = 1200 \text{ MeV}\) menumbuk proton lain yang diam. Reaksi yang mungkin terjadi adalah \(p + p \to p + p + \pi^0\), dengan massa pion netral \(m_{\pi^0} = 135 \text{ MeV}/c^2\).</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Tentukan energi total dan momentum proton bergerak sebelum tumbukan.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Tentukan energi ambang (\(K_{min}\)) agar reaksi penciptaan pion ini dapat terjadi, dengan menggunakan invarian relativistik \(s = (E_{tot}/c)^2 - (p_{tot}c)^2\).</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Apakah proton dengan \(K = 1200 \text{ MeV}\) ini cukup energetik untuk menghasilkan pion? Berapa kelebihan energinya?</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Energi total proton bergerak: \(E_1 = K + m_p c^2 = 1200 + 938{,}3 = 2138{,}3 \text{ MeV}\).</p>
+            <p>Momentum: \(p_1 c = \sqrt{E_1^2 - (m_p c^2)^2} = \sqrt{2138{,}3^2 - 938{,}3^2} \approx \sqrt{4572337 - 880487} \approx 1923 \text{ MeV}\)</p>
+            <p><strong>(b)</strong> Gunakan invarian \(s\) (invariant massa kuadrat sistem):</p>
+            <p>\[s = (E_1 + m_p c^2)^2 - (p_1 c)^2 = E_1^2 + 2E_1 m_p c^2 + m_p^2 c^4 - p_1^2 c^2\]</p>
+            <p>Karena \(E_1^2 - p_1^2 c^2 = m_p^2 c^4\):</p>
+            <p>\[s = 2m_p^2 c^4 + 2E_1 m_p c^2\]</p>
+            <p>Pada ambang, semua produk diam dalam pusat massa: \(\sqrt{s_{min}} = (2m_p + m_{\pi^0})c^2 = (2 \times 938{,}3 + 135) = 2011{,}6 \text{ MeV}\)</p>
+            <p>\[s_{min} = (2011{,}6)^2 = 4{,}047 \times 10^6 \text{ MeV}^2\]</p>
+            <p>\[2m_p^2 c^4 + 2E_{thr} m_p c^2 = s_{min} \Rightarrow E_{thr} = \frac{s_{min} - 2m_p^2 c^4}{2m_p c^2}\]</p>
+            <p>\[E_{thr} = \frac{4{,}047\times10^6 - 2(938{,}3)^2}{2(938{,}3)} = \frac{4{,}047\times10^6 - 1{,}761\times10^6}{1876{,}6} \approx \frac{2{,}286\times10^6}{1876{,}6} \approx 1218 \text{ MeV}\]</p>
+            <p>\[K_{min} = E_{thr} - m_p c^2 = 1218 - 938{,}3 \approx \mathbf{280 \text{ MeV}}\]</p>
+            <p><strong>(c)</strong> \(K = 1200 \text{ MeV} \gg K_{min} = 280 \text{ MeV}\). Ya, reaksi ini sangat mungkin terjadi. Kelebihan energi kinetik: \(\Delta K = 1200 - 280 = \mathbf{920 \text{ MeV}}\), yang akan terdistribusi sebagai energi kinetik produk reaksi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

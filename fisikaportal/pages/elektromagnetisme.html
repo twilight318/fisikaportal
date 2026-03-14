@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elektromagnetisme — FisikaPortal</title>
+  <meta name="description" content="Belajar elektromagnetisme: hukum Coulomb, medan listrik magnet, hukum Gauss, rangkaian DC/AC, induksi Faraday, dan persamaan Maxwell." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(138, 43, 226, 0.05) 100%);"></div>
+  <div class="header-ghost">EM</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Elektromagnetisme</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Elektromagnetisme</span></h1>
+  <p class="page-desc">Dari muatan listrik statis hingga gelombang elektromagnetik Maxwell.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="zap"></i>Elektrostatika</span>
+        <span class="page-tag"><i data-feather="anchor"></i>Magnetisme</span>
+        <span class="page-tag"><i data-feather="zap-off"></i>Induksi</span>
+        <span class="page-tag"><i data-feather="book-open"></i>Maxwell</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="zap"></i>Elektrostatika</div>
+      <a class="sb-link" href="#elektrostatika"><i data-feather="book"></i>Hukum Coulomb</a>
+      <a class="sb-link" href="#medan-listrik"><i data-feather="zap"></i>Medan Listrik</a>
+      <a class="sb-link" href="#gauss"><i data-feather="book"></i>Hukum Gauss</a>
+      <a class="sb-link" href="#potensial-listrik"><i data-feather="battery"></i>Potensial Listrik</a>
+      <a class="sb-link" href="#kapasitor"><i data-feather="server"></i>Kapasitor</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="git-commit"></i>Arus Listrik</div>
+      <a class="sb-link" href="#arus-listrik"><i data-feather="book"></i>Hukum Ohm</a>
+      <a class="sb-link" href="#kirchhoff"><i data-feather="book"></i>Hukum Kirchhoff</a>
+      <a class="sb-link" href="#rangkaian-dc"><i data-feather="cpu"></i>Rangkaian DC</a>
+      <a class="sb-link" href="#energi-listrik"><i data-feather="battery-charging"></i>Energi & Daya</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="anchor"></i>Magnetostatika</div>
+      <a class="sb-link" href="#magnetostatika"><i data-feather="zap"></i>Medan Magnet</a>
+      <a class="sb-link" href="#biot-savart"><i data-feather="book"></i>Hukum Biot-Savart</a>
+      <a class="sb-link" href="#ampere"><i data-feather="book"></i>Hukum Ampere</a>
+      <a class="sb-link" href="#lorentz"><i data-feather="zap"></i>Gaya Lorentz</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="zap-off"></i>Induksi EM</div>
+      <a class="sb-link" href="#fluks"><i data-feather="anchor"></i>Fluks Magnetik</a>
+      <a class="sb-link" href="#faraday"><i data-feather="book"></i>Hukum Faraday</a>
+      <a class="sb-link" href="#induktansi"><i data-feather="repeat"></i>Induktansi & Transformator</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="repeat"></i>Rangkaian AC & Gel. EM</div>
+      <a class="sb-link" href="#rangkaian-ac"><i data-feather="cpu"></i>Rangkaian AC & Impedansi</a>
+      <a class="sb-link" href="#maxwell"><i data-feather="file-text"></i>Persamaan Maxwell</a>
+      <a class="sb-link" href="#spektrum-em"><i data-feather="sunset"></i>Spektrum EM</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-em"><i data-feather="zap"></i>Contoh Soal</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- ELEKTROSTATIKA -->
+    <section class="content-section" id="elektrostatika">
+      <h2 class="section-heading"><span class="icon"><i data-feather="zap"></i></span> Elektrostatika</h2>
+      <h3 class="sub-heading">Hukum Coulomb</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Gaya Coulomb</div>
+        <div class="formula-main">\[ F = k\frac{|q_1 q_2|}{r^2} = \frac{|q_1 q_2|}{4\pi\varepsilon_0 r^2} \]</div>
+        <div class="formula-vars">
+          <span>k</span> = 8,99 × 10⁹ N·m²/C² (Konstanta Coulomb) &nbsp;|&nbsp;
+          <span>ε₀</span> = 8,85 × 10⁻¹² C²/(N·m²) (permitivitas vakum)<br>
+          Gaya <strong>tarik-menarik</strong> jika muatan berbeda tanda, <strong>tolak-menolak</strong> jika sama tanda.
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="medan-listrik">
+      <h3 class="sub-heading">Medan Listrik</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Definisi Medan Listrik</div>
+          <div class="formula-main">\[ \vec{E} = \frac{\vec{F}}{q_0} \quad\text{(N/C = V/m)} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Medan Muatan Titik</div>
+          <div class="formula-main">\[ E = \frac{kq}{r^2} = \frac{q}{4\pi\varepsilon_0 r^2} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Medan Pelat Sejajar</div>
+          <div class="formula-main">\[ E = \frac{\sigma}{\varepsilon_0} \]</div>
+          <div class="formula-vars"><span>σ</span> = rapat muatan permukaan (C/m²)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="gauss">
+      <h3 class="sub-heading">Hukum Gauss</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-blue)">
+        <div class="formula-label">Hukum Gauss untuk Listrik</div>
+        <div class="formula-main">\[ \oint \vec{E} \cdot d\vec{A} = \frac{Q_{enc}}{\varepsilon_0} \]</div>
+        <div class="formula-vars">Fluks total melalui permukaan Gauss = muatan terkurung dibagi ε₀</div>
+      </div>
+      <h4 class="mini-heading">Aplikasi Hukum Gauss</h4>
+      <table class="data-table">
+        <thead><tr><th>Distribusi Muatan</th><th>Medan Listrik</th></tr></thead>
+        <tbody>
+          <tr><td>Bola konduktor bermuatan (luar)</td><td>\(E = kq/r^2\)</td></tr>
+          <tr><td>Bola konduktor bermuatan (dalam)</td><td>\(E = 0\)</td></tr>
+          <tr><td>Silinder tak terhingga (rapat λ)</td><td>\(E = \lambda/(2\pi\varepsilon_0 r)\)</td></tr>
+          <tr><td>Pelat tak terhingga (rapat σ)</td><td>\(E = \sigma/(2\varepsilon_0)\)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="zap"></i> Garis Medan Listrik — Muatan Positif &amp; Negatif</div>
+        <svg viewBox="0 0 500 200" class="diagram-svg" aria-label="Medan listrik">
+          <defs>
+            <marker id="arr-e1" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-e2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+          </defs>
+          <!-- Muatan positif -->
+          <circle cx="130" cy="100" r="18" fill="rgba(201,96,60,0.25)" stroke="#C96060" stroke-width="2"/>
+          <text x="130" y="105" font-size="14" fill="#C96060" text-anchor="middle" font-weight="700">+</text>
+          <text x="130" y="130" font-size="9" fill="#C96060" text-anchor="middle">+q</text>
+          <!-- Field lines out from + -->
+          <line x1="148" y1="100" x2="205" y2="100" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="143" y1="87" x2="195" y2="65" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="130" y1="82" x2="130" y2="30" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="117" y1="87" x2="65" y2="65" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="112" y1="100" x2="55" y2="100" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="117" y1="113" x2="65" y2="135" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="130" y1="118" x2="130" y2="170" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <line x1="143" y1="113" x2="195" y2="135" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-e1)"/>
+          <text x="130" y="190" font-size="9" fill="#C9A84C" text-anchor="middle">E keluar dari muatan +</text>
+          <!-- Muatan negatif -->
+          <circle cx="370" cy="100" r="18" fill="rgba(78,158,158,0.2)" stroke="#4E9E9E" stroke-width="2"/>
+          <text x="370" y="105" font-size="16" fill="#4E9E9E" text-anchor="middle" font-weight="700">−</text>
+          <text x="370" y="130" font-size="9" fill="#4E9E9E" text-anchor="middle">−q</text>
+          <!-- Field lines into - -->
+          <line x1="335" y1="100" x2="352" y2="100" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="295" y1="100" x2="296" y2="100" stroke="none"/>
+          <line x1="300" y1="100" x2="352" y2="100" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="310" y1="72" x2="345" y2="87" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="370" y1="30" x2="370" y2="82" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="430" y1="72" x2="395" y2="87" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="440" y1="100" x2="388" y2="100" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="430" y1="128" x2="395" y2="113" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="370" y1="170" x2="370" y2="118" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <line x1="310" y1="128" x2="345" y2="113" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-e2)"/>
+          <text x="370" y="190" font-size="9" fill="#4E9E9E" text-anchor="middle">E masuk ke muatan −</text>
+          <!-- Separator -->
+          <line x1="250" y1="20" x2="250" y2="175" stroke="#415A77" stroke-width="0.5" stroke-dasharray="4,4"/>
+        </svg>
+      </div>
+
+    <section class="content-section" id="potensial-listrik">
+      <h3 class="sub-heading">Potensial Listrik</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Potensial Muatan Titik</div>
+          <div class="formula-main">\[ V = \frac{kq}{r} \quad\text{(V = J/C)} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Potensial</div>
+          <div class="formula-main">\[ U = qV = \frac{kq_1 q_2}{r} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hubungan E dan V</div>
+          <div class="formula-main">\[ E = -\frac{dV}{dr} \quad (\text{1D}) \]</div>
+          <div class="formula-vars">Arah E dari potensial tinggi ke rendah</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kerja Pindahkan Muatan</div>
+          <div class="formula-main">\[ W = q(V_A - V_B) = -\Delta U \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kapasitor">
+      <h3 class="sub-heading">Kapasitor</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Kapasitansi</div>
+          <div class="formula-main">\[ C = \frac{Q}{V} \quad\text{(Farad = C/V)} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kapasitor Pelat Sejajar</div>
+          <div class="formula-main">\[ C = \frac{\kappa\varepsilon_0 A}{d} \]</div>
+          <div class="formula-vars"><span>κ</span> = konstanta dielektrik</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Kapasitor</div>
+          <div class="formula-main">\[ U = \frac{Q^2}{2C} = \frac{CV^2}{2} = \frac{QV}{2} \]</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="formula-box">
+          <div class="formula-label">Kapasitor Seri</div>
+          <div class="formula-main">\[ \frac{1}{C_s} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kapasitor Paralel</div>
+          <div class="formula-main">\[ C_p = C_1 + C_2 + \cdots \]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARUS LISTRIK -->
+    <section class="content-section" id="arus-listrik">
+      <h2 class="section-heading"><span class="icon"><i data-feather="battery"></i></span> Arus Listrik</h2>
+      <h3 class="sub-heading">Hukum Ohm</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Hukum Ohm</div>
+          <div class="formula-main">\[ V = IR \]</div>
+          <div class="formula-vars"><span>V</span> = tegangan (V) | <span>I</span> = arus (A) | <span>R</span> = hambatan (Ω)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hambatan</div>
+          <div class="formula-main">\[ R = \frac{\rho L}{A} \]</div>
+          <div class="formula-vars"><span>ρ</span> = resistivitas (Ω·m) | <span>L</span> = panjang | <span>A</span> = luas penampang</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Pengaruh Suhu</div>
+          <div class="formula-main">\[ R = R_0[1 + \alpha(T - T_0)] \]</div>
+          <div class="formula-vars"><span>α</span> = koefisien suhu resistivitas</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kirchhoff">
+      <h3 class="sub-heading">Hukum Kirchhoff</h3>
+      <div class="two-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Hukum Arus Kirchhoff (KCL)</div>
+          <p><em>"Jumlah arus yang masuk ke sebuah titik cabang sama dengan jumlah arus yang keluar."</em></p>
+          <p>\[ \sum I_{masuk} = \sum I_{keluar} \]</p>
+          <p>Berdasarkan kekekalan muatan listrik.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Hukum Tegangan Kirchhoff (KVL)</div>
+          <p><em>"Jumlah perubahan tegangan dalam setiap lup tertutup sama dengan nol."</em></p>
+          <p>\[ \sum V = 0 \text{ (dalam lup tertutup)} \]</p>
+          <p>Berdasarkan kekekalan energi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="rangkaian-dc">
+      <h3 class="sub-heading">Rangkaian DC</h3>
+      <div class="two-col">
+        <div class="formula-box">
+          <div class="formula-label">Hambatan Seri</div>
+          <div class="formula-main">\[ R_s = R_1 + R_2 + \cdots \]</div>
+          <div class="formula-vars">Arus sama, tegangan berbagi</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hambatan Paralel</div>
+          <div class="formula-main">\[ \frac{1}{R_p} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots \]</div>
+          <div class="formula-vars">Tegangan sama, arus berbagi</div>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Rangkaian RC (Pengisian)</div>
+        <div class="formula-main">\[ V_C(t) = \mathcal{E}\!\left(1 - e^{-t/RC}\right) \]</div>
+        <div class="formula-vars">τ = RC = konstanta waktu pengisian</div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="git-commit"></i> Rangkaian DC — Hukum Kirchhoff (KVL &amp; KCL)</div>
+        <svg viewBox="0 0 520 185" class="diagram-svg" aria-label="Rangkaian DC Kirchhoff">
+          <defs>
+            <marker id="arr-dc" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+          </defs>
+          <!-- Loop 1 -->
+          <!-- Battery -->
+          <rect x="30" y="80" width="30" height="50" rx="4" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"/>
+          <line x1="38" y1="95" x2="52" y2="95" stroke="#C9A84C" stroke-width="2.5"/>
+          <line x1="41" y1="103" x2="49" y2="103" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="45" y="143" font-size="8" fill="#C9A84C" text-anchor="middle">ε₁</text>
+          <!-- Wires -->
+          <line x1="45" y1="80" x2="45" y2="35" stroke="#778DA9" stroke-width="1.5"/>
+          <line x1="45" y1="35" x2="200" y2="35" stroke="#778DA9" stroke-width="1.5"/>
+          <line x1="45" y1="130" x2="45" y2="165" stroke="#778DA9" stroke-width="1.5"/>
+          <line x1="45" y1="165" x2="200" y2="165" stroke="#778DA9" stroke-width="1.5"/>
+          <!-- R1 -->
+          <rect x="100" y="24" width="60" height="22" rx="4" fill="rgba(78,158,158,0.15)" stroke="#4E9E9E" stroke-width="1.5"/>
+          <text x="130" y="39" font-size="9" fill="#4E9E9E" text-anchor="middle" font-weight="700">R₁</text>
+          <!-- Current I1 -->
+          <line x1="80" y1="35" x2="98" y2="35" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-dc)"/>
+          <text x="88" y="28" font-size="8" fill="#C9A84C">I₁</text>
+          <!-- Junction node -->
+          <circle cx="200" cy="35" r="5" fill="#E0E1DD"/>
+          <circle cx="200" cy="165" r="5" fill="#E0E1DD"/>
+          <text x="215" y="30" font-size="8" fill="#E0E1DD">A (simpul)</text>
+          <!-- R2 (middle) -->
+          <line x1="200" y1="35" x2="200" y2="70" stroke="#778DA9" stroke-width="1.5"/>
+          <rect x="182" y="70" width="36" height="50" rx="4" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="200" y="99" font-size="9" fill="#C9A84C" text-anchor="middle" font-weight="700">R₂</text>
+          <line x1="200" y1="120" x2="200" y2="165" stroke="#778DA9" stroke-width="1.5"/>
+          <!-- Current I2 -->
+          <line x1="200" y1="52" x2="200" y2="68" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-dc)"/>
+          <text x="207" y="60" font-size="8" fill="#C9A84C">I₂</text>
+          <!-- Loop 2 -->
+          <line x1="200" y1="35" x2="360" y2="35" stroke="#778DA9" stroke-width="1.5"/>
+          <line x1="200" y1="165" x2="360" y2="165" stroke="#778DA9" stroke-width="1.5"/>
+          <!-- R3 -->
+          <rect x="260" y="24" width="60" height="22" rx="4" fill="rgba(78,158,158,0.15)" stroke="#4E9E9E" stroke-width="1.5"/>
+          <text x="290" y="39" font-size="9" fill="#4E9E9E" text-anchor="middle" font-weight="700">R₃</text>
+          <!-- Current I3 -->
+          <line x1="240" y1="35" x2="258" y2="35" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-dc)"/>
+          <text x="248" y="28" font-size="8" fill="#C9A84C">I₃</text>
+          <!-- Battery 2 -->
+          <rect x="345" y="80" width="30" height="50" rx="4" fill="rgba(78,158,158,0.15)" stroke="#4E9E9E" stroke-width="2"/>
+          <line x1="353" y1="95" x2="367" y2="95" stroke="#4E9E9E" stroke-width="2.5"/>
+          <line x1="356" y1="103" x2="364" y2="103" stroke="#4E9E9E" stroke-width="1.5"/>
+          <text x="360" y="143" font-size="8" fill="#4E9E9E" text-anchor="middle">ε₂</text>
+          <line x1="360" y1="80" x2="360" y2="35" stroke="#778DA9" stroke-width="1.5"/>
+          <line x1="360" y1="130" x2="360" y2="165" stroke="#778DA9" stroke-width="1.5"/>
+          <!-- KCL & KVL labels -->
+          <rect x="395" y="25" width="115" height="145" rx="8" fill="rgba(13,27,42,0.7)" stroke="#415A77" stroke-width="1"/>
+          <text x="452" y="46" font-size="9.5" fill="#778DA9" text-anchor="middle" font-weight="700">HUKUM KIRCHHOFF</text>
+          <text x="452" y="65" font-size="9" fill="#C9A84C" text-anchor="middle" font-weight="700">KCL (Simpul)</text>
+          <text x="452" y="79" font-size="8.5" fill="#E0E1DD" text-anchor="middle">ΣI masuk = ΣI keluar</text>
+          <text x="452" y="93" font-size="8" fill="#C9A84C" text-anchor="middle">I₁ = I₂ + I₃</text>
+          <line x1="408" y1="105" x2="497" y2="105" stroke="#415A77" stroke-width="0.5"/>
+          <text x="452" y="120" font-size="9" fill="#4E9E9E" text-anchor="middle" font-weight="700">KVL (Loop)</text>
+          <text x="452" y="134" font-size="8" fill="#E0E1DD" text-anchor="middle">Σ(EMF) = Σ(IR)</text>
+          <text x="452" y="148" font-size="7.5" fill="#4E9E9E" text-anchor="middle">ε − IR₁ − IR₂ = 0</text>
+          <text x="452" y="161" font-size="7.5" fill="#778DA9" text-anchor="middle">(satu loop tertutup)</text>
+          <!-- Loop arrows -->
+          <path d="M80,75 A65,65 0 0,1 160,140" stroke="#778DA9" stroke-width="0.8" fill="none" opacity="0.4"/>
+          <text x="95" y="115" font-size="8" fill="#778DA9" opacity="0.7">Loop 1</text>
+          <path d="M230,75 A65,65 0 0,1 320,140" stroke="#778DA9" stroke-width="0.8" fill="none" opacity="0.4"/>
+          <text x="260" y="115" font-size="8" fill="#778DA9" opacity="0.7">Loop 2</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="energi-listrik">
+      <h3 class="sub-heading">Energi & Daya Listrik</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Daya Listrik</div>
+          <div class="formula-main">\[ P = IV = I^2R = \frac{V^2}{R} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Listrik</div>
+          <div class="formula-main">\[ W = Pt = VIt \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">GGL dan Hambatan Dalam</div>
+          <div class="formula-main">\[ V_{terminal} = \mathcal{E} - Ir \]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAGNETOSTATIKA -->
+    <section class="content-section" id="magnetostatika">
+      <h2 class="section-heading"><span class="icon"><i data-feather="anchor"></i></span> Magnetostatika</h2>
+      <h3 class="sub-heading">Medan Magnet</h3>
+      <p>Medan magnet dihasilkan oleh muatan bergerak atau arus listrik. Satuannya Tesla (T) = Wb/m².</p>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="compass"></i></div>
+        <div>Garis medan magnet selalu berbentuk lup tertutup (tidak ada monopol magnet). Dari kutub Utara menuju kutub Selatan di luar magnet.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="biot-savart">
+      <h3 class="sub-heading">Hukum Biot-Savart</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Hukum Biot-Savart (Elemen Arus)</div>
+        <div class="formula-main">\[ d\vec{B} = \frac{\mu_0}{4\pi}\frac{I\,d\vec{l}\times\hat{r}}{r^2} \]</div>
+        <div class="formula-vars"><span>μ₀</span> = 4π × 10⁻⁷ T·m/A (permeabilitas vakum)</div>
+      </div>
+      <h4 class="mini-heading">Aplikasi Biot-Savart</h4>
+      <table class="data-table">
+        <thead><tr><th>Konfigurasi</th><th>Medan Magnet</th></tr></thead>
+        <tbody>
+          <tr><td>Kawat lurus panjang tak hingga (jarak r)</td><td>\(B = \frac{\mu_0 I}{2\pi r}\)</td></tr>
+          <tr><td>Pusat lingkaran arus (jari-jari R)</td><td>\(B = \frac{\mu_0 I}{2R}\)</td></tr>
+          <tr><td>Pusat solenoida (n lilitan/m)</td><td>\(B = \mu_0 nI\)</td></tr>
+          <tr><td>Pusat toroida (N lilitan, jari-jari r)</td><td>\(B = \frac{\mu_0 NI}{2\pi r}\)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="ampere">
+      <h3 class="sub-heading">Hukum Ampere</h3>
+      <div class="formula-box">
+        <div class="formula-label">Hukum Ampere</div>
+        <div class="formula-main">\[ \oint \vec{B}\cdot d\vec{l} = \mu_0 I_{enc} \]</div>
+        <div class="formula-vars">Sirkulasi B sepanjang lup Ampere = μ₀ × arus terkurung</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="lorentz">
+      <h3 class="sub-heading">Gaya Lorentz</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Gaya pada Muatan Bergerak</div>
+          <div class="formula-main">\[ \vec{F} = q(\vec{E} + \vec{v}\times\vec{B}) \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Komponen Magnetik</div>
+          <div class="formula-main">\[ F = qvB\sin\theta \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Gaya pada Kawat Berarus</div>
+          <div class="formula-main">\[ F = BIL\sin\theta \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Gerak Melingkar dalam B</div>
+          <div class="formula-main">\[ r = \frac{mv}{qB} \]</div>
+          <div class="formula-vars">Radius siklotron (Larmor)</div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="refresh-cw"></i></div>
+        <div><strong>Frekuensi Siklotron:</strong> \( f = \frac{qB}{2\pi m} \) — tidak bergantung pada kecepatan partikel.</div>
+      </div>
+    </section>
+
+    <!-- INDUKSI EM -->
+    <section class="content-section" id="fluks">
+      <h2 class="section-heading"><span class="icon"><i data-feather="refresh-cw"></i></span> Induksi Elektromagnetik</h2>
+      <h3 class="sub-heading">Fluks Magnetik</h3>
+      <div class="formula-box">
+        <div class="formula-label">Fluks Magnetik</div>
+        <div class="formula-main">\[ \Phi_B = \int \vec{B}\cdot d\vec{A} = BA\cos\theta \quad\text{(Weber = T·m}^2\text{)} \]</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="faraday">
+      <h3 class="sub-heading">Hukum Faraday & Hukum Lenz</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Hukum Faraday</div>
+        <div class="formula-main">\[ \mathcal{E} = -N\frac{d\Phi_B}{dt} \]</div>
+        <div class="formula-vars">GGL induksi sebanding dengan laju perubahan fluks magnetik. Tanda minus = Hukum Lenz.</div>
+      </div>
+      <div class="definition">
+        <strong>Hukum Lenz:</strong> Arus induksi selalu mengalir dalam arah yang melawan perubahan fluks yang menyebabkannya (kekekalan energi).
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">GGL Gerak (Motional EMF)</div>
+          <div class="formula-main">\[ \mathcal{E} = Bvl \]</div>
+          <div class="formula-vars">Kawat panjang l bergerak dengan kecepatan v dalam medan B</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">GGL Sinusoidal</div>
+          <div class="formula-main">\[ \mathcal{E} = NBA\omega\sin(\omega t) = \mathcal{E}_0\sin(\omega t) \]</div>
+        </div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="zap-off"></i> Hukum Faraday — Induksi Elektromagnetik</div>
+        <svg viewBox="0 0 520 185" class="diagram-svg" aria-label="Hukum Faraday induksi">
+          <defs>
+            <marker id="arr-far" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-far2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+            <marker id="arr-far3" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#778DA9"/></marker>
+          </defs>
+          <!-- Magnet moving toward loop -->
+          <rect x="20" y="68" width="55" height="70" rx="6" fill="rgba(201,96,60,0.2)" stroke="#C96060" stroke-width="2"/>
+          <text x="47" y="100" font-size="11" fill="#C96060" text-anchor="middle" font-weight="700">N</text>
+          <text x="47" y="128" font-size="11" fill="#778DA9" text-anchor="middle" font-weight="700">S</text>
+          <!-- Motion arrow -->
+          <line x1="75" y1="100" x2="105" y2="100" stroke="#C9A84C" stroke-width="2.5" marker-end="url(#arr-far)"/>
+          <text x="90" y="93" font-size="8" fill="#C9A84C">v</text>
+          <!-- Coil/loop -->
+          <ellipse cx="165" cy="100" rx="14" ry="52" fill="none" stroke="#778DA9" stroke-width="2.5"/>
+          <ellipse cx="175" cy="100" rx="14" ry="52" fill="none" stroke="#778DA9" stroke-width="2" opacity="0.6"/>
+          <ellipse cx="185" cy="100" rx="14" ry="52" fill="none" stroke="#778DA9" stroke-width="1.5" opacity="0.4"/>
+          <text x="165" y="168" font-size="8" fill="#778DA9" text-anchor="middle">Kumparan N lilitan</text>
+          <!-- B field lines through coil -->
+          <line x1="75" y1="75" x2="170" y2="75" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-far2)" stroke-dasharray="4,2"/>
+          <line x1="75" y1="100" x2="170" y2="100" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-far2)" stroke-dasharray="4,2"/>
+          <line x1="75" y1="125" x2="170" y2="125" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-far2)" stroke-dasharray="4,2"/>
+          <text x="120" y="58" font-size="8" fill="#4E9E9E">B (fluks ↑)</text>
+          <!-- Induced EMF and current -->
+          <line x1="200" y1="75" x2="240" y2="55" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="240" y1="55" x2="300" y2="55" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="300" y="45" width="40" height="20" rx="3" fill="rgba(78,158,158,0.2)" stroke="#4E9E9E" stroke-width="1.5"/>
+          <text x="320" y="59" font-size="8" fill="#4E9E9E" text-anchor="middle">R</text>
+          <line x1="340" y1="55" x2="380" y2="55" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="380" y1="55" x2="380" y2="145" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="200" y1="125" x2="240" y2="145" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="240" y1="145" x2="380" y2="145" stroke="#C9A84C" stroke-width="1.5"/>
+          <!-- Induced current arrow -->
+          <line x1="310" y1="145" x2="260" y2="145" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-far)"/>
+          <text x="285" y="140" font-size="8" fill="#C9A84C">I_ind</text>
+          <!-- Formulas panel -->
+          <rect x="400" y="25" width="110" height="150" rx="8" fill="rgba(13,27,42,0.7)" stroke="#415A77" stroke-width="1"/>
+          <text x="455" y="44" font-size="9" fill="#778DA9" text-anchor="middle" font-weight="700">FARADAY</text>
+          <text x="455" y="63" font-size="9.5" fill="#C9A84C" text-anchor="middle" font-family="monospace">ε = −N dΦ/dt</text>
+          <line x1="410" y1="74" x2="502" y2="74" stroke="#415A77" stroke-width="0.5"/>
+          <text x="455" y="89" font-size="8.5" fill="#4E9E9E" text-anchor="middle">Φ = BA cosθ</text>
+          <text x="455" y="103" font-size="7.5" fill="#778DA9" text-anchor="middle">B = medan (T)</text>
+          <text x="455" y="116" font-size="7.5" fill="#778DA9" text-anchor="middle">A = luas (m²)</text>
+          <line x1="410" y1="126" x2="502" y2="126" stroke="#415A77" stroke-width="0.5"/>
+          <text x="455" y="141" font-size="8.5" fill="#C96060" text-anchor="middle">Lenz:</text>
+          <text x="455" y="155" font-size="7.5" fill="#C96060" text-anchor="middle">I_ind melawan ΔΦ</text>
+          <text x="455" y="168" font-size="7.5" fill="#C96060" text-anchor="middle">(tanda minus)</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="induktansi">
+      <h3 class="sub-heading">Induktansi & Transformator</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Induktansi Diri</div>
+          <div class="formula-main">\[ \mathcal{E}_L = -L\frac{dI}{dt} \]</div>
+          <div class="formula-vars"><span>L</span> = induktansi (Henry = V·s/A)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Induktansi Solenoida</div>
+          <div class="formula-main">\[ L = \frac{\mu_0 N^2 A}{l} = \mu_0 n^2 V \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Induktor</div>
+          <div class="formula-main">\[ U_L = \frac{1}{2}LI^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Transformator Ideal</div>
+          <div class="formula-main">\[ \frac{V_s}{V_p} = \frac{N_s}{N_p} = \frac{I_p}{I_s} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RANGKAIAN AC -->
+    <section class="content-section" id="rangkaian-ac">
+      <h2 class="section-heading"><span class="icon"><i data-feather="repeat"></i></span> Rangkaian AC</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Tegangan & Arus AC</div>
+          <div class="formula-main">\[ V(t) = V_0\sin(\omega t) \]</div>
+          <div class="formula-vars">\(V_{rms} = V_0/\sqrt{2}\) &nbsp;|&nbsp; \(I_{rms} = I_0/\sqrt{2}\)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Reaktansi Kapasitor</div>
+          <div class="formula-main">\[ X_C = \frac{1}{\omega C} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Reaktansi Induktor</div>
+          <div class="formula-main">\[ X_L = \omega L \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Impedansi RLC Seri</div>
+          <div class="formula-main">\[ Z = \sqrt{R^2 + (X_L - X_C)^2} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Daya AC</div>
+          <div class="formula-main">\[ P = V_{rms}I_{rms}\cos\varphi \]</div>
+          <div class="formula-vars"><span>cos φ</span> = faktor daya</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Frekuensi Resonansi RLC</div>
+          <div class="formula-main">\[ f_0 = \frac{1}{2\pi\sqrt{LC}} \]</div>
+          <div class="formula-vars">Pada resonansi: Z = R (minimum)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAXWELL -->
+    <section class="content-section" id="maxwell">
+      <h2 class="section-heading"><span class="icon"><i data-feather="radio"></i></span> Persamaan Maxwell</h2>
+      <p>Persamaan Maxwell adalah empat persamaan yang menyatukan listrik, magnet, dan cahaya:</p>
+      <table class="data-table">
+        <thead><tr><th>Persamaan</th><th>Bentuk Integral</th><th>Makna fisika</th></tr></thead>
+        <tbody>
+          <tr><td>Gauss Listrik</td><td>\(\oint \vec{E}\cdot d\vec{A} = Q_{enc}/\varepsilon_0\)</td><td>Muatan menghasilkan medan listrik</td></tr>
+          <tr><td>Gauss Magnet</td><td>\(\oint \vec{B}\cdot d\vec{A} = 0\)</td><td>Tidak ada monopol magnet</td></tr>
+          <tr><td>Faraday</td><td>\(\oint \vec{E}\cdot d\vec{l} = -d\Phi_B/dt\)</td><td>Perubahan B menghasilkan E</td></tr>
+          <tr><td>Ampere-Maxwell</td><td>\(\oint \vec{B}\cdot d\vec{l} = \mu_0(I + \varepsilon_0 d\Phi_E/dt)\)</td><td>Arus dan perubahan E menghasilkan B</td></tr>
+        </tbody>
+      </table>
+      <div class="formula-box" style="border-left-color:var(--accent-teal)">
+        <div class="formula-label">Kecepatan Cahaya dari Persamaan Maxwell</div>
+        <div class="formula-main">\[ c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} \approx 3 \times 10^8 \text{ m/s} \]</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="spektrum-em">
+      <h2 class="section-heading"><span class="icon"><i data-feather="sunset"></i></span> Spektrum Elektromagnetik</h2>
+      <table class="data-table">
+        <thead><tr><th>Jenis Gelombang EM</th><th>Panjang Gelombang (m)</th><th>Frekuensi (Hz)</th></tr></thead>
+        <tbody>
+          <tr><td>Gelombang radio</td><td>10³ — 10⁻¹</td><td>10⁴ — 10⁹</td></tr>
+          <tr><td>Gelombang mikro</td><td>10⁻¹ — 10⁻³</td><td>10⁹ — 10¹²</td></tr>
+          <tr><td>Inframerah</td><td>10⁻³ — 7×10⁻⁷</td><td>10¹² — 4×10¹⁴</td></tr>
+          <tr><td>Cahaya tampak</td><td>7×10⁻⁷ — 4×10⁻⁷</td><td>4×10¹⁴ — 7,5×10¹⁴</td></tr>
+          <tr><td>Ultraviolet</td><td>4×10⁻⁷ — 10⁻⁸</td><td>7,5×10¹⁴ — 10¹⁷</td></tr>
+          <tr><td>Sinar-X</td><td>10⁻⁸ — 10⁻¹¹</td><td>10¹⁷ — 10¹⁹</td></tr>
+          <tr><td>Sinar gamma</td><td>&lt;10⁻¹¹</td><td>&gt;10¹⁹</td></tr>
+        </tbody>
+      </table>
+      <div class="formula-box">
+        <div class="formula-label">Energi Foton</div>
+        <div class="formula-main">\[ E = hf = \frac{hc}{\lambda} \]</div>
+        <div class="formula-vars"><span>h</span> = 6,626 × 10⁻³⁴ J·s (Konstanta Planck)</div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="sunset"></i> Spektrum Gelombang Elektromagnetik</div>
+        <svg viewBox="0 0 540 145" class="diagram-svg" aria-label="Spektrum EM">
+          <!-- Frequency axis -->
+          <line x1="20" y1="85" x2="520" y2="85" stroke="#415A77" stroke-width="1.5"/>
+          <text x="20" y="100" font-size="8" fill="#778DA9">Frekuensi (Hz)</text>
+          <text x="20" y="110" font-size="7.5" fill="#415A77">10⁴</text>
+          <text x="80" y="110" font-size="7.5" fill="#415A77">10⁶</text>
+          <text x="140" y="110" font-size="7.5" fill="#415A77">10⁸</text>
+          <text x="200" y="110" font-size="7.5" fill="#415A77">10¹⁰</text>
+          <text x="260" y="110" font-size="7.5" fill="#415A77">10¹²</text>
+          <text x="320" y="110" font-size="7.5" fill="#415A77">10¹⁴</text>
+          <text x="380" y="110" font-size="7.5" fill="#415A77">10¹⁶</text>
+          <text x="440" y="110" font-size="7.5" fill="#415A77">10¹⁸</text>
+          <text x="495" y="110" font-size="7.5" fill="#415A77">10²⁰</text>
+          <!-- Tick marks -->
+          <line x1="80" y1="83" x2="80" y2="87" stroke="#415A77" stroke-width="1"/>
+          <line x1="140" y1="83" x2="140" y2="87" stroke="#415A77" stroke-width="1"/>
+          <line x1="200" y1="83" x2="200" y2="87" stroke="#415A77" stroke-width="1"/>
+          <line x1="260" y1="83" x2="260" y2="87" stroke="#415A77" stroke-width="1"/>
+          <line x1="320" y1="83" x2="320" y2="87" stroke="#415A77" stroke-width="1"/>
+          <line x1="380" y1="83" x2="380" y2="87" stroke="#415A77" stroke-width="1"/>
+          <line x1="440" y1="83" x2="440" y2="87" stroke="#415A77" stroke-width="1"/>
+          <!-- Spectral bands -->
+          <rect x="20" y="50" width="100" height="34" fill="rgba(119,141,169,0.2)" stroke="#778DA9" stroke-width="1"/>
+          <text x="70" y="70" font-size="8.5" fill="#778DA9" text-anchor="middle" font-weight="700">Radio</text>
+          <rect x="120" y="50" width="80" height="34" fill="rgba(65,90,119,0.25)" stroke="#415A77" stroke-width="1"/>
+          <text x="160" y="70" font-size="8" fill="#E0E1DD" text-anchor="middle" font-weight="700">Micro-wave</text>
+          <rect x="200" y="50" width="80" height="34" fill="rgba(78,158,158,0.25)" stroke="#4E9E9E" stroke-width="1"/>
+          <text x="240" y="70" font-size="8.5" fill="#4E9E9E" text-anchor="middle" font-weight="700">Inframerah</text>
+          <!-- Visible light rainbow -->
+          <defs>
+            <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7B00FF"/>
+              <stop offset="20%" stop-color="#0000FF"/>
+              <stop offset="40%" stop-color="#00FF00"/>
+              <stop offset="60%" stop-color="#FFFF00"/>
+              <stop offset="80%" stop-color="#FF8000"/>
+              <stop offset="100%" stop-color="#FF0000"/>
+            </linearGradient>
+          </defs>
+          <rect x="280" y="50" width="60" height="34" fill="url(#rainbow)" stroke="#E0E1DD" stroke-width="1.2"/>
+          <text x="310" y="74" font-size="7.5" fill="#0D1B2A" text-anchor="middle" font-weight="700">Cahaya</text>
+          <text x="310" y="84" font-size="0" fill="none">tampak</text>
+          <rect x="340" y="50" width="60" height="34" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="370" y="70" font-size="8.5" fill="#C9A84C" text-anchor="middle" font-weight="700">Ultraviolet</text>
+          <rect x="400" y="50" width="60" height="34" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="430" y="70" font-size="8.5" fill="#C9A84C" text-anchor="middle" font-weight="700">Sinar-X</text>
+          <rect x="460" y="50" width="60" height="34" fill="rgba(201,96,60,0.2)" stroke="#C96060" stroke-width="1"/>
+          <text x="490" y="70" font-size="8.5" fill="#C96060" text-anchor="middle" font-weight="700">Gamma</text>
+          <!-- Wavelength axis -->
+          <text x="20" y="128" font-size="8" fill="#778DA9">λ (m)</text>
+          <text x="20" y="138" font-size="7.5" fill="#415A77">10⁴</text>
+          <text x="260" y="138" font-size="7.5" fill="#415A77">10⁻³</text>
+          <text x="380" y="138" font-size="7.5" fill="#415A77">10⁻⁷</text>
+          <text x="495" y="138" font-size="7.5" fill="#415A77">10⁻¹²</text>
+          <text x="300" y="43" font-size="7.5" fill="#E0E1DD" text-anchor="middle">tampak: 400–700 nm</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="osn-em">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span> Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Elektromagnetisme · Induksi & Rangkaian RLC</span>
+        </div>
+        <div class="osn-title">Transformator Non-Ideal & Rangkaian RLC Seri</div>
+        <div class="osn-body">
+          <p>Sebuah rangkaian RLC seri terdiri dari resistor \(R = 50\;\Omega\), induktor \(L = 0{,}2 \text{ H}\), dan kapasitor \(C = 5\;\mu\text{F}\). Rangkaian dihubungkan ke sumber tegangan AC: \(V(t) = V_0 \sin(\omega t)\) dengan \(V_0 = 220\sqrt{2} \text{ V}\).</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Tentukan frekuensi resonansi \(f_0\) rangkaian ini. Pada resonansi, hitung impedansi \(Z\), arus puncak \(I_0\), dan tegangan puncak melintasi induktor \(V_{L,0}\).</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Definisikan faktor kualitas \(Q = \omega_0 L / R\). Hitung \(Q\) dan jelaskan maknanya. Berapakah lebar pita frekuensi (\(\Delta f\)) di mana daya rangkaian ≥ setengah daya maksimum?</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Pada frekuensi \(f = 2f_0\), hitunglah reaktansi induktif \(X_L\), reaktansi kapasitif \(X_C\), impedansi total \(Z\), dan sudut fase \(\phi\) antara arus dan tegangan sumber.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(d)</span><span>Sebuah transformator ideal memiliki lilitan primer \(N_1 = 1000\) dan lilitan sekunder \(N_2 = 50\), dihubungkan ke sumber AC 220 V. Jika daya keluaran adalah 100 W dan efisiensi transformator 80%, hitunglah arus primer yang ditarik dari sumber.</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Frekuensi resonansi:</p>
+            <p>\[\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{0{,}2 \times 5\times10^{-6}}} = \frac{1}{\sqrt{10^{-6}}} = 1000 \text{ rad/s}\]</p>
+            <p>\[f_0 = \frac{\omega_0}{2\pi} = \frac{1000}{2\pi} \approx \mathbf{159{,}2 \text{ Hz}}\]</p>
+            <p>Pada resonansi \(X_L = X_C\), sehingga \(Z = R = 50\;\Omega\).</p>
+            <p>\[I_0 = \frac{V_0}{Z} = \frac{220\sqrt{2}}{50} \approx 6{,}22 \text{ A}\]</p>
+            <p>\[V_{L,0} = I_0 X_L = I_0 \omega_0 L = 6{,}22 \times 1000 \times 0{,}2 = \mathbf{1244 \text{ V}}\]</p>
+            <p>Tegangan di induktor jauh melebihi tegangan sumber — inilah efek resonansi (osilasi internal).</p>
+            <p><strong>(b)</strong> \(Q = \dfrac{\omega_0 L}{R} = \dfrac{1000 \times 0{,}2}{50} = \mathbf{4{,}0}\)</p>
+            <p>\(Q\) menyatakan perbandingan energi tersimpan terhadap energi yang hilang per siklus. Lebar pita: \(\Delta f = \dfrac{f_0}{Q} = \dfrac{159{,}2}{4{,}0} \approx \mathbf{39{,}8 \text{ Hz}}\)</p>
+            <p><strong>(c)</strong> Pada \(f = 2f_0\), \(\omega = 2000 \text{ rad/s}\):</p>
+            <p>\[X_L = \omega L = 2000 \times 0{,}2 = 400\;\Omega\]</p>
+            <p>\[X_C = \frac{1}{\omega C} = \frac{1}{2000 \times 5\times10^{-6}} = 100\;\Omega\]</p>
+            <p>\[Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{50^2 + 300^2} = \sqrt{92500} \approx \mathbf{304\;\Omega}\]</p>
+            <p>\[\phi = \arctan\!\frac{X_L - X_C}{R} = \arctan\!\frac{300}{50} = \arctan 6 \approx \mathbf{80{,}5°}\] (arus tertinggal terhadap tegangan — sifat induktif dominan)</p>
+            <p><strong>(d)</strong> Daya input: \(P_{in} = \dfrac{P_{out}}{\eta} = \dfrac{100}{0{,}80} = 125 \text{ W}\).</p>
+            <p>Tegangan primer \(V_1 = 220 \text{ V}\): \(I_1 = \dfrac{P_{in}}{V_1} = \dfrac{125}{220} \approx \mathbf{0{,}568 \text{ A}}\)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

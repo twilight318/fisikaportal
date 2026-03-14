@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mekanika — FisikaPortal</title>
+  <meta name="description" content="Kinematika, dinamika, rotasi, gravitasi, dan mekanika fluida — fondasi seluruh fisika klasik." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background:linear-gradient(135deg,rgba(65,90,119,0.12) 0%,rgba(119,141,169,0.06) 100%)"></div>
+  <div class="header-ghost">MEKANIKA</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Mekanika</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Mekanika</span></h1>
+  <p class="page-desc">Kinematika, dinamika, rotasi, gravitasi, dan mekanika fluida — fondasi seluruh fisika klasik.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="move"></i>Kinematika</span>
+    <span class="page-tag"><i data-feather="zap"></i>Dinamika</span>
+    <span class="page-tag"><i data-feather="refresh-cw"></i>Rotasi</span>
+    <span class="page-tag"><i data-feather="globe"></i>Gravitasi</span>
+    <span class="page-tag"><i data-feather="droplet"></i>Fluida</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="move"></i>Kinematika</div>
+      <a class="sb-link" href="#gerak-lurus"><i data-feather="trending-up"></i>Gerak Lurus (GLB & GLBB)</a>
+      <a class="sb-link" href="#gerak-melingkar"><i data-feather="rotate-cw"></i>Gerak Melingkar</a>
+      <a class="sb-link" href="#gerak-parabola"><i data-feather="activity"></i>Gerak Parabola</a>
+      <a class="sb-link" href="#ghs"><i data-feather="radio"></i>Gerak Harmonik Sederhana</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="zap"></i>Dinamika</div>
+      <a class="sb-link" href="#hukum-newton"><i data-feather="zap"></i>Hukum Newton</a>
+      <a class="sb-link" href="#momentum"><i data-feather="arrow-right"></i>Momentum & Impuls</a>
+      <a class="sb-link" href="#energi"><i data-feather="battery-charging"></i>Usaha & Energi</a>
+      <a class="sb-link" href="#gesekan"><i data-feather="minus"></i>Gaya Gesekan</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="refresh-cw"></i>Rotasi</div>
+      <a class="sb-link" href="#rotasi"><i data-feather="disc"></i>Momen Inersia & Torsi</a>
+      <a class="sb-link" href="#momentum-sudut"><i data-feather="rotate-cw"></i>Momentum Sudut</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="globe"></i>Gravitasi</div>
+      <a class="sb-link" href="#gravitasi"><i data-feather="globe"></i>Hukum Gravitasi Newton</a>
+      <a class="sb-link" href="#kepler"><i data-feather="sun"></i>Hukum Kepler</a>
+      <a class="sb-link" href="#orbit"><i data-feather="navigation"></i>Gerak Orbit & Satelit</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="droplet"></i>Fluida</div>
+      <a class="sb-link" href="#hidrostatika"><i data-feather="droplet"></i>Tekanan & Hidrostatika</a>
+      <a class="sb-link" href="#archimedes"><i data-feather="anchor"></i>Hukum Archimedes</a>
+      <a class="sb-link" href="#hidrodinamika"><i data-feather="wind"></i>Hidrodinamika & Bernoulli</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="tool"></i>Lanjutan</div>
+      <a class="sb-link" href="#elastisitas"><i data-feather="minimize-2"></i>Elastisitas & Modulus</a>
+      <a class="sb-link" href="#osilasi"><i data-feather="bar-chart-2"></i>Osilasi Teredam</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="edit-3"></i>Latihan</div>
+      <a class="sb-link" href="#contoh-soal"><i data-feather="book-open"></i>Contoh Soal</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- GERAK LURUS -->
+    <section class="content-section" id="gerak-lurus">
+      <h2 class="section-heading"><span class="icon"><i data-feather="move"></i></span>Kinematika — Gerak Lurus</h2>
+      <p>Kinematika mempelajari <em>bagaimana</em> benda bergerak tanpa mempersoalkan penyebabnya. Besaran pokok: posisi \(x\), kecepatan \(v\), percepatan \(a\), dan waktu \(t\).</p>
+
+      <h3 class="sub-heading">Gerak Lurus Beraturan (GLB)</h3>
+      <p>Kecepatan konstan, percepatan nol.</p>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan GLB</div>
+        <div class="formula-main">\[ s = v \cdot t \]</div>
+        <div class="formula-vars">
+          <div class="formula-var"><span>s</span> = perpindahan (m)</div>
+          <div class="formula-var"><span>v</span> = kecepatan konstan (m/s)</div>
+          <div class="formula-var"><span>t</span> = waktu (s)</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="bar-chart-2"></i> Grafik GLB: v-t (kiri) dan s-t (kanan)</div>
+        <svg viewBox="0 0 520 165" class="diagram-svg" aria-label="Grafik GLB">
+          <defs>
+            <marker id="arr-ax" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+          </defs>
+          <!-- v-t -->
+          <text x="10" y="14" font-size="11" fill="#778DA9" font-weight="700">v — t</text>
+          <line x1="30" y1="130" x2="235" y2="130" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax)"/>
+          <line x1="30" y1="20"  x2="30"  y2="135" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax)"/>
+          <line x1="30" y1="70"  x2="225" y2="70"  stroke="#778DA9" stroke-width="2.5"/>
+          <circle cx="30" cy="70" r="3" fill="#778DA9"/>
+          <circle cx="225" cy="70" r="3" fill="#778DA9"/>
+          <text x="227" y="74" font-size="10" fill="#E0E1DD">t</text>
+          <text x="18" y="74" font-size="9" fill="#778DA9">v₀</text>
+          <text x="12" y="134" font-size="9" fill="#778DA9">0</text>
+          <text x="20" y="23" font-size="10" fill="#E0E1DD">v</text>
+          <rect x="30" y="70" width="195" height="60" fill="rgba(119,141,169,0.1)" stroke="rgba(119,141,169,0.25)" stroke-width="1"/>
+          <text x="125" y="106" font-size="9" fill="#778DA9" text-anchor="middle">luas = s</text>
+          <!-- s-t -->
+          <text x="280" y="14" font-size="11" fill="#778DA9" font-weight="700">s — t</text>
+          <line x1="300" y1="130" x2="505" y2="130" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax)"/>
+          <line x1="300" y1="20"  x2="300" y2="135" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax)"/>
+          <line x1="300" y1="130" x2="495" y2="30"  stroke="#4E9E9E" stroke-width="2.5"/>
+          <circle cx="300" cy="130" r="3" fill="#4E9E9E"/>
+          <text x="497" y="134" font-size="10" fill="#E0E1DD">t</text>
+          <text x="285" y="134" font-size="9" fill="#778DA9">0</text>
+          <text x="290" y="23" font-size="10" fill="#E0E1DD">s</text>
+          <text x="430" y="62" font-size="9" fill="#4E9E9E" transform="rotate(-26,430,62)">gradien = v</text>
+        </svg>
+      </div>
+
+      <h3 class="sub-heading">Gerak Lurus Berubah Beraturan (GLBB)</h3>
+      <p>Percepatan konstan \(a \neq 0\).</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan</div>
+          <div class="formula-main">\[ v = v_0 + at \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Perpindahan</div>
+          <div class="formula-main">\[ s = v_0 t + \tfrac{1}{2}at^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan–Posisi</div>
+          <div class="formula-main">\[ v^2 = v_0^2 + 2as \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Rata-rata</div>
+          <div class="formula-main">\[ s = \tfrac{v_0+v}{2}\cdot t \]</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="trending-up"></i> Grafik GLBB dipercepat: v-t (kiri) dan s-t (kanan)</div>
+        <svg viewBox="0 0 520 165" class="diagram-svg" aria-label="Grafik GLBB">
+          <defs>
+            <marker id="arr-ax2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+          </defs>
+          <!-- v-t -->
+          <text x="10" y="14" font-size="11" fill="#778DA9" font-weight="700">v — t</text>
+          <line x1="30" y1="130" x2="235" y2="130" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax2)"/>
+          <line x1="30" y1="20"  x2="30"  y2="135" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax2)"/>
+          <line x1="30" y1="110" x2="220" y2="30"  stroke="#C9A84C" stroke-width="2.5"/>
+          <circle cx="30"  cy="110" r="3" fill="#C9A84C"/>
+          <circle cx="220" cy="30"  r="3" fill="#C9A84C"/>
+          <text x="227" y="134" font-size="10" fill="#E0E1DD">t</text>
+          <text x="20" y="23"  font-size="10" fill="#E0E1DD">v</text>
+          <text x="14" y="114" font-size="9" fill="#C9A84C">v₀</text>
+          <polygon points="30,110 220,30 220,130 30,130" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.28)" stroke-width="1"/>
+          <text x="130" y="118" font-size="9" fill="#C9A84C" text-anchor="middle">luas = s</text>
+          <line x1="80"  y1="93" x2="130" y2="93" stroke="#778DA9" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="130" y1="93" x2="130" y2="72" stroke="#778DA9" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="100" y="104" font-size="8" fill="#778DA9">Δt</text>
+          <text x="133" y="84"  font-size="8" fill="#778DA9">Δv</text>
+          <text x="155" y="52"  font-size="8" fill="#778DA9" transform="rotate(-22,155,52)">gradien = a</text>
+          <!-- s-t -->
+          <text x="280" y="14" font-size="11" fill="#778DA9" font-weight="700">s — t</text>
+          <line x1="300" y1="130" x2="505" y2="130" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax2)"/>
+          <line x1="300" y1="20"  x2="300" y2="135" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax2)"/>
+          <path d="M300,125 Q370,120 430,85 T490,28" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+          <circle cx="300" cy="125" r="3" fill="#C9A84C"/>
+          <text x="492" y="134" font-size="10" fill="#E0E1DD">t</text>
+          <text x="290" y="23"  font-size="10" fill="#E0E1DD">s</text>
+          <text x="456" y="44"  font-size="9" fill="#C9A84C">parabola</text>
+        </svg>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div><strong>Gerak jatuh bebas</strong> adalah GLBB vertikal dengan \(a = g \approx 9{,}8\text{ m/s}^2\) ke bawah dan \(v_0 = 0\).</div>
+      </div>
+    </section>
+
+    <!-- GERAK MELINGKAR -->
+    <section class="content-section" id="gerak-melingkar">
+      <h2 class="section-heading"><span class="icon"><i data-feather="rotate-cw"></i></span>Gerak Melingkar</h2>
+      <p>Benda bergerak di lintasan lingkaran. Selalu ada percepatan sentripetal yang mengarah ke pusat.</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan Sudut</div>
+          <div class="formula-main">\[ \omega = \frac{2\pi}{T} = 2\pi f \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan Linier</div>
+          <div class="formula-main">\[ v = \omega r \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Percepatan Sentripetal</div>
+          <div class="formula-main">\[ a_s = \frac{v^2}{r} = \omega^2 r \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Gaya Sentripetal</div>
+          <div class="formula-main">\[ F_s = m\frac{v^2}{r} \]</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="rotate-cw"></i> Diagram Gerak Melingkar Beraturan</div>
+        <svg viewBox="0 0 360 200" class="diagram-svg" aria-label="Gerak melingkar">
+          <defs>
+            <marker id="arr-teal-m" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4E9E9E"/></marker>
+            <marker id="arr-red-m"  markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#C96060"/></marker>
+          </defs>
+          <circle cx="170" cy="100" r="78" stroke="#415A77" stroke-width="1.5" fill="none" stroke-dasharray="6,4"/>
+          <circle cx="170" cy="100" r="3" fill="#778DA9"/>
+          <text x="176" y="104" font-size="9" fill="#778DA9">O</text>
+          <!-- partikel di ~40° -->
+          <circle cx="230" cy="50" r="8" fill="#C9A84C" stroke="#E0E1DD" stroke-width="1.2"/>
+          <text x="241" y="46" font-size="10" fill="#C9A84C">m</text>
+          <!-- jari-jari -->
+          <line x1="170" y1="100" x2="230" y2="50" stroke="#778DA9" stroke-width="1.5"/>
+          <text x="191" y="66" font-size="9" fill="#778DA9" transform="rotate(-40,191,66)">r</text>
+          <!-- kecepatan (tangensial) -->
+          <line x1="230" y1="50" x2="270" y2="62" stroke="#4E9E9E" stroke-width="2" marker-end="url(#arr-teal-m)"/>
+          <text x="273" y="60" font-size="10" fill="#4E9E9E">v</text>
+          <!-- percepatan sentripetal -->
+          <line x1="230" y1="50" x2="204" y2="74" stroke="#C96060" stroke-width="2" marker-end="url(#arr-red-m)"/>
+          <text x="186" y="46" font-size="9" fill="#C96060">aₛ → O</text>
+          <!-- omega arc -->
+          <path d="M148,100 A28,28 0 0,1 170,72" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <text x="138" y="84" font-size="9" fill="#C9A84C">ω</text>
+          <!-- sudut theta -->
+          <path d="M188,100 A20,20 0 0,1 200,82" stroke="#778DA9" stroke-width="1" fill="none"/>
+          <text x="197" y="98" font-size="8" fill="#778DA9">θ</text>
+        </svg>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Gaya sentripetal <strong>bukan</strong> gaya baru — ia adalah resultan gaya yang mengarah ke pusat. Sumbernya bisa tegangan tali, gravitasi, atau gaya normal.</div>
+      </div>
+    </section>
+
+    <!-- GERAK PARABOLA -->
+    <section class="content-section" id="gerak-parabola">
+      <h2 class="section-heading"><span class="icon"><i data-feather="activity"></i></span>Gerak Parabola</h2>
+      <p>Superposisi GLB (horizontal) dan GLBB (vertikal). Analisis komponen secara terpisah.</p>
+      <div class="two-col">
+        <div>
+          <h4 class="mini-heading">Komponen Horizontal (GLB)</h4>
+          <div class="formula-box">
+            <div class="formula-main">\[ v_x = v_0\cos\theta \]</div>
+            <div class="formula-main">\[ x = v_0\cos\theta\cdot t \]</div>
+          </div>
+        </div>
+        <div>
+          <h4 class="mini-heading">Komponen Vertikal (GLBB)</h4>
+          <div class="formula-box">
+            <div class="formula-main">\[ v_y = v_0\sin\theta - gt \]</div>
+            <div class="formula-main">\[ y = v_0\sin\theta\cdot t - \tfrac{1}{2}gt^2 \]</div>
+          </div>
+        </div>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Jangkauan Maks (R)</div>
+          <div class="formula-main">\[ R = \frac{v_0^2\sin 2\theta}{g} \]</div>
+          <div class="formula-vars"><div class="formula-var"><span>θ = 45°</span> → R maksimum</div></div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Ketinggian Maks (H)</div>
+          <div class="formula-main">\[ H = \frac{v_0^2\sin^2\theta}{2g} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Waktu Total</div>
+          <div class="formula-main">\[ T = \frac{2v_0\sin\theta}{g} \]</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="activity"></i> Trajektori Gerak Parabola</div>
+        <svg viewBox="0 0 500 185" class="diagram-svg" aria-label="Gerak parabola">
+          <defs>
+            <marker id="arr-gold-p" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#C9A84C"/></marker>
+            <marker id="arr-teal-p" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4E9E9E"/></marker>
+          </defs>
+          <line x1="20" y1="158" x2="480" y2="158" stroke="#415A77" stroke-width="2"/>
+          <path d="M45,158 Q225,18 405,158" stroke="#4E9E9E" stroke-width="2.5" fill="none"/>
+          <!-- titik awal -->
+          <circle cx="45" cy="158" r="5" fill="#C9A84C"/>
+          <!-- v0 vektor -->
+          <line x1="45" y1="158" x2="88" y2="120" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-gold-p)"/>
+          <text x="90" y="118" font-size="10" fill="#C9A84C">v₀</text>
+          <path d="M62,158 A20,20 0 0,0 57,141" stroke="#C9A84C" stroke-width="1" fill="none"/>
+          <text x="66" y="150" font-size="9" fill="#C9A84C">θ</text>
+          <!-- puncak -->
+          <circle cx="225" cy="18" r="4" fill="#778DA9"/>
+          <line x1="225" y1="18" x2="225" y2="158" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="229" y="90" font-size="9" fill="#778DA9">H</text>
+          <!-- v di puncak (hanya vx) -->
+          <line x1="225" y1="18" x2="278" y2="18" stroke="#4E9E9E" stroke-width="1.5" marker-end="url(#arr-teal-p)"/>
+          <text x="281" y="16" font-size="9" fill="#4E9E9E">vₓ</text>
+          <text x="188" y="14" font-size="9" fill="#778DA9">vᵧ=0</text>
+          <!-- R -->
+          <line x1="45" y1="168" x2="405" y2="168" stroke="#778DA9" stroke-width="1"/>
+          <line x1="45"  y1="163" x2="45"  y2="173" stroke="#778DA9" stroke-width="1"/>
+          <line x1="405" y1="163" x2="405" y2="173" stroke="#778DA9" stroke-width="1"/>
+          <text x="225" y="180" font-size="10" fill="#778DA9" text-anchor="middle">R (jangkauan)</text>
+          <circle cx="405" cy="158" r="5" fill="#C9A84C"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- GHS -->
+    <section class="content-section" id="ghs">
+      <h2 class="section-heading"><span class="icon"><i data-feather="radio"></i></span>Gerak Harmonik Sederhana (GHS)</h2>
+      <p>GHS terjadi ketika gaya pemulih sebanding dengan simpangan: \(F = -kx\). Geraknya berosilasi periodik.</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Simpangan</div>
+          <div class="formula-main">\[ x(t) = A\cos(\omega t + \varphi_0) \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan</div>
+          <div class="formula-main">\[ v = \pm\omega\sqrt{A^2 - x^2} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Pegas: ω & T</div>
+          <div class="formula-main">\[ \omega = \sqrt{\tfrac{k}{m}},\; T = 2\pi\sqrt{\tfrac{m}{k}} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Bandul: ω & T</div>
+          <div class="formula-main">\[ \omega = \sqrt{\tfrac{g}{L}},\; T = 2\pi\sqrt{\tfrac{L}{g}} \]</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="radio"></i> Grafik simpangan GHS: x(t) = A cos(ωt)</div>
+        <svg viewBox="0 0 500 140" class="diagram-svg" aria-label="Grafik GHS">
+          <defs>
+            <marker id="arr-ax-ghs" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+          </defs>
+          <line x1="20" y1="70" x2="480" y2="70"  stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax-ghs)"/>
+          <line x1="30" y1="15" x2="30"  y2="125" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax-ghs)"/>
+          <text x="483" y="73" font-size="10" fill="#E0E1DD">t</text>
+          <text x="22"  y="13" font-size="10" fill="#E0E1DD">x</text>
+          <path d="M30,70 C60,18 90,18 120,70 C150,122 180,122 210,70 C240,18 270,18 300,70 C330,122 360,122 390,70 C420,18 450,18 472,50" stroke="#4E9E9E" stroke-width="2.5" fill="none"/>
+          <!-- A label -->
+          <line x1="22" y1="18" x2="30" y2="18"  stroke="#778DA9" stroke-width="1"/>
+          <line x1="22" y1="122" x2="30" y2="122" stroke="#778DA9" stroke-width="1"/>
+          <line x1="24" y1="18"  x2="24"  y2="122" stroke="#778DA9" stroke-width="1"/>
+          <text x="3"  y="22"  font-size="9" fill="#778DA9">+A</text>
+          <text x="3"  y="125" font-size="9" fill="#778DA9">−A</text>
+          <!-- T label -->
+          <line x1="30" y1="130" x2="210" y2="130" stroke="#C9A84C" stroke-width="1.2"/>
+          <line x1="30"  y1="126" x2="30"  y2="134" stroke="#C9A84C" stroke-width="1"/>
+          <line x1="210" y1="126" x2="210" y2="134" stroke="#C9A84C" stroke-width="1"/>
+          <text x="120" y="140" font-size="10" fill="#C9A84C" text-anchor="middle">T (satu periode)</text>
+          <circle cx="30"  cy="70" r="3" fill="#4E9E9E"/>
+          <circle cx="120" cy="70" r="3" fill="#4E9E9E"/>
+          <circle cx="210" cy="70" r="3" fill="#4E9E9E"/>
+          <circle cx="30"  cy="18" r="3" fill="#C9A84C"/>
+          <text x="34" y="15" font-size="8" fill="#C9A84C">A (amplitudo)</text>
+        </svg>
+      </div>
+
+      <div class="info-card blue">
+        <div class="info-card-title">Energi dalam GHS</div>
+        <p>Energi kinetik: \( E_k = \tfrac{1}{2}m\omega^2(A^2-x^2) \)</p>
+        <p>Energi potensial: \( E_p = \tfrac{1}{2}kx^2 \)</p>
+        <p>Energi total: \( E = \tfrac{1}{2}kA^2 = \) konstan (sistem konservatif)</p>
+      </div>
+    </section>
+
+    <!-- DINAMIKA -->
+    <section class="content-section" id="hukum-newton">
+      <h2 class="section-heading"><span class="icon"><i data-feather="zap"></i></span>Dinamika — Hukum Newton</h2>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Hukum I — Inersia</div>
+          <p>Benda diam tetap diam dan benda bergerak tetap bergerak lurus beraturan jika resultan gaya = 0.</p>
+          <p>\[ \sum\vec{F} = 0 \Rightarrow \vec{a} = 0 \]</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Hukum II — F = ma</div>
+          <p>Percepatan sebanding resultan gaya dan berbanding terbalik dengan massa.</p>
+          <p>\[ \sum\vec{F} = m\vec{a} \]</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Hukum III — Aksi–Reaksi</div>
+          <p>Setiap aksi menghasilkan reaksi sama besar, berlawanan arah, pada benda yang berbeda.</p>
+          <p>\[ \vec{F}_{AB} = -\vec{F}_{BA} \]</p>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="triangle"></i> Diagram Gaya pada Bidang Miring</div>
+        <svg viewBox="0 0 420 210" class="diagram-svg" aria-label="Bidang miring">
+          <defs>
+            <marker id="arr-W"  markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#C96060"/></marker>
+            <marker id="arr-N"  markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4E9E9E"/></marker>
+            <marker id="arr-comp" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#C9A84C"/></marker>
+          </defs>
+          <polygon points="50,175 360,175 360,45" fill="rgba(65,90,119,0.13)" stroke="#415A77" stroke-width="2"/>
+          <path d="M320,175 A38,38 0 0,0 360,138" stroke="#778DA9" fill="none" stroke-width="1.2"/>
+          <text x="316" y="162" font-size="11" fill="#778DA9">θ</text>
+          <!-- benda -->
+          <rect x="210" y="84" width="38" height="28" rx="4" fill="#0D1B2A" stroke="#C9A84C" stroke-width="2" transform="rotate(-22,229,98)"/>
+          <!-- W -->
+          <line x1="229" y1="98" x2="229" y2="155" stroke="#C96060" stroke-width="2.5" marker-end="url(#arr-W)"/>
+          <text x="234" y="148" font-size="10" fill="#C96060">W = mg</text>
+          <!-- N tegak lurus bidang -->
+          <line x1="229" y1="98" x2="206" y2="61" stroke="#4E9E9E" stroke-width="2" marker-end="url(#arr-N)"/>
+          <text x="174" y="59" font-size="10" fill="#4E9E9E">N</text>
+          <!-- komponen sejajar bidang (ke bawah lereng) -->
+          <line x1="229" y1="98" x2="272" y2="124" stroke="#C9A84C" stroke-width="1.8" marker-end="url(#arr-comp)" stroke-dasharray="5,3"/>
+          <text x="264" y="136" font-size="9" fill="#C9A84C">mg sinθ</text>
+          <!-- komponen tegak lurus bidang -->
+          <line x1="229" y1="98" x2="205" y2="115" stroke="#C9A84C" stroke-width="1.8" marker-end="url(#arr-comp)" stroke-dasharray="5,3"/>
+          <text x="152" y="122" font-size="9" fill="#C9A84C">mg cosθ</text>
+          <!-- keterangan -->
+          <text x="50" y="198" font-size="9" fill="#778DA9">N = mg cosθ  |  a = g sinθ (tanpa gesekan)</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="content-section" id="momentum">
+      <h2 class="section-heading"><span class="icon"><i data-feather="arrow-right"></i></span>Momentum & Impuls</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Momentum Linier</div>
+          <div class="formula-main">\[ \vec{p} = m\vec{v} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Impuls</div>
+          <div class="formula-main">\[ \vec{J} = \vec{F}\Delta t = \Delta\vec{p} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kekekalan Momentum</div>
+          <div class="formula-main">\[ m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2' \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Koefisien Restitusi</div>
+          <div class="formula-main">\[ e = \frac{v_2'-v_1'}{v_1-v_2} \]</div>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Jenis Tumbukan</th><th>Energi Kinetik</th><th>Momentum</th><th>e</th></tr></thead>
+        <tbody>
+          <tr><td>Elastis sempurna</td><td>Kekal</td><td>Kekal</td><td>1</td></tr>
+          <tr><td>Tidak elastis sebagian</td><td>Berkurang</td><td>Kekal</td><td>0 &lt; e &lt; 1</td></tr>
+          <tr><td>Tidak elastis sempurna</td><td>Minimum</td><td>Kekal</td><td>0 (benda menyatu)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="energi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="battery-charging"></i></span>Usaha & Energi</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Usaha</div>
+          <div class="formula-main">\[ W = Fd\cos\theta \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Kinetik</div>
+          <div class="formula-main">\[ E_k = \tfrac{1}{2}mv^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Pot. Gravitasi</div>
+          <div class="formula-main">\[ E_p = mgh \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Pot. Pegas</div>
+          <div class="formula-main">\[ E_p = \tfrac{1}{2}kx^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Teorema Usaha–Energi</div>
+          <div class="formula-main">\[ W_{net} = \Delta E_k \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Daya</div>
+          <div class="formula-main">\[ P = \frac{W}{t} = Fv\cos\theta \]</div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Sistem konservatif (tanpa gesekan): \( E_{k1}+E_{p1} = E_{k2}+E_{p2} \) — Kekekalan Energi Mekanik.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="gesekan">
+      <h2 class="section-heading"><span class="icon"><i data-feather="minus"></i></span>Gaya Gesekan</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Gesekan Statis (maks)</div>
+          <div class="formula-main">\[ f_s \leq \mu_s N \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Gesekan Kinetis</div>
+          <div class="formula-main">\[ f_k = \mu_k N \]</div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Selalu berlaku \(\mu_s &gt; \mu_k\). Pada bidang miring, gaya normal \(N = mg\cos\theta\).</div>
+      </div>
+    </section>
+
+    <!-- ROTASI -->
+    <section class="content-section" id="rotasi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="disc"></i></span>Mekanika Rotasi — Torsi & Momen Inersia</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Torsi</div>
+          <div class="formula-main">\[ \tau = rF\sin\alpha \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hukum II Rotasi</div>
+          <div class="formula-main">\[ \sum\tau = I\alpha \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Momen Inersia</div>
+          <div class="formula-main">\[ I = \sum m_i r_i^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Ek Rotasi</div>
+          <div class="formula-main">\[ E_{krot} = \tfrac{1}{2}I\omega^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Teorema Steiner</div>
+          <div class="formula-main">\[ I = I_{cm} + md^2 \]</div>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Benda</th><th>Sumbu</th><th>I</th></tr></thead>
+        <tbody>
+          <tr><td>Batang (panjang L)</td><td>Pusat</td><td>\(\frac{1}{12}mL^2\)</td></tr>
+          <tr><td>Batang (panjang L)</td><td>Ujung</td><td>\(\frac{1}{3}mL^2\)</td></tr>
+          <tr><td>Silinder pejal (R)</td><td>Sumbu simetri</td><td>\(\frac{1}{2}mR^2\)</td></tr>
+          <tr><td>Bola pejal (R)</td><td>Diameter</td><td>\(\frac{2}{5}mR^2\)</td></tr>
+          <tr><td>Bola berongga (R)</td><td>Diameter</td><td>\(\frac{2}{3}mR^2\)</td></tr>
+          <tr><td>Cincin / silinder tipis (R)</td><td>Sumbu simetri</td><td>\(mR^2\)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="momentum-sudut">
+      <h2 class="section-heading"><span class="icon"><i data-feather="rotate-cw"></i></span>Momentum Sudut</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Momentum Sudut</div>
+          <div class="formula-main">\[ \vec{L} = I\vec{\omega} = \vec{r}\times\vec{p} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kekekalan Momentum Sudut</div>
+          <div class="formula-main">\[ I_1\omega_1 = I_2\omega_2 \quad (\tau_{net}=0) \]</div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="rotate-cw"></i></div>
+        <div>Atlet loncat indah melipat lengan → I mengecil → ω meningkat → L tetap konstan.</div>
+      </div>
+    </section>
+
+    <!-- GRAVITASI -->
+    <section class="content-section" id="gravitasi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="globe"></i></span>Gravitasi — Hukum Gravitasi Newton</h2>
+      <div class="formula-box">
+        <div class="formula-label">Gaya Gravitasi Universal</div>
+        <div class="formula-main">\[ F = G\frac{m_1 m_2}{r^2} \]</div>
+        <div class="formula-vars">
+          <div class="formula-var"><span>G</span> = 6,674 × 10⁻¹¹ N·m²/kg²</div>
+          <div class="formula-var"><span>r</span> = jarak antar pusat massa (m)</div>
+        </div>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Medan Gravitasi</div>
+          <div class="formula-main">\[ g = \frac{GM}{r^2} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Potensial Gravitasi</div>
+          <div class="formula-main">\[ V = -\frac{GM}{r} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Potensial</div>
+          <div class="formula-main">\[ E_p = -\frac{GMm}{r} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan Lepas</div>
+          <div class="formula-main">\[ v_{lepas} = \sqrt{\frac{2GM}{R}} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kepler">
+      <h2 class="section-heading"><span class="icon"><i data-feather="sun"></i></span>Hukum Kepler</h2>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Hukum I — Orbit Elips</div>
+          <p>Setiap planet bergerak dalam orbit <strong>elips</strong> dengan Matahari di salah satu titik fokusnya.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Hukum II — Luas Sama</div>
+          <p>Garis planet–Matahari menyapu <strong>luas sama</strong> dalam waktu sama.</p>
+          <p>\[ \tfrac{dA}{dt} = \tfrac{L}{2m} = \text{konstan} \]</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Hukum III — T² ∝ a³</div>
+          <p>Kuadrat periode sebanding pangkat tiga sumbu semi-mayor.</p>
+          <p>\[ \frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3} \]</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="orbit">
+      <h2 class="section-heading"><span class="icon"><i data-feather="navigation"></i></span>Gerak Orbit & Satelit</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan Orbital</div>
+          <div class="formula-main">\[ v = \sqrt{\frac{GM}{r}} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Periode Orbit</div>
+          <div class="formula-main">\[ T = 2\pi\sqrt{\frac{r^3}{GM}} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Total Orbit</div>
+          <div class="formula-main">\[ E = -\frac{GMm}{2r} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Orbit GSO Bumi</div>
+          <div class="formula-main">\[ r_{GSO} \approx 42{.}164 \text{ km} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLUIDA -->
+    <section class="content-section" id="hidrostatika">
+      <h2 class="section-heading"><span class="icon"><i data-feather="droplet"></i></span>Mekanika Fluida — Hidrostatika</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Tekanan</div>
+          <div class="formula-main">\[ P = \frac{F}{A} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Tekanan Hidrostatis</div>
+          <div class="formula-main">\[ P = P_0 + \rho g h \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hukum Pascal</div>
+          <div class="formula-main">\[ \frac{F_1}{A_1} = \frac{F_2}{A_2} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="archimedes">
+      <h2 class="section-heading"><span class="icon"><i data-feather="anchor"></i></span>Hukum Archimedes</h2>
+      <div class="formula-box">
+        <div class="formula-label">Gaya Apung</div>
+        <div class="formula-main">\[ F_A = \rho_{\text{fluida}}\cdot g\cdot V_{\text{tercelup}} \]</div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="anchor"></i> Kondisi Terapung, Melayang, dan Tenggelam</div>
+        <svg viewBox="0 0 500 175" class="diagram-svg" aria-label="Archimedes">
+          <defs>
+            <marker id="arr-teal-a" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+            <marker id="arr-red-a"  markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C96060"/></marker>
+          </defs>
+          <!-- air -->
+          <rect x="10" y="85" width="480" height="75" fill="rgba(78,158,158,0.08)" rx="0"/>
+          <line x1="10" y1="85" x2="490" y2="85" stroke="#4E9E9E" stroke-width="1.5" stroke-dasharray="8,5"/>
+          <text x="400" y="80" font-size="9" fill="#4E9E9E">permukaan air</text>
+          <!-- TERAPUNG -->
+          <rect x="45" y="58" width="70" height="54" rx="6" fill="#C9A84C" fill-opacity="0.65" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="80" y="50" font-size="9" fill="#C9A84C" text-anchor="middle">TERAPUNG</text>
+          <text x="80" y="158" font-size="8" fill="#A8BAC8" text-anchor="middle">ρ_b &lt; ρ_f</text>
+          <line x1="80" y1="96" x2="80" y2="68" stroke="#4E9E9E" stroke-width="2.2" marker-end="url(#arr-teal-a)"/>
+          <line x1="80" y1="80" x2="80" y2="104" stroke="#C96060" stroke-width="2.2" marker-end="url(#arr-red-a)"/>
+          <text x="88" y="72" font-size="8" fill="#4E9E9E">FA</text>
+          <text x="88" y="100" font-size="8" fill="#C96060">W</text>
+          <!-- MELAYANG -->
+          <rect x="200" y="95" width="70" height="54" rx="6" fill="#778DA9" fill-opacity="0.65" stroke="#778DA9" stroke-width="1.5"/>
+          <text x="235" y="88" font-size="9" fill="#778DA9" text-anchor="middle">MELAYANG</text>
+          <text x="235" y="162" font-size="8" fill="#A8BAC8" text-anchor="middle">ρ_b = ρ_f</text>
+          <line x1="235" y1="107" x2="235" y2="83" stroke="#4E9E9E" stroke-width="2.2" marker-end="url(#arr-teal-a)"/>
+          <line x1="235" y1="127" x2="235" y2="151" stroke="#C96060" stroke-width="2.2" marker-end="url(#arr-red-a)"/>
+          <text x="243" y="97"  font-size="8" fill="#4E9E9E">FA</text>
+          <text x="243" y="147" font-size="8" fill="#C96060">W</text>
+          <!-- TENGGELAM -->
+          <rect x="370" y="110" width="70" height="54" rx="6" fill="#C96060" fill-opacity="0.55" stroke="#C96060" stroke-width="1.5"/>
+          <text x="405" y="103" font-size="9" fill="#C96060" text-anchor="middle">TENGGELAM</text>
+          <text x="405" y="172" font-size="8" fill="#A8BAC8" text-anchor="middle">ρ_b &gt; ρ_f</text>
+          <line x1="405" y1="122" x2="405" y2="98" stroke="#4E9E9E" stroke-width="2.2" marker-end="url(#arr-teal-a)"/>
+          <line x1="405" y1="142" x2="405" y2="166" stroke="#C96060" stroke-width="2.2" marker-end="url(#arr-red-a)"/>
+          <text x="413" y="112" font-size="8" fill="#4E9E9E">FA</text>
+          <text x="413" y="162" font-size="8" fill="#C96060">W&gt;FA</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="content-section" id="hidrodinamika">
+      <h2 class="section-heading"><span class="icon"><i data-feather="wind"></i></span>Hidrodinamika & Bernoulli</h2>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan Kontinuitas</div>
+        <div class="formula-main">\[ A_1 v_1 = A_2 v_2 = Q \]</div>
+        <div class="formula-vars"><div class="formula-var"><span>Q</span> = debit aliran (m³/s) — konstan untuk fluida inkompresibel</div></div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan Bernoulli</div>
+        <div class="formula-main">\[ P_1 + \tfrac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \tfrac{1}{2}\rho v_2^2 + \rho g h_2 \]</div>
+      </div>
+      <div class="three-col">
+        <div class="info-card teal">
+          <div class="info-card-title">Teorema Torricelli</div>
+          <p>Kecepatan semburan dari lubang di tangki:</p>
+          <p>\[ v = \sqrt{2gh} \]</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Efek Venturi</div>
+          <p>Pipa menyempit → kecepatan naik → tekanan turun.</p>
+          <p>\[ P_1-P_2 = \tfrac{1}{2}\rho(v_2^2-v_1^2) \]</p>
+        </div>
+        <div class="info-card gold">
+          <div class="info-card-title">Gaya Angkat (Lift)</div>
+          <p>Perbedaan kecepatan aliran atas-bawah sayap menghasilkan gaya angkat.</p>
+          <p>\[ F_L = (P_{\text{bawah}}-P_{\text{atas}})\cdot A \]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELASTISITAS & OSILASI -->
+    <section class="content-section" id="elastisitas">
+      <h2 class="section-heading"><span class="icon"><i data-feather="minimize-2"></i></span>Elastisitas & Modulus Young</h2>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Hukum Hooke</div>
+          <div class="formula-main">\[ F = k\Delta x \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Tegangan (Stress)</div>
+          <div class="formula-main">\[ \sigma = \frac{F}{A} \text{ (Pa)} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Regangan (Strain)</div>
+          <div class="formula-main">\[ \varepsilon = \frac{\Delta L}{L_0} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Modulus Young</div>
+          <div class="formula-main">\[ E = \frac{\sigma}{\varepsilon} \]</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="formula-box">
+          <div class="formula-label">Pegas Seri</div>
+          <div class="formula-main">\[ \frac{1}{k_{tot}} = \frac{1}{k_1}+\frac{1}{k_2}+\cdots \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Pegas Paralel</div>
+          <div class="formula-main">\[ k_{tot} = k_1+k_2+\cdots \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="osilasi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="bar-chart-2"></i></span>Osilasi Teredam</h2>
+      <p>Terjadi ketika gaya resistif (gesekan/viskositas) mengurangi amplitudo secara bertahap.</p>
+      <div class="formula-box">
+        <div class="formula-label">Amplitudo Teredam</div>
+        <div class="formula-main">\[ A(t) = A_0\,e^{-\frac{b}{2m}t}\cos(\omega_d t+\varphi) \]</div>
+        <div class="formula-vars">
+          <div class="formula-var"><span>b</span> = koefisien redaman</div>
+          <div class="formula-var"><span>ω_d</span> = \(\sqrt{\omega_0^2 - (b/2m)^2}\) = frekuensi teredam</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="bar-chart-2"></i> Osilasi teredam — amplitudo mengecil eksponensial</div>
+        <svg viewBox="0 0 500 130" class="diagram-svg" aria-label="Osilasi teredam">
+          <defs>
+            <marker id="arr-ax-os" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+          </defs>
+          <line x1="20" y1="65" x2="480" y2="65"  stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax-os)"/>
+          <line x1="30" y1="10" x2="30"  y2="120" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-ax-os)"/>
+          <text x="483" y="68" font-size="10" fill="#E0E1DD">t</text>
+          <text x="22"  y="10" font-size="10" fill="#E0E1DD">A</text>
+          <path d="M30,14 Q195,25 455,60" stroke="#C9A84C" stroke-width="1.3" fill="none" stroke-dasharray="6,3"/>
+          <path d="M30,116 Q195,105 455,70" stroke="#C9A84C" stroke-width="1.3" fill="none" stroke-dasharray="6,3"/>
+          <path d="M30,14 C52,4 74,4 95,65 C116,126 138,126 160,65 C182,4 198,8 222,65 C246,122 260,120 282,65 C304,10 316,13 338,65 C360,117 370,115 390,65 C410,15 420,17 445,65 C470,113 480,106 490,65" stroke="#4E9E9E" stroke-width="2.2" fill="none"/>
+          <circle cx="30" cy="14" r="3" fill="#4E9E9E"/>
+          <text x="18" y="12" font-size="9" fill="#4E9E9E">A₀</text>
+          <text x="400" y="52" font-size="9" fill="#C9A84C">selubung: A₀e^(−bt/2m)</text>
+        </svg>
+      </div>
+
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="alert-triangle"></i></div>
+        <div>Resonansi terjadi saat \(f_{eksternal} = f_0\). Contoh destruktif: Jembatan Tacoma Narrows (1940) runtuh akibat resonansi angin.</div>
+      </div>
+    </section>
+
+    <!-- CONTOH SOAL -->
+    <section class="content-section" id="contoh-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+
+      <div class="example">
+        <div class="example-header">
+          <span class="example-badge">Contoh Soal 1</span>
+          <span class="example-title">Proyektil dari Lereng Miring</span>
+        </div>
+        <div class="example-body">
+          <p>Meriam di puncak lereng \(\beta = 30°\) menembakkan peluru \(v_0 = 80\text{ m/s}\) pada \(\alpha = 45°\). Tentukan: (a) jangkauan sepanjang lereng, (b) sudut optimal \(\alpha^*\), dan (c) jangkauan maksimum. \((g = 10\text{ m/s}^2)\)</p>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Dari persamaan kinematik, titik jatuh memenuhi \(y/x = -\tan\beta\):</p>
+            <p>\[ R = \frac{2v_0^2}{g\cos^2\!\beta}\sin(\alpha+\beta)\cos\alpha \]</p>
+            <p>Untuk \(\alpha=45°,\,\beta=30°\): \(R \approx \mathbf{1170\text{ m}}\)</p>
+            <p><strong>(b)</strong> Kondisi maksimum: \(\sin(2\alpha+\beta)=1 \Rightarrow \alpha^* = \dfrac{90°-30°}{2} = \mathbf{30°}\)</p>
+            <p><strong>(c)</strong> \(R_{\max} = \dfrac{v_0^2}{g(1+\sin\beta)} = \dfrac{6400}{15} \approx \mathbf{1280\text{ m}}\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-header">
+          <span class="example-badge">Contoh Soal 2</span>
+          <span class="example-title">Kekekalan Energi — Roller Coaster</span>
+        </div>
+        <div class="example-body">
+          <p>Kereta (800 kg) mulai dari \(h_1=50\text{ m}\) dengan \(v_1=2\text{ m/s}\). Tentukan kecepatannya di \(h_2=10\text{ m}\). (Abaikan gesekan, \(g=10\text{ m/s}^2\))</p>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p>Kekekalan energi mekanik:</p>
+            <p>\[ v_2 = \sqrt{v_1^2 + 2g(h_1-h_2)} = \sqrt{4 + 800} = \sqrt{804} \approx \mathbf{28{,}4\text{ m/s}} \]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-header">
+          <span class="example-badge">Contoh Soal 3</span>
+          <span class="example-title">Tumbukan Tidak Elastis Sempurna</span>
+        </div>
+        <div class="example-body">
+          <p>Bola A (2 kg, \(v_A=6\text{ m/s}\)) menabrak bola B (3 kg, diam) dan keduanya menyatu. Tentukan: (a) kecepatan setelah tumbukan, (b) energi kinetik yang hilang.</p>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> \(v' = \dfrac{m_A v_A}{m_A+m_B} = \dfrac{12}{5} = \mathbf{2{,}4\text{ m/s}}\)</p>
+            <p><strong>(b)</strong> \(\Delta E_k = \tfrac{1}{2}(2)(36) - \tfrac{1}{2}(5)(5{,}76) = 36-14{,}4 = \mathbf{21{,}6\text{ J}}\)</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

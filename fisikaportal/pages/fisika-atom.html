@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisika Atom & Molekul — FisikaPortal</title>
+  <meta name="description" content="Perkembangan model atom Dalton hingga mekanika kuantum, spektrum hidrogen, bilangan kuantum, konfigurasi elektron, dan fisika molekul." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);"></div>
+  <div class="header-ghost">ATOM</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Fisika Atom</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Fisika Atom</span></h1>
+  <p class="page-desc">Perkembangan model atom, atom Bohr, spektrum hidrogen, dan bilangan kuantum.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="layers"></i>Model Atom</span>
+        <span class="page-tag"><i data-feather="target"></i>Bohr</span>
+        <span class="page-tag"><i data-feather="bar-chart"></i>Spektrum</span>
+        <span class="page-tag"><i data-feather="hash"></i>Bil. Kuantum</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="layers"></i>Perkembangan Model Atom</div>
+      <a class="sb-link" href="#model-atom"><i data-feather="layers"></i>Sejarah Model Atom</a>
+      <a class="sb-link" href="#thomson"><i data-feather="layers"></i>Model Thomson</a>
+      <a class="sb-link" href="#rutherford"><i data-feather="layers"></i>Model Rutherford</a>
+      <a class="sb-link" href="#atom-bohr"><i data-feather="layers"></i>Model Bohr</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="bar-chart"></i>Spektrum Atom</div>
+      <a class="sb-link" href="#spektrum"><i data-feather="sunset"></i>Spektrum Atom Hidrogen</a>
+      <a class="sb-link" href="#deret"><i data-feather="sunset"></i>Deret Spektrum</a>
+      <a class="sb-link" href="#emisi-absorpsi"><i data-feather="sun"></i>Emisi & Absorpsi</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="target"></i>Mekanika Kuantum Atom</div>
+      <a class="sb-link" href="#bilangan-kuantum"><i data-feather="hash"></i>Empat Bilangan Kuantum</a>
+      <a class="sb-link" href="#orbital"><i data-feather="circle"></i>Orbital Atom</a>
+      <a class="sb-link" href="#konfigurasi"><i data-feather="grid"></i>Konfigurasi Elektron</a>
+      <a class="sb-link" href="#pauli"><i data-feather="shield"></i>Asas Larangan Pauli</a>
+      <a class="sb-link" href="#hund"><i data-feather="list"></i>Aturan Hund</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="link"></i>Fisika Molekul</div>
+      <a class="sb-link" href="#ikatan"><i data-feather="link"></i>Jenis Ikatan Kimia</a>
+      <a class="sb-link" href="#spektrum-mol"><i data-feather="sunset"></i>Spektrum Molekul</a>
+      <a class="sb-link" href="#laser"><i data-feather="zap"></i>Laser</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-soal"><i data-feather="star"></i>Contoh Soal</a>
+    </div>
+    </aside>
+
+  <main class="main-content">
+
+    <!-- MODEL ATOM -->
+    <section class="content-section" id="model-atom">
+      <h2 class="section-heading"><span class="icon"><i data-feather="target"></i></span> Perkembangan Model Atom</h2>
+    </section>
+
+    <section class="content-section" id="thomson">
+      <h3 class="sub-heading">Model Atom Thomson (1897)</h3>
+      <div class="info-card blue">
+        <div class="info-card-title">Model "Puding Prem" (Plum Pudding)</div>
+        <p>Atom adalah bola bermuatan positif yang merata, dengan elektron-elektron (bermuatan negatif) tersebar di dalamnya seperti buah plum dalam puding.</p>
+        <p>Thomson menemukan elektron melalui percobaan tabung sinar katode.</p>
+        <p><strong>Massa elektron:</strong> m_e = 9,109 × 10⁻³¹ kg &nbsp;|&nbsp; <strong>Muatan:</strong> e = 1,602 × 10⁻¹⁹ C</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="rutherford">
+      <h3 class="sub-heading">Model Atom Rutherford (1911)</h3>
+      <p>Percobaan hamburan partikel alfa (Geiger-Marsden) menunjukkan bahwa sebagian besar massa dan semua muatan positif atom terpusat di inti yang sangat kecil.</p>
+      <div class="two-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Temuan Rutherford</div>
+          <ul class="content-list">
+            <li>Inti berdiameter ≈ 10⁻¹⁵ m (femtometer)</li>
+            <li>Atom berdiameter ≈ 10⁻¹⁰ m (angstrom)</li>
+            <li>Sebagian besar atom adalah ruang kosong</li>
+            <li>Elektron mengorbit inti seperti planet mengorbit matahari</li>
+          </ul>
+        </div>
+        <div class="info-card pink">
+          <div class="info-card-title">Kelemahan Model Rutherford</div>
+          <ul class="content-list">
+            <li>Elektron yang berakselerasi seharusnya memancarkan gelombang EM</li>
+            <li>Atom seharusnya runtuh dalam ~ 10⁻⁸ s</li>
+            <li>Tidak menjelaskan spektrum garis diskrit atom</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="atom-bohr">
+      <h3 class="sub-heading">Model Atom Bohr (1913)</h3>
+      <div class="definition">
+        Bohr mempostulasikan bahwa elektron hanya dapat mengorbit inti pada orbit-orbit tertentu dengan momentum sudut yang terkuantisasi, tanpa memancarkan energi.
+      </div>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Kuantisasi Momentum Sudut</div>
+        <div class="formula-main">\[ L = m_e v_n r_n = n\hbar = \frac{nh}{2\pi} \quad (n=1,2,3,...) \]</div>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Jari-jari Orbit Bohr</div>
+          <div class="formula-main">\[ r_n = n^2 a_0 = n^2 \times 0{,}529 \text{ Å} \]</div>
+          <div class="formula-vars"><span>a₀</span> = 0,529 Å = jari-jari Bohr (orbit pertama H)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Orbit ke-n (Hidrogen)</div>
+          <div class="formula-main">\[ E_n = -\frac{13{,}6 \text{ eV}}{n^2} \]</div>
+          <div class="formula-vars">E₁ = −13,6 eV (keadaan dasar)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Energi Foton yang Dipancarkan</div>
+          <div class="formula-main">\[ E_{foton} = E_{atas} - E_{bawah} = hf \]</div>
+          <div class="formula-vars">Transisi dari n_i → n_f (n_i > n_f)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Rumus Rydberg</div>
+          <div class="formula-main">\[ \frac{1}{\lambda} = R_H\!\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right) \]</div>
+          <div class="formula-vars"><span>R_H</span> = 1,097 × 10⁷ m⁻¹ (Konstanta Rydberg)</div>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Perumuman untuk Ion Hidrogenik (Z proton)</div>
+        <div class="formula-main">\[ E_n = -\frac{Z^2 \times 13{,}6 \text{ eV}}{n^2} \quad r_n = \frac{n^2 a_0}{Z} \]</div>
+        <div class="formula-vars">Berlaku untuk He⁺ (Z=2), Li²⁺ (Z=3), dst.</div>
+      </div>
+    </section>
+
+    <!-- SPEKTRUM -->
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="target"></i> Model Atom Bohr — Orbit Elektron &amp; Tingkat Energi</div>
+        <svg viewBox="0 0 540 230" class="diagram-svg" aria-label="Model atom Bohr">
+          <defs>
+            <marker id="arr-bohr" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-bohr2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+          </defs>
+          <!-- Inti -->
+          <circle cx="145" cy="115" r="14" fill="#C96060" stroke="#E0E1DD" stroke-width="1.5"/>
+          <text x="145" y="119" font-size="9" fill="#E0E1DD" text-anchor="middle" font-weight="700">+Ze</text>
+          <!-- Orbit n=1 -->
+          <circle cx="145" cy="115" r="38" fill="none" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <circle cx="183" cy="115" r="6" fill="#4E9E9E" stroke="#E0E1DD" stroke-width="1"/>
+          <text x="166" y="152" font-size="8" fill="#778DA9">n = 1</text>
+          <!-- Orbit n=2 -->
+          <circle cx="145" cy="115" r="68" fill="none" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <circle cx="210" cy="60" r="6" fill="#4E9E9E" stroke="#E0E1DD" stroke-width="1" opacity="0.7"/>
+          <text x="152" y="190" font-size="8" fill="#778DA9">n = 2</text>
+          <!-- Orbit n=3 -->
+          <circle cx="145" cy="115" r="96" fill="none" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <circle cx="226" cy="27" r="6" fill="#4E9E9E" stroke="#E0E1DD" stroke-width="1" opacity="0.5"/>
+          <text x="60" y="50" font-size="8" fill="#778DA9">n = 3</text>
+          <!-- Foton emisi n=3→1 -->
+          <line x1="228" y1="115" x2="254" y2="115" stroke="#C9A84C" stroke-width="1.5" marker-end="url(#arr-bohr)" stroke-dasharray="3,2"/>
+          <text x="256" y="112" font-size="8" fill="#C9A84C">hf = E₃−E₁</text>
+          <!-- Energy level diagram -->
+          <rect x="300" y="15" width="225" height="210" rx="8" fill="rgba(13,27,42,0.65)" stroke="#415A77" stroke-width="1"/>
+          <text x="412" y="35" font-size="10" fill="#778DA9" text-anchor="middle" font-weight="700">TINGKAT ENERGI H</text>
+          <!-- Energy levels -->
+          <line x1="320" y1="185" x2="510" y2="185" stroke="#C96060" stroke-width="2"/>
+          <text x="316" y="189" font-size="8" fill="#C96060" text-anchor="end">n=1</text>
+          <text x="513" y="189" font-size="8" fill="#C96060">−13.6 eV</text>
+          <line x1="320" y1="150" x2="510" y2="150" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="316" y="154" font-size="8" fill="#C9A84C" text-anchor="end">n=2</text>
+          <text x="513" y="154" font-size="8" fill="#C9A84C">−3.4 eV</text>
+          <line x1="320" y1="128" x2="510" y2="128" stroke="#4E9E9E" stroke-width="1.5"/>
+          <text x="316" y="132" font-size="8" fill="#4E9E9E" text-anchor="end">n=3</text>
+          <text x="513" y="132" font-size="8" fill="#4E9E9E">−1.51 eV</text>
+          <line x1="320" y1="113" x2="510" y2="113" stroke="#778DA9" stroke-width="1"/>
+          <text x="316" y="117" font-size="8" fill="#778DA9" text-anchor="end">n=4</text>
+          <text x="513" y="117" font-size="8" fill="#778DA9">−0.85 eV</text>
+          <line x1="320" y1="103" x2="510" y2="103" stroke="#778DA9" stroke-width="0.8"/>
+          <text x="316" y="107" font-size="7" fill="#778DA9" text-anchor="end">n=5</text>
+          <line x1="320" y1="55" x2="510" y2="55" stroke="#415A77" stroke-width="1" stroke-dasharray="4,2"/>
+          <text x="316" y="59" font-size="8" fill="#415A77" text-anchor="end">n=∞</text>
+          <text x="513" y="59" font-size="8" fill="#415A77">0 eV</text>
+          <!-- Transisi Lyman (UV) -->
+          <line x1="360" y1="128" x2="360" y2="185" stroke="#C96060" stroke-width="2" marker-end="url(#arr-bohr)"/>
+          <text x="355" y="158" font-size="8" fill="#C96060" text-anchor="end">Lyman</text>
+          <text x="355" y="168" font-size="7" fill="#C96060" text-anchor="end">(UV)</text>
+          <!-- Transisi Balmer (Vis) -->
+          <line x1="415" y1="128" x2="415" y2="150" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-bohr)"/>
+          <text x="420" y="140" font-size="8" fill="#C9A84C">Balmer</text>
+          <text x="420" y="150" font-size="7" fill="#C9A84C">(Vis/UV)</text>
+          <!-- Transisi Paschen (IR) -->
+          <line x1="465" y1="113" x2="465" y2="128" stroke="#4E9E9E" stroke-width="2" marker-end="url(#arr-bohr2)"/>
+          <text x="470" y="122" font-size="7" fill="#4E9E9E">Paschen(IR)</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="spektrum">
+      <h2 class="section-heading"><span class="icon"><i data-feather="sunset"></i></span> Spektrum Atom Hidrogen</h2>
+    </section>
+
+    <section class="content-section" id="deret">
+      <h3 class="sub-heading">Deret Spektrum Hidrogen</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Deret</th><th>Transisi</th><th>Wilayah Spektrum</th><th>n_f</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lyman</td><td>n ≥ 2 → n = 1</td><td>Ultraviolet</td><td>1</td></tr>
+          <tr><td>Balmer</td><td>n ≥ 3 → n = 2</td><td>Cahaya tampak (+ dekat UV)</td><td>2</td></tr>
+          <tr><td>Paschen</td><td>n ≥ 4 → n = 3</td><td>Inframerah dekat</td><td>3</td></tr>
+          <tr><td>Brackett</td><td>n ≥ 5 → n = 4</td><td>Inframerah tengah</td><td>4</td></tr>
+          <tr><td>Pfund</td><td>n ≥ 6 → n = 5</td><td>Inframerah jauh</td><td>5</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="zoom-in"></i></div>
+        <div>Garis Balmer yang tampak: Hα (656 nm, merah), Hβ (486 nm, cyan), Hγ (434 nm, biru-violet), Hδ (410 nm, ungu).</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="emisi-absorpsi">
+      <h3 class="sub-heading">Spektrum Emisi & Absorpsi</h3>
+      <div class="two-col">
+        <div class="info-card teal">
+          <div class="info-card-title">Spektrum Emisi</div>
+          <p>Gas dipanaskan → elektron tereksitasi ke level lebih tinggi → jatuh kembali → memancarkan foton dengan frekuensi spesifik.</p>
+          <p>Tampak sebagai <strong>garis terang</strong> pada latar gelap.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Spektrum Absorpsi</div>
+          <p>Cahaya kontinu melewati gas dingin → foton pada frekuensi tertentu diserap → elektron tereksitasi.</p>
+          <p>Tampak sebagai <strong>garis gelap</strong> pada spektrum kontinu (garis Fraunhofer).</p>
+        </div>
+      </div>
+    <section class="content-section" id="osn-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Fisika Atom · Model Bohr & Spektrum</span>
+        </div>
+        <div class="osn-title">Atom Hidrogen Tereksitasi & Seri Spektrum</div>
+        <div class="osn-body">
+          <p>Atom hidrogen berada dalam keadaan tereksitasi \(n = 5\). Konstanta Rydberg \(R_H = 1{,}097 \times 10^7 \text{ m}^{-1}\), \(h = 6{,}626 \times 10^{-34} \text{ J·s}\), \(c = 3 \times 10^8 \text{ m/s}\), \(1 \text{ eV} = 1{,}6 \times 10^{-19} \text{ J}\).</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Tentukan semua kemungkinan transisi yang dapat terjadi dari \(n=5\), identifikasi deret spektrum masing-masing (Lyman, Balmer, Paschen, Brackett, atau Pfund).</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Hitung panjang gelombang foton yang dipancarkan pada transisi \(5 \to 2\) dan tentukan apakah foton tersebut berada di daerah UV, tampak, atau IR.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Tunjukkan bahwa radius orbit Bohr ke-\(n\) adalah \(r_n = n^2 a_0\) dengan \(a_0 = 0{,}529\text{ Å}\), kemudian hitung perbandingan kecepatan elektron di orbit \(n=1\) dan \(n=5\).</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(d)</span><span>Jika atom ini menyerap foton berenergi \(E_{foton} = 0{,}967 \text{ eV}\) dari keadaan \(n=5\), ke level mana elektron bertransisi? Apakah atom terionisasi?</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Dari \(n=5\), transisi yang mungkin: \(5\to4\) (Brackett), \(5\to3\) (Paschen), \(5\to2\) (Balmer), \(5\to1\) (Lyman). Total 4 transisi.</p>
+            <p><strong>(b)</strong> Transisi \(5 \to 2\) (deret Balmer):</p>
+            <p>\[\frac{1}{\lambda} = R_H\!\left(\frac{1}{2^2} - \frac{1}{5^2}\right) = 1{,}097\times10^7\!\left(\frac{1}{4} - \frac{1}{25}\right) = 1{,}097\times10^7 \times \frac{21}{100}\]</p>
+            <p>\[= 2{,}304 \times 10^6 \text{ m}^{-1} \Rightarrow \lambda = \frac{1}{2{,}304\times10^6} \approx \mathbf{434 \text{ nm}}\]</p>
+            <p>Rentang tampak: 380–700 nm → foton ini adalah cahaya ungu/violet, <strong>tampak</strong> (garis \(H_\delta\)).</p>
+            <p><strong>(c)</strong> Dari syarat orbit Bohr: gaya sentripetal = gaya Coulomb dan kuantisasi momentum sudut \(L = n\hbar\). Eliminasi kecepatan menghasilkan \(r_n = n^2 a_0\).</p>
+            <p>Kecepatan orbit: \(v_n = \dfrac{e^2}{4\pi\varepsilon_0 n\hbar} = \dfrac{v_1}{n}\). Maka: \(\dfrac{v_1}{v_5} = \dfrac{5}{1} = \mathbf{5}\). Elektron di \(n=1\) bergerak 5× lebih cepat.</p>
+            <p><strong>(d)</strong> Energi di level \(n=5\): \(E_5 = -\dfrac{13{,}6}{25} = -0{,}544 \text{ eV}\).</p>
+            <p>Setelah menyerap \(E_{foton} = 0{,}967 \text{ eV}\): \(E_{final} = -0{,}544 + 0{,}967 = +0{,}423 \text{ eV} > 0\)</p>
+            <p>Energi positif berarti elektron terlepas → <strong>atom terionisasi</strong>. Elektron memiliki energi kinetik \(K = 0{,}423 \text{ eV}\).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILANGAN KUANTUM -->
+    <section class="content-section" id="bilangan-kuantum">
+      <h2 class="section-heading"><span class="icon"><i data-feather="hash"></i></span> Bilangan Kuantum</h2>
+      <p>Model mekanika kuantum atom hidrogen (Schrödinger) menghasilkan empat bilangan kuantum untuk mendeskripsikan setiap keadaan elektron:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Bilangan Kuantum</th><th>Simbol</th><th>Nilai</th><th>Makna fisika</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Utama</td><td>n</td><td>1, 2, 3, …</td><td>Ukuran & energi orbital (kulit/shell)</td></tr>
+          <tr><td>Azimuthal (Angular)</td><td>ℓ</td><td>0, 1, …, n−1</td><td>Bentuk orbital (subkulit)</td></tr>
+          <tr><td>Magnetik</td><td>mₗ</td><td>−ℓ, …, 0, …, +ℓ</td><td>Orientasi orbital dalam ruang</td></tr>
+          <tr><td>Spin</td><td>ms</td><td>+½ atau −½</td><td>Spin intrinsik elektron (↑ atau ↓)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="orbital">
+      <h3 class="sub-heading">Orbital Atom</h3>
+      <table class="data-table">
+        <thead><tr><th>ℓ</th><th>Nama Subkulit</th><th>Bentuk</th><th>Jumlah Orbital (2ℓ+1)</th><th>Max Elektron</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>s</td><td>Bola simetris</td><td>1</td><td>2</td></tr>
+          <tr><td>1</td><td>p</td><td>Dumbell (3 arah)</td><td>3</td><td>6</td></tr>
+          <tr><td>2</td><td>d</td><td>Cloverleaf & lainnya</td><td>5</td><td>10</td></tr>
+          <tr><td>3</td><td>f</td><td>Kompleks</td><td>7</td><td>14</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="home"></i></div>
+        <div>Jumlah orbital dalam satu kulit n = n². Jumlah maksimum elektron dalam kulit n = 2n².</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="konfigurasi">
+      <h3 class="sub-heading">Konfigurasi Elektron</h3>
+      <div class="formula-box">
+        <div class="formula-label">Urutan Pengisian Orbital (Aturan Aufbau)</div>
+        <div class="formula-main">1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p → 7s → 5f → 6d</div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Unsur</th><th>Z</th><th>Konfigurasi Elektron</th></tr></thead>
+        <tbody>
+          <tr><td>Hidrogen (H)</td><td>1</td><td>1s¹</td></tr>
+          <tr><td>Helium (He)</td><td>2</td><td>1s²</td></tr>
+          <tr><td>Karbon (C)</td><td>6</td><td>1s² 2s² 2p²</td></tr>
+          <tr><td>Oksigen (O)</td><td>8</td><td>1s² 2s² 2p⁴</td></tr>
+          <tr><td>Neon (Ne)</td><td>10</td><td>1s² 2s² 2p⁶</td></tr>
+          <tr><td>Natrium (Na)</td><td>11</td><td>[Ne] 3s¹</td></tr>
+          <tr><td>Besi (Fe)</td><td>26</td><td>[Ar] 3d⁶ 4s²</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="grid"></i> Urutan Pengisian Orbital (Aturan Aufbau)</div>
+        <svg viewBox="0 0 500 165" class="diagram-svg" aria-label="Aufbau orbital filling">
+          <!-- Subkulit dengan energi meningkat -->
+          <text x="20" y="20" font-size="10" fill="#778DA9" font-weight="700">Urutan Pengisian (energi naik →)</text>
+          <!-- Row 1 -->
+          <rect x="20" y="30" width="50" height="24" rx="4" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="45" y="46" font-size="10" fill="#C9A84C" text-anchor="middle" font-weight="700">1s</text>
+          <!-- Row 2 -->
+          <rect x="80" y="30" width="50" height="24" rx="4" fill="rgba(78,158,158,0.2)" stroke="#4E9E9E" stroke-width="1.5"/>
+          <text x="105" y="46" font-size="10" fill="#4E9E9E" text-anchor="middle" font-weight="700">2s</text>
+          <rect x="140" y="30" width="100" height="24" rx="4" fill="rgba(78,158,158,0.15)" stroke="#4E9E9E" stroke-width="1"/>
+          <text x="190" y="46" font-size="10" fill="#4E9E9E" text-anchor="middle">2p (3 orbital)</text>
+          <!-- Row 3 -->
+          <rect x="20" y="64" width="50" height="24" rx="4" fill="rgba(119,141,169,0.2)" stroke="#778DA9" stroke-width="1.5"/>
+          <text x="45" y="80" font-size="10" fill="#778DA9" text-anchor="middle" font-weight="700">3s</text>
+          <rect x="80" y="64" width="100" height="24" rx="4" fill="rgba(119,141,169,0.15)" stroke="#778DA9" stroke-width="1"/>
+          <text x="130" y="80" font-size="10" fill="#778DA9" text-anchor="middle">3p (3 orbital)</text>
+          <!-- Row 4 -->
+          <rect x="20" y="98" width="50" height="24" rx="4" fill="rgba(65,90,119,0.3)" stroke="#415A77" stroke-width="1.5"/>
+          <text x="45" y="114" font-size="10" fill="#E0E1DD" text-anchor="middle" font-weight="700">4s</text>
+          <rect x="80" y="98" width="140" height="24" rx="4" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="150" y="114" font-size="9.5" fill="#C9A84C" text-anchor="middle">3d (5 orbital)</text>
+          <rect x="230" y="98" width="100" height="24" rx="4" fill="rgba(65,90,119,0.2)" stroke="#415A77" stroke-width="1"/>
+          <text x="280" y="114" font-size="9.5" fill="#778DA9" text-anchor="middle">4p (3 orbital)</text>
+          <!-- Row 5 -->
+          <rect x="20" y="132" width="50" height="24" rx="4" fill="rgba(65,90,119,0.2)" stroke="#415A77" stroke-width="1"/>
+          <text x="45" y="148" font-size="10" fill="#778DA9" text-anchor="middle">5s</text>
+          <rect x="80" y="132" width="140" height="24" rx="4" fill="rgba(119,141,169,0.1)" stroke="#778DA9" stroke-width="1"/>
+          <text x="150" y="148" font-size="9" fill="#778DA9" text-anchor="middle">4d (5 orbital)</text>
+          <!-- Diagonal arrows showing filling order -->
+          <path d="M250,35 L380,35" stroke="#C96060" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <text x="290" y="30" font-size="8" fill="#C96060">2e per orbital</text>
+          <!-- Pauli & Hund note -->
+          <text x="340" y="75" font-size="8.5" fill="#778DA9" font-weight="700">Aturan Pauli:</text>
+          <text x="340" y="88" font-size="8" fill="#778DA9">Maks 2e per orbital</text>
+          <text x="340" y="103" font-size="8" fill="#778DA9">(spin berlawanan)</text>
+          <text x="340" y="120" font-size="8.5" fill="#4E9E9E" font-weight="700">Aturan Hund:</text>
+          <text x="340" y="133" font-size="8" fill="#4E9E9E">Isi orbital kosong</text>
+          <text x="340" y="146" font-size="8" fill="#4E9E9E">dulu (spin sejajar)</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="pauli">
+      <h3 class="sub-heading">Asas Larangan Pauli</h3>
+      <div class="definition">
+        <strong>Tidak ada dua elektron dalam satu atom yang dapat memiliki keempat bilangan kuantum yang identik.</strong>
+      </div>
+      <p>Akibatnya: setiap orbital paling banyak ditempati oleh 2 elektron dengan spin berlawanan (↑↓).</p>
+    </section>
+
+    <section class="content-section" id="hund">
+      <h3 class="sub-heading">Aturan Hund</h3>
+      <div class="info-card teal">
+        <div class="info-card-title">Aturan Hund (Stabilitas Maksimum)</div>
+        <p>Elektron mengisi orbital-orbital yang setingkat (degenerate) satu per satu dengan spin searah terlebih dahulu, sebelum memasangkan diri.</p>
+        <p>Contoh: Nitrogen (Z=7): 1s² 2s² 2p³ → orbital 2p terisi: ↑ | ↑ | ↑ (bukan ↑↓ | ↑ | _ )</p>
+      </div>
+    </section>
+
+    <!-- FISIKA MOLEKUL -->
+    <section class="content-section" id="ikatan">
+      <h2 class="section-heading"><span class="icon"><i data-feather="link"></i></span> Fisika Molekul</h2>
+      <h3 class="sub-heading">Jenis Ikatan Kimia</h3>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Ikatan Kovalen</div>
+          <p>Atom-atom berbagi pasangan elektron. Sangat kuat. Contoh: H₂, O₂, H₂O, CO₂.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Ikatan Ion</div>
+          <p>Transfer elektron antara atom → ion + dan − saling tarik. Contoh: NaCl, MgO.</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Ikatan Logam</div>
+          <p>Elektron valensi bebas bergerak (awan elektron). Menjelaskan konduktivitas logam.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="spektrum-mol">
+      <h3 class="sub-heading">Spektrum Molekul</h3>
+      <p>Molekul memiliki tiga mode penyimpanan energi yang dapat terkuantisasi:</p>
+      <ul class="content-list">
+        <li><strong>Elektronik:</strong> Transisi elektron antar orbital molekul → sinar UV/tampak (ΔE ~ 1–10 eV)</li>
+        <li><strong>Vibrasi:</strong> Osilasi ikatan antar atom → inframerah (ΔE ~ 0,01–1 eV)</li>
+        <li><strong>Rotasi:</strong> Rotasi molekul → microwave (ΔE ~ 10⁻⁴–0,01 eV)</li>
+      </ul>
+      <div class="formula-box">
+        <div class="formula-label">Energi Rotasi Molekul Diatomik</div>
+        <div class="formula-main">\[ E_{rot} = \frac{\hbar^2}{2I}J(J+1) \quad (J=0,1,2,...) \]</div>
+        <div class="formula-vars"><span>I</span> = momen inersia molekul &nbsp;|&nbsp; <span>J</span> = bilangan kuantum rotasi</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Energi Vibrasi (Osilator Harmonik Kuantum)</div>
+        <div class="formula-main">\[ E_{vib} = \left(v + \tfrac{1}{2}\right)\hbar\omega \quad (v=0,1,2,...) \]</div>
+        <div class="formula-vars"><span>v</span> = bilangan kuantum vibrasi &nbsp;|&nbsp; Energi titik nol: \(E_0 = \hbar\omega/2\)</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="laser">
+      <h3 class="sub-heading">Laser (Light Amplification by Stimulated Emission of Radiation)</h3>
+      <p>Laser menghasilkan cahaya koheren melalui emisi terstimulasi.</p>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Emisi Spontan</div>
+          <p>Elektron tereksitasi jatuh ke keadaan bawah secara acak dan memancarkan foton ke arah sembarang.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Emisi Terstimulasi</div>
+          <p>Foton merangsang elektron tereksitasi untuk memancarkan foton <em>kedua</em> yang identik (frekuensi, fase, arah sama).</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Inversi Populasi</div>
+          <p>Kondisi di mana lebih banyak atom di keadaan tereksitasi daripada keadaan dasar — syarat penguatan laser.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

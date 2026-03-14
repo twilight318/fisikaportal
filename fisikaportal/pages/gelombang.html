@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gelombang & Bunyi — FisikaPortal</title>
+  <meta name="description" content="Pelajari sifat gelombang mekanik, bunyi, efek Doppler, interferensi, difraksi, dan gelombang stasioner lengkap dengan rumus dan contoh soal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(23, 162, 184, 0.1) 0%, rgba(23, 162, 184, 0.05) 100%);"></div>
+  <div class="header-ghost">GELOMBANG</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Gelombang</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Gelombang</span></h1>
+  <p class="page-desc">Sifat gelombang mekanik, bunyi, efek Doppler, interferensi, dan gelombang stasioner.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="radio"></i>Gelombang Mekanik</span>
+        <span class="page-tag"><i data-feather="volume-2"></i>Bunyi</span>
+        <span class="page-tag"><i data-feather="wifi"></i>Doppler</span>
+        <span class="page-tag"><i data-feather="bar-chart"></i>Stasioner</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="radio"></i>Gelombang Mekanik</div>
+      <a class="sb-link" href="#gelombang-mekanik"><i data-feather="radio"></i>Sifat Dasar Gelombang</a>
+      <a class="sb-link" href="#persamaan-gelombang"><i data-feather="file-text"></i>Persamaan Gelombang</a>
+      <a class="sb-link" href="#energi-gelombang"><i data-feather="battery-charging"></i>Energi & Intensitas</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="volume-2"></i>Gelombang Bunyi</div>
+      <a class="sb-link" href="#bunyi"><i data-feather="radio"></i>Sifat Gelombang Bunyi</a>
+      <a class="sb-link" href="#kecepatan-bunyi"><i data-feather="volume-2"></i>Cepat Rambat Bunyi</a>
+      <a class="sb-link" href="#intensitas-bunyi"><i data-feather="volume-2"></i>Intensitas & Taraf</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="activity"></i>Fenomena</div>
+      <a class="sb-link" href="#doppler"><i data-feather="wifi"></i>Efek Doppler</a>
+      <a class="sb-link" href="#superposisi"><i data-feather="layers"></i>Superposisi & Interferensi</a>
+      <a class="sb-link" href="#pelayangan"><i data-feather="radio"></i>Pelayangan Gelombang</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="bar-chart"></i>Gelombang Stasioner</div>
+      <a class="sb-link" href="#stasioner"><i data-feather="bar-chart-2"></i>Pembentukan Gel. Stasioner</a>
+      <a class="sb-link" href="#dawai"><i data-feather="music"></i>Dawai & Senar</a>
+      <a class="sb-link" href="#pipa-organa"><i data-feather="speaker"></i>Pipa Organa</a>
+      <a class="sb-link" href="#resonansi"><i data-feather="music"></i>Resonansi</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-soal"><i data-feather="star"></i>Contoh Soal</a>
+    </div>
+    </aside>
+
+  <main class="main-content">
+
+    <section class="content-section" id="gelombang-mekanik">
+      <h2 class="section-heading"><span class="icon"><i data-feather="radio"></i></span> Sifat Dasar Gelombang</h2>
+      <div class="definition">
+        <strong>Gelombang</strong> adalah gangguan yang merambat dari satu tempat ke tempat lain sambil membawa energi, tetapi <em>tidak memindahkan materi</em>.
+      </div>
+      <div class="two-col">
+        <div class="info-card blue">
+          <div class="info-card-title">Gelombang Transversal</div>
+          <p>Arah getaran <strong>tegak lurus</strong> terhadap arah rambat. Contoh: gelombang tali, gelombang cahaya.</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Gelombang Longitudinal</div>
+          <p>Arah getaran <strong>sejajar</strong> dengan arah rambat. Contoh: gelombang bunyi, gelombang pada pegas.</p>
+        </div>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Persamaan Dasar Gelombang</div>
+          <div class="formula-main">\[ v = \lambda f = \frac{\lambda}{T} \]</div>
+          <div class="formula-vars"><span>v</span> = kecepatan (m/s) | <span>λ</span> = panjang gelombang (m) | <span>f</span> = frekuensi (Hz) | <span>T</span> = periode (s)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Bilangan Gelombang</div>
+          <div class="formula-main">\[ k = \frac{2\pi}{\lambda} \quad\text{dan}\quad \omega = 2\pi f \]</div>
+          <div class="formula-vars">Sehingga \(v = \omega/k\)</div>
+        </div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="radio"></i> Diagram Gelombang Transversal — Besaran-besaran Gelombang</div>
+        <svg viewBox="0 0 520 170" class="diagram-svg" aria-label="Gelombang transversal">
+          <defs>
+            <marker id="arr-wav" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+            <marker id="arr-wav2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-wav3" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+          </defs>
+          <!-- Axes -->
+          <line x1="30" y1="95" x2="500" y2="95" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-wav)"/>
+          <line x1="30" y1="155" x2="30" y2="25" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-wav)"/>
+          <text x="503" y="99" font-size="10" fill="#778DA9" font-family="monospace">x</text>
+          <text x="18" y="23" font-size="10" fill="#778DA9" font-family="monospace">y</text>
+          <!-- Sine wave -->
+          <path d="M30,95 Q67,25 104,95 Q141,165 178,95 Q215,25 252,95 Q289,165 326,95 Q363,25 400,95 Q437,165 474,95" stroke="#4E9E9E" stroke-width="2.5" fill="none"/>
+          <!-- Amplitude annotation -->
+          <line x1="67" y1="25" x2="67" y2="95" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="57" y1="25" x2="77" y2="25" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="57" y1="95" x2="77" y2="95" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="80" y="58" font-size="9" fill="#C9A84C" font-weight="700">A</text>
+          <text x="80" y="68" font-size="8" fill="#C9A84C">(amplitudo)</text>
+          <!-- Lambda annotation -->
+          <line x1="30" y1="155" x2="178" y2="155" stroke="#C96060" stroke-width="1.5" marker-end="url(#arr-wav2)" stroke-dasharray="4,3"/>
+          <line x1="178" y1="155" x2="30" y2="155" stroke="none"/>
+          <text x="104" y="150" font-size="9" fill="#C96060" text-anchor="middle" font-weight="700">λ (panjang gelombang)</text>
+          <!-- Period annotation -->
+          <text x="30" y="165" font-size="8" fill="#415A77">0</text>
+          <text x="170" y="165" font-size="8" fill="#415A77">λ</text>
+          <text x="318" y="165" font-size="8" fill="#415A77">2λ</text>
+          <!-- Crest & trough labels -->
+          <text x="104" y="22" font-size="8" fill="#4E9E9E" text-anchor="middle">Puncak</text>
+          <text x="142" y="168" font-size="8" fill="#4E9E9E" text-anchor="middle">Lembah</text>
+          <!-- Direction arrow -->
+          <line x1="350" y1="40" x2="420" y2="40" stroke="#778DA9" stroke-width="2" marker-end="url(#arr-wav3)"/>
+          <text x="385" y="35" font-size="9" fill="#4E9E9E" text-anchor="middle">v = λf</text>
+          <!-- Node at x=0 -->
+          <circle cx="30" cy="95" r="3" fill="#C9A84C"/>
+          <circle cx="178" cy="95" r="3" fill="#C9A84C"/>
+          <circle cx="326" cy="95" r="3" fill="#C9A84C"/>
+        </svg>
+      </div>
+
+    <section class="content-section" id="persamaan-gelombang">
+      <h3 class="sub-heading">Persamaan Gelombang</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Persamaan Gelombang Berjalan</div>
+        <div class="formula-main">\[ y(x,t) = A\sin(kx - \omega t + \varphi_0) \]</div>
+        <div class="formula-vars">
+          <span>A</span> = amplitudo &nbsp;|&nbsp;
+          <span>k</span> = bilangan gelombang = 2π/λ &nbsp;|&nbsp;
+          <span>ω</span> = frekuensi sudut = 2πf &nbsp;|&nbsp;
+          <span>φ₀</span> = fase awal
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="file-text"></i></div>
+        <div>Gelombang merambat ke <strong>kanan (+x)</strong>: tanda minus (kx − ωt). Merambat ke <strong>kiri (−x)</strong>: tanda plus (kx + ωt).</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan Diferensial Gelombang</div>
+        <div class="formula-main">\[ \frac{\partial^2 y}{\partial t^2} = v^2 \frac{\partial^2 y}{\partial x^2} \]</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="energi-gelombang">
+      <h3 class="sub-heading">Energi & Intensitas Gelombang</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Intensitas</div>
+          <div class="formula-main">\[ I = \frac{P}{A} \quad\text{(W/m}^2\text{)} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Intensitas Sumber Titik</div>
+          <div class="formula-main">\[ I = \frac{P}{4\pi r^2} \propto \frac{1}{r^2} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hubungan Intensitas-Amplitudo</div>
+          <div class="formula-main">\[ I \propto A^2 \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Intensitas Gelombang Mekanik</div>
+          <div class="formula-main">\[ I = \tfrac{1}{2}\rho v \omega^2 A^2 \]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUNYI -->
+    <section class="content-section" id="bunyi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="volume-2"></i></span> Gelombang Bunyi</h2>
+      <p>Bunyi adalah gelombang longitudinal mekanik yang memerlukan medium untuk merambat. Bunyi terdiri dari rapatan (compressions) dan renggangan (rarefactions).</p>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="volume-2"></i></div>
+        <div>Frekuensi audibel manusia: 20 Hz – 20.000 Hz. Di bawah 20 Hz = infrasonik. Di atas 20.000 Hz = ultrasonik.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="kecepatan-bunyi">
+      <h3 class="sub-heading">Cepat Rambat Bunyi</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Dalam Gas Ideal</div>
+          <div class="formula-main">\[ v = \sqrt{\frac{\gamma P}{\rho}} = \sqrt{\frac{\gamma RT}{M}} \]</div>
+          <div class="formula-vars">Dalam udara pada 0°C: v ≈ 331 m/s</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Koreksi Suhu (Udara)</div>
+          <div class="formula-main">\[ v \approx 331 + 0{,}6\,T_{\!C} \text{ m/s} \]</div>
+          <div class="formula-vars">T_C dalam °C</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Dalam Zat Padat</div>
+          <div class="formula-main">\[ v = \sqrt{\frac{E}{\rho}} \]</div>
+          <div class="formula-vars"><span>E</span> = Modulus Young</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Dalam Zat Cair</div>
+          <div class="formula-main">\[ v = \sqrt{\frac{B}{\rho}} \]</div>
+          <div class="formula-vars"><span>B</span> = Modulus Bulk</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="intensitas-bunyi">
+      <h3 class="sub-heading">Intensitas & Taraf Intensitas Bunyi</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Taraf Intensitas Bunyi</div>
+          <div class="formula-main">\[ \beta = 10\log\frac{I}{I_0} \quad\text{(dB)} \]</div>
+          <div class="formula-vars"><span>I₀</span> = 10⁻¹² W/m² (ambang pendengaran)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Selisih Taraf</div>
+          <div class="formula-main">\[ \Delta\beta = 10\log\frac{I_2}{I_1} \]</div>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Sumber Bunyi</th><th>Intensitas (W/m²)</th><th>Taraf (dB)</th></tr></thead>
+        <tbody>
+          <tr><td>Ambang pendengaran</td><td>10⁻¹²</td><td>0</td></tr>
+          <tr><td>Bisikan</td><td>10⁻¹⁰</td><td>20</td></tr>
+          <tr><td>Percakapan normal</td><td>10⁻⁶</td><td>60</td></tr>
+          <tr><td>Lalu lintas padat</td><td>10⁻⁵</td><td>70</td></tr>
+          <tr><td>Konser musik keras</td><td>10⁻²</td><td>100</td></tr>
+          <tr><td>Mesin jet (dekat)</td><td>10²</td><td>140</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- DOPPLER -->
+    <section class="content-section" id="doppler">
+      <h2 class="section-heading"><span class="icon"><i data-feather="activity"></i></span> Efek Doppler</h2>
+      <p>Efek Doppler adalah perubahan frekuensi yang diamati ketika sumber bunyi atau pengamat bergerak relatif satu terhadap lainnya.</p>
+      <div class="formula-box">
+        <div class="formula-label">Frekuensi yang Diamati</div>
+        <div class="formula-main">\[ f' = f\frac{v \pm v_p}{v \mp v_s} \]</div>
+        <div class="formula-vars">
+          <div class="formula-var"><span>v</span> = kecepatan bunyi di medium</div>
+          <div class="formula-var"><span>v_p</span> = kecepatan pengamat (+ jika mendekati)</div>
+          <div class="formula-var"><span>v_s</span> = kecepatan sumber (− jika mendekati)</div>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="activity"></i> Efek Doppler — sumber bergerak ke kanan</div>
+        <svg viewBox="0 0 500 140" class="diagram-svg" aria-label="Efek Doppler">
+          <defs>
+            <marker id="arr-dop" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+          </defs>
+          <!-- sumber (speaker) bergerak ke kanan -->
+          <rect x="215" y="58" width="26" height="24" rx="4" fill="#C9A84C" fill-opacity="0.8" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="228" y="53" font-size="9" fill="#C9A84C" text-anchor="middle">sumber</text>
+          <line x1="241" y1="70" x2="266" y2="70" stroke="#C9A84C" stroke-width="2" marker-end="url(#arr-dop)"/>
+          <text x="268" y="68" font-size="8" fill="#C9A84C">vₛ</text>
+          <!-- gelombang ke kiri (meregang - frekuensi rendah) -->
+          <ellipse cx="175" cy="70" rx="28" ry="20" fill="none" stroke="#778DA9" stroke-width="1.2" stroke-dasharray="4,2"/>
+          <ellipse cx="155" cy="70" rx="50" ry="35" fill="none" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+          <ellipse cx="130" cy="70" rx="72" ry="48" fill="none" stroke="#778DA9" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.4"/>
+          <text x="55" y="100" font-size="9" fill="#778DA9">panjang gelombang</text>
+          <text x="55" y="112" font-size="9" fill="#778DA9">lebih panjang → f' &lt; f</text>
+          <!-- gelombang ke kanan (merapat - frekuensi tinggi) -->
+          <ellipse cx="255" cy="70" rx="18" ry="14" fill="none" stroke="#4E9E9E" stroke-width="1.2" stroke-dasharray="4,2"/>
+          <ellipse cx="270" cy="70" rx="32" ry="24" fill="none" stroke="#4E9E9E" stroke-width="1" stroke-dasharray="4,2" opacity="0.7"/>
+          <ellipse cx="292" cy="70" rx="48" ry="36" fill="none" stroke="#4E9E9E" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.4"/>
+          <text x="330" y="100" font-size="9" fill="#4E9E9E">panjang gelombang</text>
+          <text x="330" y="112" font-size="9" fill="#4E9E9E">lebih pendek → f' &gt; f</text>
+          <!-- pengamat kiri -->
+          <circle cx="40" cy="70" r="7" fill="#778DA9" fill-opacity="0.7"/>
+          <text x="40" y="90" font-size="8" fill="#778DA9" text-anchor="middle">P₁</text>
+          <!-- pengamat kanan -->
+          <circle cx="460" cy="70" r="7" fill="#4E9E9E" fill-opacity="0.7"/>
+          <text x="460" y="90" font-size="8" fill="#4E9E9E" text-anchor="middle">P₂</text>
+        </svg>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>Kondisi</th><th>Rumus</th><th>f' vs f</th></tr></thead>
+        <tbody>
+          <tr><td>Sumber mendekati, pengamat diam</td><td>\(f' = f\dfrac{v}{v-v_s}\)</td><td>f' &gt; f</td></tr>
+          <tr><td>Sumber menjauhi, pengamat diam</td><td>\(f' = f\dfrac{v}{v+v_s}\)</td><td>f' &lt; f</td></tr>
+          <tr><td>Pengamat mendekati, sumber diam</td><td>\(f' = f\dfrac{v+v_p}{v}\)</td><td>f' &gt; f</td></tr>
+          <tr><td>Pengamat menjauhi, sumber diam</td><td>\(f' = f\dfrac{v-v_p}{v}\)</td><td>f' &lt; f</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="send"></i></div>
+        <div><strong>Sonic Boom:</strong> saat \(v_s > v\), terbentuk kerucut kejut (shock cone) dengan \(\sin\theta = v/v_s\). Angka Mach = \(v_s/v\).</div>
+      </div>
+
+    <!-- SUPERPOSISI -->
+    <section class="content-section" id="superposisi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="wind"></i></span> Superposisi & Interferensi</h2>
+      <div class="definition">
+        <strong>Prinsip Superposisi:</strong> Simpangan resultan dua gelombang yang bertumpang tindih sama dengan jumlah aljabar simpangan masing-masing gelombang.
+      </div>
+      <h4 class="mini-heading">Interferensi Konstruktif & Destruktif</h4>
+      <div class="two-col">
+        <div class="formula-box">
+          <div class="formula-label">Konstruktif (Amplitudo Maks)</div>
+          <div class="formula-main">\[ \Delta\varphi = 2n\pi \quad (n=0,1,2,...) \]</div>
+          <div class="formula-vars">Beda lintasan: \(\Delta r = n\lambda\)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Destruktif (Amplitudo = 0)</div>
+          <div class="formula-main">\[ \Delta\varphi = (2n+1)\pi \]</div>
+          <div class="formula-vars">Beda lintasan: \(\Delta r = (n+\tfrac{1}{2})\lambda\)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="pelayangan">
+      <h3 class="sub-heading">Pelayangan Gelombang (Beats)</h3>
+      <p>Ketika dua gelombang dengan frekuensi hampir sama bertumpang tindih, amplitudo resultannya berosilasi secara periodik.</p>
+      <div class="formula-box">
+        <div class="formula-label">Frekuensi Pelayangan</div>
+        <div class="formula-main">\[ f_{beat} = |f_1 - f_2| \]</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan Superposisi</div>
+        <div class="formula-main">\[ y = 2A\cos\!\left(\frac{\omega_1-\omega_2}{2}t\right)\cos\!\left(\frac{\omega_1+\omega_2}{2}t\right) \]</div>
+        <div class="formula-vars">Suku pertama = modulasi amplitudo (beat) | Suku kedua = frekuensi rata-rata</div>
+      </div>
+    </section>
+
+    <!-- STASIONER -->
+    <section class="content-section" id="stasioner">
+      <h2 class="section-heading"><span class="icon"><i data-feather="bar-chart"></i></span> Gelombang Stasioner</h2>
+      <p>Gelombang stasioner terbentuk dari superposisi dua gelombang identik yang merambat berlawanan arah.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Persamaan Gelombang Stasioner</div>
+        <div class="formula-main">\[ y(x,t) = 2A\sin(kx)\cos(\omega t) \]</div>
+        <div class="formula-vars">
+          Simpul (node) pada: \(x = \frac{n\lambda}{2}\) &nbsp;|&nbsp;
+          Perut (antinode) pada: \(x = \frac{(2n+1)\lambda}{4}\)
+        </div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="bar-chart-2"></i> Gelombang Stasioner — Simpul (N) &amp; Perut (P)</div>
+        <svg viewBox="0 0 520 175" class="diagram-svg" aria-label="Gelombang stasioner">
+          <!-- Harmonik 1 -->
+          <text x="20" y="20" font-size="9" fill="#C9A84C" font-weight="700">n=1 (nada dasar): λ=2L</text>
+          <line x1="20" y1="35" x2="250" y2="35" stroke="#415A77" stroke-width="1" stroke-dasharray="3,3"/>
+          <path d="M20,35 Q135,5 250,35" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+          <path d="M20,35 Q135,65 250,35" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.5" stroke-dasharray="4,3"/>
+          <circle cx="20" cy="35" r="5" fill="none" stroke="#C96060" stroke-width="2"/><text x="14" y="55" font-size="8" fill="#C96060">N</text>
+          <circle cx="250" cy="35" r="5" fill="none" stroke="#C96060" stroke-width="2"/><text x="244" y="55" font-size="8" fill="#C96060">N</text>
+          <circle cx="135" cy="20" r="5" fill="#4E9E9E"/><text x="129" y="15" font-size="8" fill="#4E9E9E">P</text>
+          <!-- Harmonik 2 -->
+          <text x="20" y="85" font-size="9" fill="#4E9E9E" font-weight="700">n=2: λ=L</text>
+          <line x1="20" y1="100" x2="250" y2="100" stroke="#415A77" stroke-width="1" stroke-dasharray="3,3"/>
+          <path d="M20,100 Q72,72 135,100 Q198,128 250,100" stroke="#4E9E9E" stroke-width="2.5" fill="none"/>
+          <path d="M20,100 Q72,128 135,100 Q198,72 250,100" stroke="#4E9E9E" stroke-width="2" fill="none" opacity="0.5" stroke-dasharray="4,3"/>
+          <circle cx="20" cy="100" r="5" fill="none" stroke="#C96060" stroke-width="2"/>
+          <circle cx="135" cy="100" r="5" fill="none" stroke="#C96060" stroke-width="2"/>
+          <circle cx="250" cy="100" r="5" fill="none" stroke="#C96060" stroke-width="2"/>
+          <text x="74" y="68" font-size="8" fill="#4E9E9E">P</text>
+          <text x="192" y="135" font-size="8" fill="#4E9E9E">P</text>
+          <!-- Harmonik 3 -->
+          <text x="20" y="150" font-size="9" fill="#778DA9" font-weight="700">n=3: λ=2L/3</text>
+          <line x1="20" y1="162" x2="250" y2="162" stroke="#415A77" stroke-width="1" stroke-dasharray="3,3"/>
+          <path d="M20,162 Q52,142 88,162 Q124,182 160,162 Q196,142 250,162" stroke="#778DA9" stroke-width="2" fill="none"/>
+          <circle cx="20" cy="162" r="4" fill="none" stroke="#C96060" stroke-width="1.5"/>
+          <circle cx="88" cy="162" r="4" fill="none" stroke="#C96060" stroke-width="1.5"/>
+          <circle cx="160" cy="162" r="4" fill="none" stroke="#C96060" stroke-width="1.5"/>
+          <circle cx="250" cy="162" r="4" fill="none" stroke="#C96060" stroke-width="1.5"/>
+          <!-- Formula table -->
+          <rect x="280" y="10" width="225" height="160" rx="8" fill="rgba(13,27,42,0.7)" stroke="#415A77" stroke-width="1"/>
+          <text x="392" y="30" font-size="9.5" fill="#778DA9" text-anchor="middle" font-weight="700">FREKUENSI HARMONIK</text>
+          <text x="392" y="48" font-size="9" fill="#C9A84C" text-anchor="middle">DAWAI (kedua ujung N)</text>
+          <text x="392" y="64" font-size="10" fill="#C9A84C" text-anchor="middle" font-family="monospace">fₙ = nv/2L</text>
+          <text x="392" y="78" font-size="8" fill="#778DA9" text-anchor="middle">n = 1, 2, 3, … (semua harmonik)</text>
+          <line x1="290" y1="90" x2="496" y2="90" stroke="#415A77" stroke-width="0.5"/>
+          <text x="392" y="108" font-size="9" fill="#4E9E9E" text-anchor="middle">PIPA TERBUKA (kedua ujung P)</text>
+          <text x="392" y="124" font-size="10" fill="#4E9E9E" text-anchor="middle" font-family="monospace">fₙ = nv/2L</text>
+          <text x="392" y="138" font-size="8" fill="#778DA9" text-anchor="middle">semua harmonik</text>
+          <line x1="290" y1="148" x2="496" y2="148" stroke="#415A77" stroke-width="0.5"/>
+          <text x="392" y="161" font-size="9" fill="#778DA9" text-anchor="middle">PIPA TERTUTUP: fₙ=(2n−1)v/4L</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="dawai">
+      <h3 class="sub-heading">Dawai / Senar yang Bergetar</h3>
+      <p>Kedua ujung dawai adalah simpul (node). Frekuensi harmonik:</p>
+      <div class="formula-box">
+        <div class="formula-label">Harmonik ke-n pada Dawai</div>
+        <div class="formula-main">\[ f_n = \frac{n}{2L}\sqrt{\frac{F}{\mu}} = \frac{nv}{2L} \quad (n = 1, 2, 3, \ldots) \]</div>
+        <div class="formula-vars">
+          <span>L</span> = panjang dawai &nbsp;|&nbsp;
+          <span>F</span> = tegangan dawai &nbsp;|&nbsp;
+          <span>μ</span> = massa per satuan panjang (kg/m) &nbsp;|&nbsp;
+          <span>n</span> = harmonik ke-n
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Harmonik</th><th>Pola</th><th>Frekuensi</th><th>Panjang Gelombang</th></tr></thead>
+        <tbody>
+          <tr><td>Pertama (f₁, nada dasar)</td><td>½λ</td><td>\(f_1 = v/2L\)</td><td>\(\lambda_1 = 2L\)</td></tr>
+          <tr><td>Kedua (2f₁)</td><td>λ</td><td>\(f_2 = v/L\)</td><td>\(\lambda_2 = L\)</td></tr>
+          <tr><td>Ketiga (3f₁)</td><td>3/2·λ</td><td>\(f_3 = 3v/2L\)</td><td>\(\lambda_3 = 2L/3\)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="pipa-organa">
+      <h3 class="sub-heading">Pipa Organa</h3>
+      <div class="two-col">
+        <div>
+          <h4 class="mini-heading">Pipa Terbuka (Kedua Ujung Terbuka)</h4>
+          <p>Kedua ujung adalah perut (antinode).</p>
+          <div class="formula-box">
+            <div class="formula-main">\[ f_n = \frac{nv}{2L} \quad (n = 1, 2, 3, \ldots) \]</div>
+            <div class="formula-vars">Semua harmonik ada</div>
+          </div>
+        </div>
+        <div>
+          <h4 class="mini-heading">Pipa Tertutup (Satu Ujung Tertutup)</h4>
+          <p>Ujung tertutup = simpul, ujung terbuka = perut.</p>
+          <div class="formula-box">
+            <div class="formula-main">\[ f_n = \frac{(2n-1)v}{4L} \quad (n = 1, 2, 3, \ldots) \]</div>
+            <div class="formula-vars">Hanya harmonik ganjil</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="resonansi">
+      <h3 class="sub-heading">Resonansi</h3>
+      <div class="definition">
+        <strong>Resonansi</strong> terjadi ketika frekuensi gaya dorong luar sama dengan frekuensi natural sistem, menghasilkan amplitudo getaran yang sangat besar.
+      </div>
+    </section>
+
+    <section class="content-section" id="osn-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Gelombang · Resonansi & Doppler</span>
+        </div>
+        <div class="osn-title">Sumber Bunyi Bergerak & Resonansi Kolom Udara</div>
+        <div class="osn-body">
+          <p>Sebuah garpu tala frekuensi \(f_0 = 440 \text{ Hz}\) digetarkan dan didekatkan ke mulut pipa silinder vertikal yang salah satu ujungnya tertutup air. Air dalam pipa dapat diatur ketinggiannya, sehingga panjang kolom udara di atas air dapat divariasi. Kecepatan bunyi di udara \(v = 346 \text{ m/s}\).</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Tentukan tiga panjang kolom udara pertama saat terjadi resonansi.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Pada resonansi pertama, garpu tala tersebut kemudian digerakkan mendekati pipa dengan kecepatan \(v_s = 4 \text{ m/s}\). Pengamat diam di sisi jauh pipa mendengar bunyi yang telah melewati udara. Hitunglah frekuensi yang didengar pengamat (efek Doppler berganda: sumber bergerak + pantulan dari pipa).</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Jika dua garpu tala (440 Hz dan \(f_2\)) dibunyikan bersama menghasilkan 6 layangan per detik, dan garpu kedua sedikit lebih panjang dari garpu pertama, tentukan \(f_2\) dan jelaskan cara mengidentifikasinya secara eksperimen.</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Pipa satu ujung tertutup: resonansi terjadi pada \(L_n = \dfrac{(2n-1)\lambda}{4},\ n = 1,2,3,\ldots\)</p>
+            <p>\[\lambda = \frac{v}{f_0} = \frac{346}{440} = 0{,}786 \text{ m}\]</p>
+            <p>\[L_1 = \tfrac{\lambda}{4} = 0{,}196 \text{ m} \quad L_2 = \tfrac{3\lambda}{4} = 0{,}589 \text{ m} \quad L_3 = \tfrac{5\lambda}{4} = 0{,}982 \text{ m}\]</p>
+            <p><strong>(b)</strong> Sumber bergerak mendekati reflektor (pipa) diam, lalu bunyi dipantulkan menuju pengamat diam di belakang sumber. Gunakan Doppler dua tahap:</p>
+            <p><em>Tahap 1</em> — frekuensi yang sampai di pipa (reflektor diam, sumber mendekat):</p>
+            <p>\[f' = f_0 \cdot \frac{v}{v - v_s} = 440 \times \frac{346}{342} \approx 445{,}1 \text{ Hz}\]</p>
+            <p><em>Tahap 2</em> — pipa memantulkan sebagai sumber diam \(f'\), pengamat diam:</p>
+            <p>\[f'' = f' = 445{,}1 \text{ Hz}\]</p>
+            <p>Pengamat di belakang sumber (menjauhi pantulan) mendengar frekuensi pantulan yang telah tergeser: \(\boxed{f'' \approx 445 \text{ Hz}}\). Layangan antara bunyi langsung dan pantul: \(\Delta f = 445 - 440 = 5 \text{ Hz}\).</p>
+            <p><strong>(c)</strong> Layangan = \(|f_0 - f_2| = 6 \text{ Hz}\), sehingga \(f_2 = 434 \text{ Hz}\) atau \(f_2 = 446 \text{ Hz}\). Karena garpu kedua lebih <em>panjang</em> → massa lebih besar → frekuensi lebih <em>rendah</em>: \(\boxed{f_2 = 434 \text{ Hz}}\). Cara identifikasi: kikis sedikit ujung salah satu garpu (massa berkurang, \(f\) naik). Jika layangan <em>berkurang</em>, maka garpu yang dikikis tadinya bernilai lebih rendah — mengonfirmasi \(f_2 = 434 \text{ Hz}\).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

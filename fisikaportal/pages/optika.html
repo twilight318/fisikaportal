@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optika — FisikaPortal</title>
+  <meta name="description" content="Materi optika geometri dan fisis: pemantulan cermin, pembiasan lensa, dispersi, interferensi celah ganda, difraksi, dan alat optik." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(255, 20, 147, 0.05) 100%);"></div>
+  <div class="header-ghost">OPTIKA</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Optika</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Optika</span></h1>
+  <p class="page-desc">Fisika cahaya — dari pemantulan dan pembiasan hingga interferensi dan difraksi.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="eye"></i>Geometri</span>
+        <span class="page-tag"><i data-feather="triangle"></i>Snell</span>
+        <span class="page-tag"><i data-feather="grid"></i>Interferensi</span>
+        <span class="page-tag"><i data-feather="maximize"></i>Difraksi</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="eye"></i>Optika Geometri</div>
+      <a class="sb-link" href="#pemantulan"><i data-feather="corner-up-right"></i>Pemantulan Cahaya</a>
+      <a class="sb-link" href="#cermin"><i data-feather="circle"></i>Cermin Datar & Lengkung</a>
+      <a class="sb-link" href="#pembiasan"><i data-feather="book"></i>Hukum Snell</a>
+      <a class="sb-link" href="#tir"><i data-feather="corner-up-right"></i>Pemantulan Total Dalam</a>
+      <a class="sb-link" href="#lensa-cermin"><i data-feather="circle"></i>Lensa Tipis</a>
+      <a class="sb-link" href="#dispersi"><i data-feather="sunset"></i>Dispersi & Prisma</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="grid"></i>Optika Fisis</div>
+      <a class="sb-link" href="#interferensi"><i data-feather="grid"></i>Interferensi Young</a>
+      <a class="sb-link" href="#lapisan-tipis"><i data-feather="layers"></i>Lapisan Tipis</a>
+      <a class="sb-link" href="#difraksi"><i data-feather="maximize"></i>Difraksi</a>
+      <a class="sb-link" href="#polarisasi"><i data-feather="filter"></i>Polarisasi</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="zoom-in"></i>Alat Optik</div>
+      <a class="sb-link" href="#mata"><i data-feather="eye"></i>Mata & Cacat Mata</a>
+      <a class="sb-link" href="#lup"><i data-feather="zoom-in"></i>Lup (Kaca Pembesar)</a>
+      <a class="sb-link" href="#mikroskop"><i data-feather="zoom-in"></i>Mikroskop</a>
+      <a class="sb-link" href="#teleskop"><i data-feather="search"></i>Teleskop</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-soal"><i data-feather="star"></i>Contoh Soal</a>
+    </div>
+    </aside>
+
+  <main class="main-content">
+
+    <!-- OPTIKA GEOMETRI -->
+    <section class="content-section" id="pemantulan">
+      <h2 class="section-heading"><span class="icon"><i data-feather="eye"></i></span> Optika Geometri</h2>
+      <h3 class="sub-heading">Pemantulan Cahaya</h3>
+      <div class="info-card gold">
+        <div class="info-card-title">Hukum Pemantulan</div>
+        <p>1. Sinar datang, garis normal, dan sinar pantul berada pada satu bidang datar.</p>
+        <p>2. Sudut datang = sudut pantul: \(\theta_i = \theta_r\)</p>
+      </div>
+
+      <h4 class="mini-heading">Cermin Datar</h4>
+      <ul class="content-list">
+        <li>Bayangan selalu maya, tegak, dan sama besar dengan benda (\(m = +1\))</li>
+        <li>Bayangan berada sejauh benda di belakang cermin (\(s' = -s\))</li>
+        <li>Dua cermin datar membentuk sudut θ menghasilkan \(n = \frac{360°}{\theta} - 1\) bayangan</li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="cermin">
+      <h3 class="sub-heading">Cermin Lengkung</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Persamaan Cermin</div>
+        <div class="formula-main">\[ \frac{1}{f} = \frac{1}{s} + \frac{1}{s'} \quad\text{dan}\quad f = \frac{R}{2} \]</div>
+        <div class="formula-vars">
+          <span>f</span> = jarak fokus &nbsp;|&nbsp;
+          <span>s</span> = jarak benda &nbsp;|&nbsp;
+          <span>s'</span> = jarak bayangan &nbsp;|&nbsp;
+          <span>R</span> = jari-jari kelengkungan
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Pembesaran Lateral</div>
+        <div class="formula-main">\[ m = -\frac{s'}{s} = \frac{h'}{h} \]</div>
+        <div class="formula-vars">m > 0: bayangan tegak (maya) &nbsp;|&nbsp; m < 0: bayangan terbalik (nyata) &nbsp;|&nbsp; |m| > 1: diperbesar</div>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="file-text"></i></div>
+        <div><strong>Konvensi tanda:</strong> jarak benda/bayangan positif di depan cermin (nyata), negatif di belakang (maya). Cermin cekung: f > 0. Cermin cembung: f < 0.</div>
+      </div>
+
+      <h4 class="mini-heading">Bayangan pada Cermin Cekung</h4>
+      <table class="data-table">
+        <thead><tr><th>Letak Benda</th><th>Letak Bayangan</th><th>Sifat</th></tr></thead>
+        <tbody>
+          <tr><td>s > 2f (di luar C)</td><td>f &lt; s' &lt; 2f</td><td>Nyata, terbalik, diperkecil</td></tr>
+          <tr><td>s = 2f (di C)</td><td>s' = 2f</td><td>Nyata, terbalik, sama besar</td></tr>
+          <tr><td>f &lt; s &lt; 2f (antara C & F)</td><td>s' > 2f</td><td>Nyata, terbalik, diperbesar</td></tr>
+          <tr><td>s = f (di F)</td><td>s' = ∞</td><td>Tidak terbentuk</td></tr>
+          <tr><td>s &lt; f (antara F & O)</td><td>s' < 0 (belakang)</td><td>Maya, tegak, diperbesar</td></tr>
+        </tbody>
+      </table>
+
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 500 240" width="500" height="240">
+          <!-- Cermin cekung -->
+          <path d="M 420 30 Q 370 120 420 210" stroke="#f0b429" stroke-width="3" fill="none"/>
+          <!-- Sumbu utama -->
+          <line x1="30" y1="120" x2="460" y2="120" stroke="#7a84a3" stroke-width="1" stroke-dasharray="4,4"/>
+          <!-- Titik F dan C -->
+          <circle cx="280" cy="120" r="4" fill="#38bdf8"/>
+          <text x="276" y="140" fill="#38bdf8" font-size="13" font-family="JetBrains Mono,monospace">F</text>
+          <circle cx="180" cy="120" r="4" fill="#2dd4bf"/>
+          <text x="176" y="140" fill="#2dd4bf" font-size="13" font-family="JetBrains Mono,monospace">C</text>
+          <!-- Benda -->
+          <line x1="100" y1="120" x2="100" y2="60" stroke="#f472b6" stroke-width="2.5"/>
+          <polygon points="100,60 95,75 105,75" fill="#f472b6"/>
+          <text x="88" y="56" fill="#f472b6" font-size="12" font-family="Syne,sans-serif" font-weight="700">Benda</text>
+          <!-- Sinar 1: sejajar sumbu → lewat F -->
+          <line x1="100" y1="60" x2="400" y2="60" stroke="#fff" stroke-width="1" opacity="0.4"/>
+          <line x1="400" y1="60" x2="280" y2="120" stroke="#fff" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
+          <!-- Sinar 2: lewat C -->
+          <line x1="100" y1="60" x2="400" y2="180" stroke="#fff" stroke-width="1" opacity="0.4"/>
+          <!-- Label -->
+          <text x="30" y="20" fill="#f0b429" font-size="13" font-family="Syne,sans-serif" font-weight="700">Cermin Cekung</text>
+        </svg>
+        <p class="diagram-caption">Pembentukan bayangan pada cermin cekung (benda di luar C)</p>
+      </div>
+    </section>
+
+    <!-- PEMBIASAN -->
+    <section class="content-section" id="pembiasan">
+      <h3 class="sub-heading">Hukum Snell — Pembiasan Cahaya</h3>
+      <div class="definition">
+        Ketika cahaya berpindah dari satu medium ke medium lain, kecepatannya berubah dan arahnya dibelokkan.
+      </div>
+      <div class="formula-box" style="border-left-color:var(--accent-blue)">
+        <div class="formula-label">Hukum Snell-Descartes</div>
+        <div class="formula-main">\[ n_1 \sin\theta_1 = n_2 \sin\theta_2 \]</div>
+        <div class="formula-vars">
+          <span>n₁, n₂</span> = indeks bias medium 1 dan 2 &nbsp;|&nbsp;
+          <span>θ₁, θ₂</span> = sudut datang dan bias (diukur dari normal)
+        </div>
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Indeks Bias</div>
+          <div class="formula-main">\[ n = \frac{c}{v} = \frac{\lambda_0}{\lambda} \]</div>
+          <div class="formula-vars"><span>c</span> = kecepatan cahaya di vakum &nbsp;|&nbsp; <span>v</span> = kecepatan di medium</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hubungan Relatif</div>
+          <div class="formula-main">\[ n_{21} = \frac{n_2}{n_1} = \frac{v_1}{v_2} = \frac{\sin\theta_1}{\sin\theta_2} \]</div>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Medium</th><th>Indeks Bias (n)</th></tr></thead>
+        <tbody>
+          <tr><td>Vakum</td><td>1,0000</td></tr>
+          <tr><td>Udara</td><td>≈ 1,0003</td></tr>
+          <tr><td>Air</td><td>1,333</td></tr>
+          <tr><td>Kaca (borosilikat)</td><td>1,50 – 1,52</td></tr>
+          <tr><td>Intan</td><td>2,42</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="tir">
+      <h3 class="sub-heading">Pemantulan Total Dalam (TIR)</h3>
+      <p>Terjadi ketika cahaya bergerak dari medium rapat ke renggang dan sudut datang melebihi sudut kritis.</p>
+      <div class="formula-box">
+        <div class="formula-label">Sudut Kritis</div>
+        <div class="formula-main">\[ \sin\theta_c = \frac{n_2}{n_1} \quad (n_1 > n_2) \]</div>
+        <div class="formula-vars">Jika θ > θ_c → pemantulan total (tidak ada sinar bias)</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Prinsip TIR digunakan pada <strong>serat optik (fiber optic)</strong> untuk mentransmisi informasi dengan cahaya. Juga menyebabkan kilauan intan.</div>
+      </div>
+    </section>
+
+    <!-- LENSA -->
+    <section class="content-section" id="lensa-cermin">
+      <h3 class="sub-heading">Lensa Tipis</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Persamaan Lensa Tipis (Gauss)</div>
+        <div class="formula-main">\[ \frac{1}{f} = \frac{1}{s} + \frac{1}{s'} \]</div>
+        <div class="formula-vars">Lensa konvergen (cembung): f > 0 &nbsp;|&nbsp; Lensa divergen (cekung): f < 0</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Persamaan Pembuat Lensa (Lensmaker)</div>
+        <div class="formula-main">\[ \frac{1}{f} = (n-1)\!\left(\frac{1}{R_1} - \frac{1}{R_2}\right) \]</div>
+        <div class="formula-vars"><span>R₁, R₂</span> = jari-jari permukaan lensa &nbsp;|&nbsp; <span>n</span> = indeks bias lensa</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Kuat Lensa (Diopter)</div>
+        <div class="formula-main">\[ P = \frac{1}{f} \quad\text{(diopter, D)} \]</div>
+        <div class="formula-vars">f dalam meter. Lensa-lensa koaksial: \(P_{total} = P_1 + P_2\)</div>
+      </div>
+      <h4 class="mini-heading">Bayangan pada Lensa Konvergen</h4>
+      <table class="data-table">
+        <thead><tr><th>Letak Benda</th><th>Letak Bayangan</th><th>Sifat</th></tr></thead>
+        <tbody>
+          <tr><td>s > 2f</td><td>f &lt; s' &lt; 2f</td><td>Nyata, terbalik, diperkecil</td></tr>
+          <tr><td>s = 2f</td><td>s' = 2f</td><td>Nyata, terbalik, sama besar</td></tr>
+          <tr><td>f &lt; s &lt; 2f</td><td>s' > 2f</td><td>Nyata, terbalik, diperbesar</td></tr>
+          <tr><td>s = f</td><td>∞</td><td>Tidak terbentuk</td></tr>
+          <tr><td>s &lt; f</td><td>s' < 0</td><td>Maya, tegak, diperbesar</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- DISPERSI -->
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="circle"></i> Diagram Sinar Lensa Cembung (Konvergen)</div>
+        <svg viewBox="0 0 520 220" class="diagram-svg" aria-label="Lensa cembung diagram sinar">
+          <defs>
+            <marker id="arr-lens" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+            <marker id="arr-lens2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-lens3" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C96060"/></marker>
+          </defs>
+          <!-- Optical axis -->
+          <line x1="10" y1="110" x2="510" y2="110" stroke="#415A77" stroke-width="1" stroke-dasharray="4,3"/>
+          <!-- Lens (biconvex) -->
+          <path d="M270,30 Q310,110 270,190" stroke="#778DA9" stroke-width="2.5" fill="none"/>
+          <path d="M270,30 Q230,110 270,190" stroke="#778DA9" stroke-width="2.5" fill="none"/>
+          <text x="272" y="205" font-size="9" fill="#778DA9">Lensa cembung</text>
+          <!-- Focal points -->
+          <circle cx="180" cy="110" r="4" fill="#C9A84C"/>
+          <text x="175" y="125" font-size="8" fill="#C9A84C">F'</text>
+          <circle cx="360" cy="110" r="4" fill="#C9A84C"/>
+          <text x="355" y="125" font-size="8" fill="#C9A84C">F</text>
+          <!-- Object (at ~1.5f) -->
+          <line x1="90" y1="110" x2="90" y2="55" stroke="#C96060" stroke-width="2.5"/>
+          <polygon points="90,55 85,70 95,70" fill="#C96060"/>
+          <text x="75" y="50" font-size="9" fill="#C96060">Benda</text>
+          <text x="78" y="62" font-size="8" fill="#C96060">(s &gt; f)</text>
+          <!-- Ray 1: parallel to axis → through F -->
+          <line x1="90" y1="55" x2="270" y2="55" stroke="#4E9E9E" stroke-width="1.8" marker-end="url(#arr-lens)"/>
+          <line x1="270" y1="55" x2="410" y2="148" stroke="#4E9E9E" stroke-width="1.8" marker-end="url(#arr-lens)"/>
+          <text x="195" y="48" font-size="8" fill="#4E9E9E">Sinar sejajar sumbu</text>
+          <!-- Ray 2: through center of lens -->
+          <line x1="90" y1="55" x2="270" y2="110" stroke="#C9A84C" stroke-width="1.8"/>
+          <line x1="270" y1="110" x2="450" y2="165" stroke="#C9A84C" stroke-width="1.8" marker-end="url(#arr-lens2)"/>
+          <text x="148" y="95" font-size="8" fill="#C9A84C">Lewat pusat optik</text>
+          <!-- Ray 3: through F' then parallel -->
+          <line x1="90" y1="55" x2="180" y2="110" stroke="#C96060" stroke-width="1.5" stroke-dasharray="5,2"/>
+          <line x1="180" y1="110" x2="270" y2="110" stroke="#C96060" stroke-width="1.5"/>
+          <line x1="270" y1="110" x2="450" y2="110" stroke="#C96060" stroke-width="1.5" marker-end="url(#arr-lens3)"/>
+          <!-- Image -->
+          <line x1="410" y1="110" x2="410" y2="148" stroke="#C96060" stroke-width="2.5"/>
+          <polygon points="410,148 405,133 415,133" fill="#C96060"/>
+          <text x="415" y="155" font-size="9" fill="#C96060">Bayangan</text>
+          <text x="415" y="166" font-size="8" fill="#C96060">nyata, terbalik</text>
+          <!-- s and s' labels -->
+          <line x1="90" y1="180" x2="270" y2="180" stroke="#778DA9" stroke-width="1"/>
+          <text x="180" y="175" font-size="8.5" fill="#778DA9" text-anchor="middle">s</text>
+          <line x1="270" y1="180" x2="410" y2="180" stroke="#C9A84C" stroke-width="1"/>
+          <text x="340" y="175" font-size="8.5" fill="#C9A84C" text-anchor="middle">s′</text>
+          <text x="15" y="200" font-size="8.5" fill="#E0E1DD">1/f = 1/s + 1/s′</text>
+          <text x="15" y="212" font-size="8" fill="#778DA9">m = −s′/s</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="dispersi">
+      <h3 class="sub-heading">Dispersi & Prisma</h3>
+      <p>Dispersi adalah pemisahan cahaya putih menjadi spektrum warna karena indeks bias bergantung pada panjang gelombang (\(n(\lambda)\)).</p>
+      <div class="formula-box">
+        <div class="formula-label">Sudut Deviasi Prisma</div>
+        <div class="formula-main">\[ \delta = (n-1)\alpha \quad\text{(sudut puncak kecil)} \]</div>
+        <div class="formula-vars"><span>α</span> = sudut puncak prisma &nbsp;|&nbsp; Minimum: \(\delta_{min} = 2\theta_i - \alpha\)</div>
+      </div>
+      <div class="info-card blue">
+        <div class="info-card-title">Urutan Spektrum Cahaya Tampak</div>
+        <p>Merah (n terkecil, λ terbesar ≈ 700 nm) → Jingga → Kuning → Hijau → Biru → Nila → Ungu (n terbesar, λ terkecil ≈ 400 nm)</p>
+        <p>Ingat: <em>Mejikuhibiniu</em></p>
+      </div>
+    </section>
+
+    <!-- OPTIKA FISIS -->
+    <section class="content-section" id="optika-fisis">
+      <h2 class="section-heading"><span class="icon"><i data-feather="sunset"></i></span> Optika Fisis</h2>
+    </section>
+
+    <section class="content-section" id="interferensi">
+      <h3 class="sub-heading">Interferensi — Celah Ganda Young</h3>
+      <p>Percobaan Young menunjukkan sifat gelombang cahaya melalui pola interferensi terang-gelap pada layar.</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Beda Lintasan</div>
+          <div class="formula-main">\[ \Delta r = d\sin\theta \approx \frac{dy}{L} \]</div>
+          <div class="formula-vars"><span>d</span> = jarak antar celah &nbsp;|&nbsp; <span>y</span> = posisi di layar &nbsp;|&nbsp; <span>L</span> = jarak layar</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Terang (Konstruktif)</div>
+          <div class="formula-main">\[ d\sin\theta = m\lambda \quad (m=0,\pm1,\pm2,...) \]</div>
+          <div class="formula-vars">Posisi: \(y_m = \frac{m\lambda L}{d}\)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Gelap (Destruktif)</div>
+          <div class="formula-main">\[ d\sin\theta = (m+\tfrac{1}{2})\lambda \]</div>
+          <div class="formula-vars">Posisi: \(y_m = \frac{(m+\frac{1}{2})\lambda L}{d}\)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Jarak Antar Garis Terang</div>
+          <div class="formula-main">\[ \Delta y = \frac{\lambda L}{d} \]</div>
+        </div>
+      </div>
+    <section class="content-section" id="osn-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Optika · Interferensi & Difraksi</span>
+        </div>
+        <div class="osn-title">Kisi Difraksi & Resolusi Teleskop</div>
+        <div class="osn-body">
+          <p>Sebuah kisi difraksi memiliki \(N = 600\) garis/mm. Cahaya dari sumber bintang yang mengandung dua panjang gelombang \(\lambda_1 = 589{,}0 \text{ nm}\) (garis D₁ natrium) dan \(\lambda_2 = 589{,}6 \text{ nm}\) (garis D₂ natrium) mengenai kisi secara tegak lurus.</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Tentukan sudut difraksi orde pertama dan kedua untuk \(\lambda_1\).</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Daya resolusi kisi didefinisikan \(R = \lambda/\Delta\lambda = mN\). Berapa orde difraksi minimum agar kedua garis natrium dapat terpisah (resolved)?</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Seberapa lebar bagian kisi yang harus diterangi untuk mencapai resolusi tersebut?</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(d)</span><span>Jika kisi ini dipasang pada teleskop dengan lensa objektif diameter \(D = 20 \text{ cm}\), bandingkan kemampuan resolusi kisi dengan batas difraksi Rayleigh teleskop (\(\theta_{min} = 1{,}22\lambda/D\)) untuk cahaya \(\lambda = 589 \text{ nm}\).</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Jarak antar garis: \(d = \dfrac{1}{600 \times 10^3 \text{ m}^{-1}} = 1{,}667 \times 10^{-6} \text{ m}\)</p>
+            <p>Orde 1: \(\sin\theta_1 = \dfrac{\lambda_1}{d} = \dfrac{589\times10^{-9}}{1{,}667\times10^{-6}} = 0{,}3533 \Rightarrow \theta_1 \approx \mathbf{20{,}67°}\)</p>
+            <p>Orde 2: \(\sin\theta_2 = \dfrac{2\lambda_1}{d} = 0{,}7066 \Rightarrow \theta_2 \approx \mathbf{44{,}9°}\)</p>
+            <p><strong>(b)</strong> Resolusi yang dibutuhkan: \(R_{min} = \dfrac{\lambda}{\Delta\lambda} = \dfrac{589{,}0}{0{,}6} \approx 982\)</p>
+            <p>Dari \(R = mN\): \(m_{min} = \dfrac{R_{min}}{N_{total}}\). Agar \(mN \geq 982\) dengan \(N\) dalam satuan penuh satu orde, orde minimum \(m=1\) membutuhkan \(N \geq 982\) garis tersinari. Cek: pada orde 1, \(R = 1 \times 982 = 982 \geq 982\). Jadi \(\mathbf{m_{min} = 1}\) sudah cukup asal 982 garis diterangi.</p>
+            <p><strong>(c)</strong> Lebar minimum kisi: \(W = N_{min} \times d = 982 \times 1{,}667\times10^{-6} \approx \mathbf{1{,}64 \text{ mm}}\)</p>
+            <p><strong>(d)</strong> Batas Rayleigh: \(\theta_{min} = \dfrac{1{,}22 \times 589\times10^{-9}}{0{,}20} = 3{,}59\times10^{-6} \text{ rad}\)</p>
+            <p>Resolusi sudut yang setara dengan \(\Delta\lambda = 0{,}6\text{ nm}\) pada orde 1: \(\Delta\theta = \dfrac{\cos\theta_1}{d} \Delta\lambda = \dfrac{\cos20{,}67°}{1{,}667\times10^{-6}}\times0{,}6\times10^{-9} \approx 3{,}37\times10^{-4} \text{ rad}\)</p>
+            <p>Resolusi kisi (\(3{,}37\times10^{-4}\) rad) jauh lebih buruk dari batas difraksi teleskop (\(3{,}59\times10^{-6}\) rad). Artinya, <strong>batas resolusi teleskop ditentukan oleh apertur lensa, bukan oleh kisi</strong> — untuk memisahkan dua bintang, teleskop jauh lebih unggul.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="grid"></i> Interferensi Young — Celah Ganda</div>
+        <svg viewBox="0 0 520 190" class="diagram-svg" aria-label="Interferensi Young celah ganda">
+          <defs>
+            <marker id="arr-yng" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-yng2" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+          </defs>
+          <!-- Sumber cahaya -->
+          <circle cx="30" cy="95" r="12" fill="rgba(201,168,76,0.3)" stroke="#C9A84C" stroke-width="2"/>
+          <text x="30" y="99" font-size="8" fill="#C9A84C" text-anchor="middle">λ</text>
+          <text x="30" y="118" font-size="8" fill="#C9A84C" text-anchor="middle">Sumber</text>
+          <!-- Wavefronts from source -->
+          <path d="M42,95 Q65,72 65,95 Q65,118 42,95" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <!-- Barrier dengan dua celah -->
+          <rect x="130" y="20" width="10" height="55" rx="2" fill="rgba(65,90,119,0.5)" stroke="#415A77" stroke-width="1.5"/>
+          <rect x="130" y="85" width="10" height="30" rx="2" fill="rgba(65,90,119,0.5)" stroke="#415A77" stroke-width="1.5"/>
+          <rect x="130" y="125" width="10" height="55" rx="2" fill="rgba(65,90,119,0.5)" stroke="#415A77" stroke-width="1.5"/>
+          <text x="135" y="15" font-size="8" fill="#415A77" text-anchor="middle">Celah</text>
+          <text x="135" y="185" font-size="8" fill="#415A77" text-anchor="middle">ganda</text>
+          <!-- Celah atas (S1) -->
+          <circle cx="140" cy="73" r="3" fill="#4E9E9E"/>
+          <text x="150" y="70" font-size="8" fill="#4E9E9E">S₁</text>
+          <!-- Celah bawah (S2) -->
+          <circle cx="140" cy="115" r="3" fill="#4E9E9E"/>
+          <text x="150" y="120" font-size="8" fill="#4E9E9E">S₂</text>
+          <!-- Gap d -->
+          <line x1="118" y1="73" x2="118" y2="115" stroke="#C9A84C" stroke-width="1" marker-end="url(#arr-yng)"/>
+          <line x1="118" y1="115" x2="118" y2="73" stroke="#C9A84C" stroke-width="1" marker-end="url(#arr-yng)"/>
+          <text x="108" y="97" font-size="8.5" fill="#C9A84C" text-anchor="middle">d</text>
+          <!-- Rays from S1 -->
+          <line x1="140" y1="73" x2="400" y2="50" stroke="#4E9E9E" stroke-width="1.2"/>
+          <line x1="140" y1="73" x2="400" y2="95" stroke="#4E9E9E" stroke-width="1.2"/>
+          <!-- Rays from S2 -->
+          <line x1="140" y1="115" x2="400" y2="50" stroke="#C9A84C" stroke-width="1.2" stroke-dasharray="5,2"/>
+          <line x1="140" y1="115" x2="400" y2="95" stroke="#C9A84C" stroke-width="1.2"/>
+          <!-- Screen -->
+          <rect x="398" y="15" width="8" height="170" rx="2" fill="rgba(65,90,119,0.3)" stroke="#415A77" stroke-width="1.5"/>
+          <text x="402" y="10" font-size="8" fill="#415A77" text-anchor="middle">Layar</text>
+          <!-- Bright fringes on screen -->
+          <rect x="406" y="42" width="8" height="12" rx="1" fill="#E0E1DD" opacity="0.9"/>
+          <rect x="406" y="89" width="8" height="12" rx="1" fill="#E0E1DD"/>
+          <rect x="406" y="140" width="8" height="12" rx="1" fill="#E0E1DD" opacity="0.9"/>
+          <rect x="406" y="65" width="8" height="12" rx="1" fill="#E0E1DD" opacity="0.4"/>
+          <rect x="406" y="115" width="8" height="12" rx="1" fill="#E0E1DD" opacity="0.4"/>
+          <text x="420" y="50" font-size="7.5" fill="#E0E1DD">m=1</text>
+          <text x="420" y="100" font-size="7.5" fill="#E0E1DD">m=0 (tengah)</text>
+          <text x="420" y="150" font-size="7.5" fill="#E0E1DD">m=−1</text>
+          <!-- L label -->
+          <line x1="140" y1="175" x2="400" y2="175" stroke="#778DA9" stroke-width="1"/>
+          <text x="270" y="171" font-size="8.5" fill="#778DA9" text-anchor="middle">L</text>
+          <!-- Formulas -->
+          <rect x="48" y="28" width="78" height="50" rx="5" fill="rgba(13,27,42,0.7)" stroke="#415A77" stroke-width="0.8"/>
+          <text x="87" y="44" font-size="7.5" fill="#778DA9" text-anchor="middle" font-weight="700">Terang ke-m:</text>
+          <text x="87" y="57" font-size="8" fill="#C9A84C" text-anchor="middle" font-family="monospace">y = mλL/d</text>
+          <text x="87" y="70" font-size="7.5" fill="#4E9E9E" text-anchor="middle">Δy = λL/d</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="lapisan-tipis">
+      <h3 class="sub-heading">Interferensi pada Lapisan Tipis</h3>
+      <p>Terjadi antara sinar yang dipantulkan dari permukaan atas dan bawah lapisan tipis (mis. gelembung sabun, minyak di air).</p>
+      <div class="formula-box">
+        <div class="formula-label">Kondisi Interferensi (Pantulan Normal)</div>
+        <div class="formula-main">\[ 2nt = m\lambda \;\text{(destruktif)} \qquad 2nt = (m+\tfrac{1}{2})\lambda \;\text{(konstruktif)} \]</div>
+        <div class="formula-vars"><span>n</span> = indeks bias lapisan &nbsp;|&nbsp; <span>t</span> = tebal lapisan &nbsp;|&nbsp; Berlaku jika ada pergeseran fase 180° pada satu permukaan</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="circle"></i></div>
+        <div>Pergeseran fase 180° terjadi saat cahaya dipantulkan dari medium dengan n lebih besar. Gelembung sabun (n ≈ 1,33) di udara: ada geseran fase di permukaan luar, tidak ada di dalam.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="difraksi">
+      <h3 class="sub-heading">Difraksi</h3>
+      <h4 class="mini-heading">Difraksi Celah Tunggal</h4>
+      <div class="formula-box">
+        <div class="formula-label">Minimum Difraksi Celah Tunggal</div>
+        <div class="formula-main">\[ a\sin\theta = m\lambda \quad (m = \pm1, \pm2, \ldots) \]</div>
+        <div class="formula-vars"><span>a</span> = lebar celah. Pita tengah lebar 2λL/a, pita samping lebar λL/a.</div>
+      </div>
+
+      <h4 class="mini-heading">Kisi Difraksi</h4>
+      <div class="formula-box">
+        <div class="formula-label">Maksimum Kisi Difraksi</div>
+        <div class="formula-main">\[ d\sin\theta = m\lambda \quad (m = 0, \pm1, \pm2, \ldots) \]</div>
+        <div class="formula-vars"><span>d</span> = jarak antar celah kisi = 1/N (N = jumlah garis per satuan panjang)</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Daya Resolusi Kisi</div>
+        <div class="formula-main">\[ R = \frac{\lambda}{\Delta\lambda} = mN \]</div>
+        <div class="formula-vars"><span>N</span> = total jumlah celah &nbsp;|&nbsp; <span>m</span> = orde difraksi</div>
+      </div>
+
+      <h4 class="mini-heading">Kriteria Rayleigh (Resolusi Optik)</h4>
+      <div class="formula-box">
+        <div class="formula-label">Sudut Resolusi Minimum</div>
+        <div class="formula-main">\[ \theta_{min} = 1{,}22\frac{\lambda}{D} \]</div>
+        <div class="formula-vars"><span>D</span> = diameter apertur (lensa/cermin)</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="polarisasi">
+      <h3 class="sub-heading">Polarisasi Cahaya</h3>
+      <p>Cahaya tak terpolarisasi bergetar di semua arah tegak lurus rambat. Polarisasi membatasi getaran pada satu arah saja.</p>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Hukum Malus</div>
+          <div class="formula-main">\[ I = I_0 \cos^2\theta \]</div>
+          <div class="formula-vars">θ = sudut antara arah polarisasi dan sumbu analis</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Sudut Brewster</div>
+          <div class="formula-main">\[ \tan\theta_B = \frac{n_2}{n_1} \]</div>
+          <div class="formula-vars">Pada θ_B cahaya pantul terpolarisasi sempurna</div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="eye"></i></div>
+        <div>Kacamata polaroid memanfaatkan efek Brewster untuk mengurangi silau dari permukaan horizontal (air, jalan). Layar LCD menggunakan polarisasi silang untuk kontrol cahaya.</div>
+      </div>
+    </section>
+
+    <!-- ALAT OPTIK -->
+    <section class="content-section" id="alat-optik">
+      <h2 class="section-heading"><span class="icon"><i data-feather="eye"></i></span> Alat-Alat Optik</h2>
+    </section>
+
+    <section class="content-section" id="mata">
+      <h3 class="sub-heading">Mata Manusia & Cacat Mata</h3>
+      <table class="data-table">
+        <thead><tr><th>Cacat Mata</th><th>Penyebab</th><th>Koreksi</th><th>Kuat Lensa</th></tr></thead>
+        <tbody>
+          <tr><td>Miopi (rabun jauh)</td><td>Titik jauh &lt; ∞ (= PR)</td><td>Lensa divergen (cekung)</td><td>\(P = -\frac{1}{PR}\) (D)</td></tr>
+          <tr><td>Hipermetropi (rabun dekat)</td><td>Titik dekat > 25 cm (= PP)</td><td>Lensa konvergen (cembung)</td><td>\(P = \frac{1}{PP} - 4\) (D)</td></tr>
+          <tr><td>Presbiopi</td><td>Daya akomodasi berkurang (usia)</td><td>Bifocal / kacamata baca</td><td>—</td></tr>
+          <tr><td>Astigmatisme</td><td>Kornea tidak sferis</td><td>Lensa silindris</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="eye"></i></div>
+        <div>Titik dekat mata normal = 25 cm (PP normal). Titik jauh mata normal = ∞. Jangkauan akomodasi = 1/PP − 1/PR.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="lup">
+      <h3 class="sub-heading">Lup (Kaca Pembesar)</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Perbesaran (Mata Berakomodasi Maks)</div>
+          <div class="formula-main">\[ M = \frac{25}{f} + 1 \]</div>
+          <div class="formula-vars">Benda diletakkan di titik fokus lup</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Perbesaran (Mata Tak Berakomodasi)</div>
+          <div class="formula-main">\[ M = \frac{25}{f} \]</div>
+          <div class="formula-vars">Benda tepat di titik fokus</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="mikroskop">
+      <h3 class="sub-heading">Mikroskop</h3>
+      <p>Mikroskop menggunakan dua lensa: objektif (f_ob kecil) dan okuler (f_ok).</p>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Perbesaran Total Mikroskop</div>
+        <div class="formula-main">\[ M = M_{ob} \times M_{ok} = \frac{s'_{ob}}{s_{ob}} \times \frac{25}{f_{ok}} \]</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Perbesaran Objektif (Pendekatan)</div>
+        <div class="formula-main">\[ M_{ob} \approx \frac{d}{f_{ob}} \]</div>
+        <div class="formula-vars"><span>d</span> = panjang tabung mikroskop (jarak antara titik fokus ob dan ok) ≈ 15–20 cm</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="teleskop">
+      <h3 class="sub-heading">Teleskop</h3>
+      <div class="two-col">
+        <div>
+          <h4 class="mini-heading">Teleskop Refraksi (Lensa)</h4>
+          <div class="formula-box">
+            <div class="formula-label">Perbesaran Angular</div>
+            <div class="formula-main">\[ M = \frac{f_{ob}}{f_{ok}} \]</div>
+            <div class="formula-vars">Panjang tabung = f_ob + f_ok</div>
+          </div>
+        </div>
+        <div>
+          <h4 class="mini-heading">Teleskop Refleksi (Cermin)</h4>
+          <div class="formula-box">
+            <div class="formula-label">Perbesaran</div>
+            <div class="formula-main">\[ M = \frac{f_{cermin}}{f_{ok}} \]</div>
+            <div class="formula-vars">Digunakan pada observatorium besar</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="search"></i></div>
+        <div>Teleskop Hubble Space Telescope memiliki cermin utama berdiameter 2,4 m dan beroperasi di orbit bumi untuk menghindari aberasi atmosfer.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

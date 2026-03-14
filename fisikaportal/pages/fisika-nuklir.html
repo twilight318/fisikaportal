@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisika Nuklir — FisikaPortal</title>
+  <meta name="description" content="Materi fisika nuklir meliputi struktur inti atom, defek massa, energi ikat, radioaktivitas, peluruhan alfa beta gamma, serta reaksi fisi dan fusi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(34, 139, 34, 0.1) 0%, rgba(34, 139, 34, 0.05) 100%);"></div>
+  <div class="header-ghost">NUKLIR</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Fisika Nuklir</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Fisika Nuklir</span></h1>
+  <p class="page-desc">Struktur inti atom, radioaktivitas, jenis peluruhan, serta reaksi fisi dan fusi.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="circle"></i>Struktur Inti</span>
+        <span class="page-tag"><i data-feather="alert-triangle"></i>Radioaktivitas</span>
+        <span class="page-tag"><i data-feather="clock"></i>Waktu Paruh</span>
+        <span class="page-tag"><i data-feather="zap"></i>Fisi & Fusi</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="circle"></i>Struktur Inti</div>
+      <a class="sb-link" href="#struktur-inti"><i data-feather="chevron-right"></i>Proton & Neutron</a>
+      <a class="sb-link" href="#defek-massa"><i data-feather="battery-charging"></i>Defek Massa & Energi Ikat</a>
+      <a class="sb-link" href="#gaya-nuklir"><i data-feather="zap"></i>Gaya Nuklir Kuat</a>
+      <a class="sb-link" href="#stabilitas"><i data-feather="shield"></i>Stabilitas Inti</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="alert-triangle"></i>Radioaktivitas</div>
+      <a class="sb-link" href="#radioaktivitas"><i data-feather="chevron-right"></i>Definisi & Aktivitas</a>
+      <a class="sb-link" href="#peluruhan"><i data-feather="arrow-down"></i>Jenis Peluruhan</a>
+      <a class="sb-link" href="#waktu-paruh"><i data-feather="arrow-down"></i>Waktu Paruh & Peluruhan</a>
+      <a class="sb-link" href="#rantai-peluruhan"><i data-feather="arrow-down"></i>Rantai Peluruhan</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="zap"></i>Reaksi Nuklir</div>
+      <a class="sb-link" href="#reaksi-nuklir"><i data-feather="zap"></i>Dasar Reaksi Nuklir</a>
+      <a class="sb-link" href="#fisi"><i data-feather="zap"></i>Fisi Nuklir</a>
+      <a class="sb-link" href="#fusi"><i data-feather="sun"></i>Fusi Nuklir</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="briefcase"></i>Aplikasi</div>
+      <a class="sb-link" href="#aplikasi"><i data-feather="briefcase"></i>Aplikasi Nuklir</a>
+      <a class="sb-link" href="#proteksi"><i data-feather="shield"></i>Proteksi Radiasi</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-soal"><i data-feather="star"></i>Contoh Soal</a>
+    </div>
+    </aside>
+
+  <main class="main-content">
+
+    <!-- STRUKTUR INTI -->
+    <section class="content-section" id="struktur-inti">
+      <h2 class="section-heading"><span class="icon"><i data-feather="alert-triangle"></i></span> Struktur Inti Atom</h2>
+      <h3 class="sub-heading">Proton & Neutron</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Notasi Nuklida</div>
+        <div class="formula-main">\[ {}^{A}_{Z}\text{X} \]</div>
+        <div class="formula-vars">
+          <span>Z</span> = nomor atom (jumlah proton) &nbsp;|&nbsp;
+          <span>A</span> = nomor massa (jumlah proton + neutron) &nbsp;|&nbsp;
+          <span>N = A − Z</span> = jumlah neutron
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Partikel</th><th>Muatan</th><th>Massa (u)</th><th>Massa (kg)</th></tr></thead>
+        <tbody>
+          <tr><td>Proton (p)</td><td>+e = +1,602×10⁻¹⁹ C</td><td>1,007276 u</td><td>1,673×10⁻²⁷ kg</td></tr>
+          <tr><td>Neutron (n)</td><td>0</td><td>1,008665 u</td><td>1,675×10⁻²⁷ kg</td></tr>
+          <tr><td>Elektron (e)</td><td>−e</td><td>0,000549 u</td><td>9,109×10⁻³¹ kg</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="ruler"></i></div>
+        <div>1 u (satuan massa atom) = 1,66054 × 10⁻²⁷ kg = 931,5 MeV/c². Jari-jari inti: \(R = R_0 A^{1/3}\) dengan R₀ ≈ 1,2 fm (femtometer).</div>
+      </div>
+      <p><strong>Isotop:</strong> nuklida dengan Z sama, A berbeda. Contoh: ¹H, ²H (deuterium), ³H (tritium).</p>
+      <p><strong>Isobar:</strong> nuklida dengan A sama, Z berbeda. <strong>Isoton:</strong> nuklida dengan N sama, Z berbeda.</p>
+    </section>
+
+    <section class="content-section" id="defek-massa">
+      <h3 class="sub-heading">Defek Massa & Energi Ikat Inti</h3>
+      <p>Massa inti selalu <em>lebih kecil</em> dari jumlah massa proton dan neutron penyusunnya. Selisihnya disebut <strong>defek massa</strong>, yang dikonversi menjadi energi ikat.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Defek Massa</div>
+        <div class="formula-main">\[ \Delta m = Z\,m_p + N\,m_n - m_{inti} \]</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Energi Ikat (Binding Energy)</div>
+        <div class="formula-main">\[ E_B = \Delta m \cdot c^2 = \Delta m \times 931{,}5 \text{ MeV/u} \]</div>
+        <div class="formula-vars">Semakin besar E_B per nukleon → semakin stabil inti</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Energi Ikat per Nukleon</div>
+        <div class="formula-main">\[ \varepsilon = \frac{E_B}{A} \]</div>
+        <div class="formula-vars">Puncak stabilitas: sekitar ⁵⁶Fe (E_B/A ≈ 8,79 MeV/nukleon)</div>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Inti ringan (A &lt; 56) bertambah stabil melalui <strong>fusi</strong>. Inti berat (A &gt; 56) bertambah stabil melalui <strong>fisi</strong>. Keduanya melepaskan energi.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="gaya-nuklir">
+      <h3 class="sub-heading">Gaya Nuklir Kuat (Strong Force)</h3>
+      <ul class="content-list">
+        <li>Bekerja antara nukleon (p–p, p–n, n–n) tanpa memandang muatan</li>
+        <li>Jangkauan sangat pendek: hanya efektif dalam ~ 2–3 fm</li>
+        <li>Pada jarak sangat dekat (&lt;0,5 fm) bersifat repulsif (mencegah runtuhnya inti)</li>
+        <li>Jauh lebih kuat dari gaya elektromagnetik pada jarak nuklir (~137× lebih kuat)</li>
+        <li>Dibawa oleh partikel perantara: meson pion (π)</li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="stabilitas">
+      <h3 class="sub-heading">Stabilitas Inti & Pita Stabilitas</h3>
+      <p>Plot jumlah proton (Z) vs neutron (N) menunjukkan "pita stabilitas" — inti stabil terkonsentrasi di sepanjang garis N ≈ Z (untuk inti ringan) hingga N/Z ≈ 1,5 (untuk inti berat).</p>
+      <ul class="content-list">
+        <li>Inti di atas pita (terlalu banyak neutron) → meluruh beta⁻</li>
+        <li>Inti di bawah pita (terlalu banyak proton) → meluruh beta⁺ atau tangkap elektron</li>
+        <li>Inti sangat berat (Z &gt; 83) → peluruhan alpha</li>
+      </ul>
+    </section>
+
+    <!-- RADIOAKTIVITAS -->
+    <section class="content-section" id="radioaktivitas">
+      <h2 class="section-heading"><span class="icon"><i data-feather="circle"></i></span> Radioaktivitas</h2>
+      <h3 class="sub-heading">Definisi & Aktivitas</h3>
+      <div class="definition">
+        <strong>Radioaktivitas</strong> adalah kemampuan inti atom yang tidak stabil untuk meluruh secara spontan dengan memancarkan radiasi dan bertransformasi menjadi inti lain.
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Aktivitas</div>
+          <div class="formula-main">\[ A = \lambda N = -\frac{dN}{dt} \]</div>
+          <div class="formula-vars">Satuan: 1 Becquerel (Bq) = 1 peluruhan/s &nbsp;|&nbsp; 1 Curie (Ci) = 3,7×10¹⁰ Bq</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Konstanta Peluruhan</div>
+          <div class="formula-main">\[ \lambda = \frac{\ln 2}{T_{1/2}} = \frac{0{,}693}{T_{1/2}} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="peluruhan">
+      <h3 class="sub-heading">Jenis Peluruhan Radioaktif</h3>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Peluruhan Alpha (α)</div>
+          <p>Memancarkan inti helium: \({}^4_2\text{He}\)</p>
+          <p>\[{}^A_Z\text{X} \to {}^{A-4}_{Z-2}\text{Y} + {}^4_2\alpha\]</p>
+          <p>Jangkauan pendek di udara (~cm). Dihentikan kertas. Ionisasi kuat.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Peluruhan Beta (β)</div>
+          <p><strong>β⁻:</strong> neutron → proton + elektron + antineutrino</p>
+          <p>\[{}^A_Z\text{X} \to {}^A_{Z+1}\text{Y} + e^- + \bar{\nu}_e\]</p>
+          <p><strong>β⁺:</strong> proton → neutron + positron + neutrino</p>
+          <p>\[{}^A_Z\text{X} \to {}^A_{Z-1}\text{Y} + e^+ + \nu_e\]</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Peluruhan Gamma (γ)</div>
+          <p>Foton berenergi tinggi dipancarkan ketika inti bertransisi dari keadaan tereksitasi ke dasar.</p>
+          <p>\[{}^A_Z\text{X}^* \to {}^A_Z\text{X} + \gamma\]</p>
+          <p>Tidak ada perubahan Z atau A. Penetrasi sangat tinggi.</p>
+        </div>
+      </div>
+      <div class="info-card pink" style="margin-top:16px">
+        <div class="info-card-title">Tangkap Elektron (Electron Capture)</div>
+        <p>Inti menangkap elektron orbit terdalam → proton + elektron → neutron + neutrino:</p>
+        <p>\[{}^A_Z\text{X} + e^- \to {}^A_{Z-1}\text{Y} + \nu_e\]</p>
+        <p>Diikuti emisi sinar-X karakteristik dari pengisian kembali orbit elektron.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="waktu-paruh">
+      <h3 class="sub-heading">Waktu Paruh & Hukum Peluruhan</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Hukum Peluruhan Radioaktif</div>
+        <div class="formula-main">\[ N(t) = N_0 e^{-\lambda t} = N_0 \left(\frac{1}{2}\right)^{t/T_{1/2}} \]</div>
+        <div class="formula-vars">
+          <span>N₀</span> = jumlah inti awal &nbsp;|&nbsp;
+          <span>λ</span> = konstanta peluruhan &nbsp;|&nbsp;
+          <span>T₁/₂</span> = waktu paruh (waktu untuk N berkurang menjadi setengahnya)
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Aktivitas sebagai Fungsi Waktu</div>
+        <div class="formula-main">\[ A(t) = A_0 e^{-\lambda t} \quad\text{di mana}\quad A_0 = \lambda N_0 \]</div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Nuklida</th><th>Jenis Peluruhan</th><th>Waktu Paruh</th><th>Kegunaan</th></tr></thead>
+        <tbody>
+          <tr><td>Karbon-14 (¹⁴C)</td><td>β⁻</td><td>5.730 tahun</td><td>Penanggalan radiokarbon</td></tr>
+          <tr><td>Uranium-238 (²³⁸U)</td><td>α</td><td>4,5 × 10⁹ tahun</td><td>Penanggalan geologi</td></tr>
+          <tr><td>Iodium-131 (¹³¹I)</td><td>β⁻, γ</td><td>8,02 hari</td><td>Terapi tiroid</td></tr>
+          <tr><td>Teknesium-99m (⁹⁹ᵐTc)</td><td>γ</td><td>6,02 jam</td><td>Pencitraan medis</td></tr>
+          <tr><td>Radon-222 (²²²Rn)</td><td>α</td><td>3,82 hari</td><td>Polutan udara</td></tr>
+          <tr><td>Kobalt-60 (⁶⁰Co)</td><td>β⁻, γ</td><td>5,27 tahun</td><td>Radioterapi kanker</td></tr>
+        </tbody>
+      </table>
+
+    <section class="content-section" id="osn-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Fisika Nuklir · Peluruhan & Defek Massa</span>
+        </div>
+        <div class="osn-title">Rantai Peluruhan Ganda & Energi Ikat</div>
+        <div class="osn-body">
+          <p>Nuklida \(^{210}\text{Po}\) meluruh secara alfa menjadi \(^{206}\text{Pb}\). Data massa atomik: \(m(^{210}\text{Po}) = 209{,}982874 \text{ u}\), \(m(^{206}\text{Pb}) = 205{,}974465 \text{ u}\), \(m(^4\text{He}) = 4{,}002602 \text{ u}\). \(1 \text{ u} = 931{,}5 \text{ MeV}/c^2\).</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Hitung energi peluruhan \(Q\) dalam satuan MeV. Berapa persen energi yang dibawa partikel alfa?</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Sampel \(^{210}\text{Po}\) bermassa \(m_0 = 1{,}0 \;\mu\text{g}\) memiliki waktu paruh \(T_{1/2} = 138{,}4 \text{ hari}\). Hitung aktivitas awal sampel dalam satuan Becquerel (Bq) dan Curie (Ci). \((1 \text{ Ci} = 3{,}7\times10^{10} \text{ Bq})\)</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Setelah berapa hari aktivitas sampel turun menjadi tepat \(\frac{1}{10}\) aktivitas awal?</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(d)</span><span>Hitunglah energi ikat per nukleon dari \(^{206}\text{Pb}\). Bandingkan dengan nilai rata-rata inti stabil (~8,5 MeV/nukleon) dan jelaskan mengapa \(^{206}\text{Pb}\) sangat stabil. Data: \(m_p = 1{,}007825 \text{ u}\), \(m_n = 1{,}008665 \text{ u}\), \(^{206}\text{Pb}\) memiliki 82 proton.</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Defek massa: \(\Delta m = m(^{210}\text{Po}) - m(^{206}\text{Pb}) - m(^4\text{He})\)</p>
+            <p>\[\Delta m = 209{,}982874 - 205{,}974465 - 4{,}002602 = 0{,}005807 \text{ u}\]</p>
+            <p>\[Q = 0{,}005807 \times 931{,}5 = \mathbf{5{,}407 \text{ MeV}}\]</p>
+            <p>Energi alfa (kekekalan momentum, \(p_\alpha = p_{Pb}\)): \(K_\alpha = Q \times \dfrac{M_{Pb}}{M_{Pb}+M_\alpha} = 5{,}407 \times \dfrac{206}{210} \approx \mathbf{5{,}305 \text{ MeV}}\) (98,1%).</p>
+            <p><strong>(b)</strong> Jumlah inti awal: \(N_0 = \dfrac{m_0 N_A}{M} = \dfrac{1{,}0\times10^{-9} \times 6{,}022\times10^{23}}{210} = 2{,}868\times10^{12} \text{ inti}\)</p>
+            <p>Konstanta peluruhan: \(\lambda = \dfrac{\ln 2}{T_{1/2}} = \dfrac{0{,}6931}{138{,}4 \times 86400} = 5{,}799\times10^{-8} \text{ s}^{-1}\)</p>
+            <p>\[A_0 = \lambda N_0 = 5{,}799\times10^{-8} \times 2{,}868\times10^{12} = \mathbf{1{,}663\times10^5 \text{ Bq}}\]</p>
+            <p>\[A_0 = \frac{1{,}663\times10^5}{3{,}7\times10^{10}} \approx 4{,}49\times10^{-6} \text{ Ci} = \mathbf{4{,}49\;\mu\text{Ci}}\]</p>
+            <p><strong>(c)</strong> \(A = A_0 e^{-\lambda t} = \dfrac{A_0}{10}\). Maka \(e^{-\lambda t} = \tfrac{1}{10}\), sehingga:</p>
+            <p>\[t = \frac{\ln 10}{\lambda} = T_{1/2}\frac{\ln 10}{\ln 2} = 138{,}4 \times \frac{2{,}3026}{0{,}6931} \approx \mathbf{459{,}7 \text{ hari}}\]</p>
+            <p><strong>(d)</strong> \(^{206}\text{Pb}\): 82 proton, \(N = 206 - 82 = 124\) neutron.</p>
+            <p>\[\Delta m = 82(1{,}007825) + 124(1{,}008665) - 205{,}974465\]</p>
+            <p>\[= 82{,}64165 + 124{,}67446 - 205{,}974465 = 1{,}34165 \text{ u}\]</p>
+            <p>\[BE = 1{,}34165 \times 931{,}5 = 1249{,}2 \text{ MeV} \Rightarrow \frac{BE}{A} = \frac{1249{,}2}{206} \approx \mathbf{6{,}064 \text{ MeV/nukleon}}\]</p>
+            <p>\(^{206}\text{Pb}\) stabil karena merupakan nuklida akhir rantai peluruhan uranium-238 (nuklida "magic number" dengan \(Z=82\) yang merupakan bilangan ajaib proton), serta memiliki rasio \(N/Z\) yang optimal untuk inti berat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="rantai-peluruhan">
+      <h3 class="sub-heading">Rantai Peluruhan</h3>
+      <p>Nuklida berat sering meluruh melalui serangkaian peluruhan alfa dan beta sebelum mencapai inti stabil.</p>
+      <div class="info-card blue">
+        <div class="info-card-title">Deret Uranium-238</div>
+        <p>²³⁸U → ²³⁴Th → ²³⁴Pa → ²³⁴U → ²³⁰Th → ²²⁶Ra → ²²²Rn → ²¹⁸Po → ²¹⁴Pb → ²¹⁴Bi → ²¹⁴Po → ²¹⁰Pb → ²¹⁰Bi → ²¹⁰Po → <strong>²⁰⁶Pb (stabil)</strong></p>
+        <p>Melibatkan 8 peluruhan alfa dan 6 peluruhan beta.</p>
+      </div>
+    </section>
+
+    <!-- REAKSI NUKLIR -->
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="clock"></i> Grafik Peluruhan Radioaktif — Waktu Paruh</div>
+        <svg viewBox="0 0 520 200" class="diagram-svg" aria-label="Grafik peluruhan radioaktif">
+          <defs>
+            <marker id="arr-nuk" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+          </defs>
+          <!-- Axes -->
+          <line x1="55" y1="165" x2="420" y2="165" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-nuk)"/>
+          <line x1="55" y1="165" x2="55" y2="20" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-nuk)"/>
+          <text x="425" y="169" font-size="11" fill="#778DA9" font-family="monospace">t</text>
+          <text x="38" y="18" font-size="11" fill="#778DA9" font-family="monospace">N</text>
+          <!-- Decay curve -->
+          <path d="M55,30 Q120,50 180,90 Q240,120 300,142 Q360,155 415,162" stroke="#C96060" stroke-width="2.5" fill="none"/>
+          <!-- N0 -->
+          <line x1="45" y1="30" x2="55" y2="30" stroke="#C96060" stroke-width="1.5"/>
+          <text x="20" y="34" font-size="9" fill="#C96060">N₀</text>
+          <!-- N0/2 -->
+          <line x1="45" y1="90" x2="180" y2="90" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="180" y1="90" x2="180" y2="165" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="20" y="94" font-size="9" fill="#C9A84C">N₀/2</text>
+          <text x="164" y="177" font-size="9" fill="#C9A84C">t½</text>
+          <!-- N0/4 -->
+          <line x1="45" y1="128" x2="300" y2="128" stroke="#778DA9" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+          <line x1="300" y1="128" x2="300" y2="165" stroke="#778DA9" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="20" y="132" font-size="8" fill="#778DA9">N₀/4</text>
+          <text x="288" y="177" font-size="8" fill="#778DA9">2t½</text>
+          <!-- N0/8 -->
+          <line x1="45" y1="148" x2="415" y2="148" stroke="#778DA9" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.4"/>
+          <text x="20" y="152" font-size="7" fill="#415A77">N₀/8</text>
+          <text x="408" y="177" font-size="8" fill="#415A77">3t½</text>
+          <!-- Formula overlay -->
+          <rect x="290" y="25" width="205" height="90" rx="8" fill="rgba(13,27,42,0.75)" stroke="#415A77" stroke-width="1"/>
+          <text x="392" y="46" font-size="9.5" fill="#778DA9" text-anchor="middle" font-weight="700">RUMUS PELURUHAN</text>
+          <text x="392" y="63" font-size="10" fill="#C9A84C" text-anchor="middle" font-family="monospace">N(t) = N₀ e^(−λt)</text>
+          <text x="392" y="79" font-size="9" fill="#E0E1DD" text-anchor="middle">λ = ln2 / t½</text>
+          <text x="392" y="94" font-size="9" fill="#4E9E9E" text-anchor="middle">A = λN (aktivitas, Bq)</text>
+          <text x="392" y="107" font-size="8" fill="#778DA9" text-anchor="middle">t½ = 0,693 / λ</text>
+        </svg>
+      </div>
+
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="arrow-down"></i> Jenis Peluruhan Radioaktif — Sifat Radiasi</div>
+        <svg viewBox="0 0 540 185" class="diagram-svg" aria-label="Jenis peluruhan">
+          <defs>
+            <marker id="arr-al" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C9A84C"/></marker>
+            <marker id="arr-be" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4E9E9E"/></marker>
+            <marker id="arr-ga" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#778DA9"/></marker>
+          </defs>
+          <!-- Source -->
+          <circle cx="60" cy="92" r="22" fill="rgba(201,168,76,0.3)" stroke="#C9A84C" stroke-width="2"/>
+          <text x="60" y="88" font-size="8.5" fill="#C9A84C" text-anchor="middle" font-weight="700">Sumber</text>
+          <text x="60" y="100" font-size="8" fill="#C9A84C" text-anchor="middle">Radioak.</text>
+          <!-- Plates for deflection (optional) -->
+          <rect x="155" y="20" width="8" height="145" rx="2" fill="rgba(78,158,158,0.15)" stroke="#415A77" stroke-width="1"/>
+          <text x="159" y="14" font-size="7" fill="#415A77" text-anchor="middle">+</text>
+          <text x="159" y="174" font-size="7" fill="#415A77" text-anchor="middle">−</text>
+          <!-- Alpha (deflects toward negative plate, heavy, short range) -->
+          <path d="M82,92 L155,72" stroke="#C9A84C" stroke-width="2.5" marker-end="url(#arr-al)"/>
+          <text x="118" y="68" font-size="8.5" fill="#C9A84C" font-weight="700">α</text>
+          <path d="M155,72 L240,65" stroke="#C9A84C" stroke-width="2" opacity="0.5" stroke-dasharray="4,3"/>
+          <rect x="240" y="48" width="140" height="36" rx="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="310" y="63" font-size="8.5" fill="#C9A84C" text-anchor="middle">⁴₂He — Jangkauan pendek</text>
+          <text x="310" y="77" font-size="8" fill="#C9A84C" text-anchor="middle">Berdaya ionisasi tinggi</text>
+          <!-- Beta (deflects toward positive plate, medium) -->
+          <path d="M82,92 L155,108" stroke="#4E9E9E" stroke-width="2.5" marker-end="url(#arr-be)"/>
+          <text x="120" y="115" font-size="8.5" fill="#4E9E9E" font-weight="700">β</text>
+          <path d="M155,108 L240,115" stroke="#4E9E9E" stroke-width="2" opacity="0.5" stroke-dasharray="4,3"/>
+          <rect x="240" y="98" width="140" height="36" rx="5" fill="rgba(78,158,158,0.1)" stroke="#4E9E9E" stroke-width="1"/>
+          <text x="310" y="113" font-size="8.5" fill="#4E9E9E" text-anchor="middle">e⁻ (atau e⁺) — Jangkauan sedang</text>
+          <text x="310" y="127" font-size="8" fill="#4E9E9E" text-anchor="middle">Menembus Al tipis</text>
+          <!-- Gamma (straight, no deflection) -->
+          <path d="M82,92 L155,92" stroke="#778DA9" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#arr-ga)"/>
+          <path d="M155,92 L240,92" stroke="#778DA9" stroke-width="2" stroke-dasharray="5,2" opacity="0.6"/>
+          <text x="180" y="84" font-size="8.5" fill="#778DA9" font-weight="700">γ</text>
+          <rect x="240" y="74" width="140" height="36" rx="5" fill="rgba(119,141,169,0.1)" stroke="#778DA9" stroke-width="1"/>
+          <text x="310" y="89" font-size="8.5" fill="#778DA9" text-anchor="middle">Foton γ — Jangkauan sangat jauh</text>
+          <text x="310" y="103" font-size="8" fill="#778DA9" text-anchor="middle">Perlu timbal/beton tebal</text>
+          <!-- Electric field label -->
+          <text x="172" y="165" font-size="8" fill="#415A77" text-anchor="middle" transform="rotate(-90,172,165)">Medan Listrik</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="reaksi-nuklir">
+      <h2 class="section-heading"><span class="icon"><i data-feather="zap"></i></span> Reaksi Nuklir</h2>
+      <h3 class="sub-heading">Dasar Reaksi Nuklir</h3>
+      <p>Dalam semua reaksi nuklir, berlaku hukum kekekalan:</p>
+      <ul class="content-list check">
+        <li>Nomor massa total (A)</li>
+        <li>Nomor atom total (Z)</li>
+        <li>Energi total (termasuk energi diam mc²)</li>
+        <li>Momentum linear & sudut</li>
+        <li>Muatan listrik total</li>
+      </ul>
+      <div class="formula-box">
+        <div class="formula-label">Q-Nilai Reaksi</div>
+        <div class="formula-main">\[ Q = (m_{reaktan} - m_{produk})c^2 \]</div>
+        <div class="formula-vars">Q &gt; 0: reaksi eksoterm (melepas energi) &nbsp;|&nbsp; Q &lt; 0: reaksi endoterm (menyerap energi)</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="fisi">
+      <h3 class="sub-heading">Fisi Nuklir</h3>
+      <p>Inti berat membelah menjadi dua fragmen medium, disertai pelepasan beberapa neutron dan energi besar.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Contoh Reaksi Fisi Uranium-235</div>
+        <div class="formula-main">\[ {}^1_0n + {}^{235}_{92}\text{U} \to {}^{141}_{56}\text{Ba} + {}^{92}_{36}\text{Kr} + 3\,{}^1_0n + \text{energi} \]</div>
+        <div class="formula-vars">Energi yang dilepas per fisi: ~200 MeV = 3,2 × 10⁻¹¹ J (bandingkan reaksi kimia: ~1–10 eV)</div>
+      </div>
+      <div class="two-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Reaksi Berantai</div>
+          <p>Neutron dari fisi memicu fisi lain → reaksi berantai. Faktor multiplikasi <strong>k</strong>:</p>
+          <p>k &lt; 1: sub-kritis | k = 1: kritis | k &gt; 1: super-kritis (bom)</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Massa Kritis</div>
+          <p>Massa minimum bahan fisil agar reaksi berantai dapat berlangsung sendiri. Untuk ²³⁵U murni: ~52 kg. Dengan reflektor neutron: bisa jauh lebih kecil.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="fusi">
+      <h3 class="sub-heading">Fusi Nuklir</h3>
+      <p>Dua inti ringan bergabung membentuk inti yang lebih berat dan melepaskan energi besar. Ini adalah sumber energi bintang.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-teal)">
+        <div class="formula-label">Reaksi D-T (Kandidat Utama Fusi)</div>
+        <div class="formula-main">\[ {}^2_1\text{H} + {}^3_1\text{H} \to {}^4_2\text{He} + {}^1_0n + 17{,}6 \text{ MeV} \]</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Reaksi di Matahari (Rantai p-p)</div>
+        <div class="formula-main">\[ 4\,{}^1_1\text{H} \to {}^4_2\text{He} + 2e^+ + 2\nu_e + 26{,}7 \text{ MeV} \]</div>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="star"></i></div>
+        <div>Fusi memerlukan suhu sangat tinggi (~10⁷–10⁸ K) untuk mengatasi penghalang Coulomb. Matahari mencapai kondisi ini karena massanya yang besar. ITER (reaktor fusi internasional) sedang dibangun di Prancis.</div>
+      </div>
+    </section>
+
+    <!-- APLIKASI -->
+    <section class="content-section" id="aplikasi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="briefcase"></i></span> Aplikasi Fisika Nuklir</h2>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Kedokteran Nuklir</div>
+          <ul class="content-list">
+            <li>PET scan (Positron Emission Tomography)</li>
+            <li>Radioterapi tumor dengan ⁶⁰Co, sinar-X</li>
+            <li>Scintigrafi dengan ⁹⁹ᵐTc</li>
+            <li>Brachytherapy (radioaktif dalam tubuh)</li>
+          </ul>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Energi Nuklir</div>
+          <ul class="content-list">
+            <li>Reaktor fisi PLTN (PWR, BWR)</li>
+            <li>Penelitian reaktor fusi (ITER)</li>
+            <li>Generator termoelektrik nuklir (RTG) untuk wahana antariksa</li>
+          </ul>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Sains & Industri</div>
+          <ul class="content-list">
+            <li>Penanggalan radiokarbon (arkeologi)</li>
+            <li>Iradiasi makanan (sterilisasi)</li>
+            <li>Uji tidak merusak (NDT) dengan radiografi</li>
+            <li>Deteksi bahan berbahaya</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="proteksi">
+      <h3 class="sub-heading">Proteksi Radiasi</h3>
+      <table class="data-table">
+        <thead><tr><th>Besaran</th><th>Satuan SI</th><th>Definisi</th></tr></thead>
+        <tbody>
+          <tr><td>Dosis Serap</td><td>Gray (Gy) = J/kg</td><td>Energi radiasi per satuan massa</td></tr>
+          <tr><td>Dosis Ekivalen</td><td>Sievert (Sv)</td><td>Dosis serap × faktor bobot radiasi (W_R)</td></tr>
+          <tr><td>Dosis Efektif</td><td>Sievert (Sv)</td><td>Dosis ekivalen × faktor bobot jaringan</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warning">
+        <div class="callout-icon"><i data-feather="alert-triangle"></i></div>
+        <div>Faktor bobot radiasi: foton/elektron = 1, neutron = 5–20, partikel alfa = 20. Batas dosis radiasi pekerja nuklir: 20 mSv/tahun (IAEA). Publik umum: 1 mSv/tahun.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termodinamika — FisikaPortal</title>
+  <meta name="description" content="Hukum termodinamika, teori kinetik gas, mesin Carnot, entropi, dan proses termodinamika isotermal, isobarik, isokhorik, adiabatik." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);"></div>
+  <div class="header-ghost">TERMO</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Termodinamika</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Termodinamika</span></h1>
+  <p class="page-desc">Panas, kerja, dan energi — dari teori kinetik gas hingga mesin Carnot dan entropi.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="thermometer"></i>Gas Ideal</span>
+        <span class="page-tag"><i data-feather="cpu"></i>Carnot</span>
+        <span class="page-tag"><i data-feather="shuffle"></i>Entropi</span>
+        <span class="page-tag"><i data-feather="sun"></i>Transfer Kalor</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="thermometer"></i>Teori Kinetik Gas</div>
+      <a class="sb-link" href="#teori-kinetik"><i data-feather="thermometer"></i>Gas Ideal</a>
+      <a class="sb-link" href="#persamaan-gas"><i data-feather="thermometer"></i>Persamaan Keadaan Gas</a>
+      <a class="sb-link" href="#kecepatan-molekul"><i data-feather="chevrons-right"></i>Kecepatan Molekul</a>
+      <a class="sb-link" href="#ekipartisi"><i data-feather="battery-charging"></i>Ekipartisi Energi</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="layers"></i>Hukum Termodinamika</div>
+      <a class="sb-link" href="#hukum-0"><i data-feather="book"></i>Hukum ke-0</a>
+      <a class="sb-link" href="#hukum-1"><i data-feather="book"></i>Hukum I</a>
+      <a class="sb-link" href="#hukum-2"><i data-feather="book"></i>Hukum II</a>
+      <a class="sb-link" href="#hukum-3"><i data-feather="book"></i>Hukum III</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="sliders"></i>Proses Termodinamika</div>
+      <a class="sb-link" href="#proses"><i data-feather="sliders"></i>Keempat Proses</a>
+      <a class="sb-link" href="#diagram-pv"><i data-feather="bar-chart"></i>Diagram P-V</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="cpu"></i>Mesin Kalor</div>
+      <a class="sb-link" href="#mesin-kalor"><i data-feather="chevron-right"></i>Siklus Carnot</a>
+      <a class="sb-link" href="#efisiensi"><i data-feather="cpu"></i>Efisiensi Mesin</a>
+      <a class="sb-link" href="#pendingin"><i data-feather="cpu"></i>Mesin Pendingin</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="shuffle"></i>Entropi & Transfer</div>
+      <a class="sb-link" href="#entropi"><i data-feather="shuffle"></i>Entropi</a>
+      <a class="sb-link" href="#transfer-kalor"><i data-feather="sun"></i>Transfer Kalor</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="edit-3"></i>Latihan</div>
+      <a class="sb-link" href="#osn-soal"><i data-feather="star"></i>Contoh Soal</a>
+    </div>
+    </aside>
+
+  <main class="main-content">
+
+    <section class="content-section" id="teori-kinetik">
+      <h2 class="section-heading"><span class="icon"><i data-feather="zoom-in"></i></span> Teori Kinetik Gas</h2>
+      <h3 class="sub-heading">Gas Ideal</h3>
+      <div class="definition">
+        <strong>Gas Ideal</strong> adalah model gas hipotetis di mana: (1) partikel-partikel berbentuk bola keras tanpa volume, (2) tidak ada interaksi antarmolekul kecuali tumbukan elastis, (3) tumbukan dengan dinding bersifat elastis sempurna.
+      </div>
+      <p>Dalam kenyataan, gas nyata mendekati gas ideal pada tekanan rendah dan suhu tinggi.</p>
+    </section>
+
+    <section class="content-section" id="persamaan-gas">
+      <h3 class="sub-heading">Persamaan Keadaan Gas</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Hukum Gas Ideal</div>
+        <div class="formula-main">\[ PV = nRT = Nk_BT \]</div>
+        <div class="formula-vars">
+          <span>P</span> = tekanan (Pa) &nbsp;|&nbsp;
+          <span>V</span> = volume (m³) &nbsp;|&nbsp;
+          <span>n</span> = jumlah mol &nbsp;|&nbsp;
+          <span>R</span> = 8,314 J/(mol·K) &nbsp;|&nbsp;
+          <span>T</span> = suhu mutlak (K)<br>
+          <span>N</span> = jumlah molekul &nbsp;|&nbsp;
+          <span>k_B</span> = 1,38 × 10⁻²³ J/K (Konstanta Boltzmann)
+        </div>
+      </div>
+      <h4 class="mini-heading">Hukum-Hukum Gas (Kasus Khusus)</h4>
+      <table class="data-table">
+        <thead><tr><th>Hukum</th><th>Kondisi Tetap</th><th>Hubungan</th></tr></thead>
+        <tbody>
+          <tr><td>Hukum Boyle</td><td>T konstan (isotermal)</td><td>\(P_1V_1 = P_2V_2\)</td></tr>
+          <tr><td>Hukum Charles</td><td>P konstan (isobarik)</td><td>\(V_1/T_1 = V_2/T_2\)</td></tr>
+          <tr><td>Hukum Gay-Lussac</td><td>V konstan (isokhorik)</td><td>\(P_1/T_1 = P_2/T_2\)</td></tr>
+          <tr><td>Hukum Avogadro</td><td>P, T konstan</td><td>\(V_1/n_1 = V_2/n_2\)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="kecepatan-molekul">
+      <h3 class="sub-heading">Kecepatan Molekul Gas</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan RMS</div>
+          <div class="formula-main">\[ v_{rms} = \sqrt{\frac{3k_BT}{m}} = \sqrt{\frac{3RT}{M}} \]</div>
+          <div class="formula-vars"><span>M</span> = massa molar (kg/mol)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan Paling Mungkin</div>
+          <div class="formula-main">\[ v_p = \sqrt{\frac{2k_BT}{m}} = \sqrt{\frac{2RT}{M}} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kecepatan Rata-rata</div>
+          <div class="formula-main">\[ \bar{v} = \sqrt{\frac{8k_BT}{\pi m}} = \sqrt{\frac{8RT}{\pi M}} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Hubungan Kecepatan</div>
+          <div class="formula-main">\[ v_p < \bar{v} < v_{rms} \]</div>
+          <div class="formula-vars">Perbandingan: 1 : 1,128 : 1,225</div>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Tekanan Gas dari Teori Kinetik</div>
+        <div class="formula-main">\[ P = \frac{1}{3}\rho v_{rms}^2 = \frac{Nmv_{rms}^2}{3V} = \frac{2}{3}n\bar{E}_k \]</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ekipartisi">
+      <h3 class="sub-heading">Teorema Ekipartisi Energi</h3>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Setiap derajat kebebasan menyumbangkan energi rata-rata sebesar \(\frac{1}{2}k_BT\) per molekul, atau \(\frac{1}{2}RT\) per mol.</div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Jenis Gas</th><th>Derajat Kebebasan (f)</th><th>Energi Dalam (U)</th><th>C_v</th></tr></thead>
+        <tbody>
+          <tr><td>Monoatomik (He, Ar)</td><td>3</td><td>\(\frac{3}{2}nRT\)</td><td>\(\frac{3}{2}R\)</td></tr>
+          <tr><td>Diatomik (O₂, N₂) — Suhu rendah</td><td>5</td><td>\(\frac{5}{2}nRT\)</td><td>\(\frac{5}{2}R\)</td></tr>
+          <tr><td>Diatomik — Suhu tinggi</td><td>7</td><td>\(\frac{7}{2}nRT\)</td><td>\(\frac{7}{2}R\)</td></tr>
+        </tbody>
+      </table>
+      <div class="formula-box">
+        <div class="formula-label">Hubungan C_p dan C_v</div>
+        <div class="formula-main">\[ C_p = C_v + R \quad \text{dan} \quad \gamma = \frac{C_p}{C_v} \]</div>
+        <div class="formula-vars">γ monoatomik = 5/3 ≈ 1,67 &nbsp;|&nbsp; γ diatomik = 7/5 = 1,4</div>
+      </div>
+    </section>
+
+    <!-- HUKUM TERMODINAMIKA -->
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="thermometer"></i> Distribusi Kecepatan Maxwell-Boltzmann</div>
+        <svg viewBox="0 0 520 185" class="diagram-svg" aria-label="Distribusi Maxwell-Boltzmann">
+          <defs>
+            <marker id="arr-mb" markerWidth="7" markerHeight="5" refX="5" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#415A77"/></marker>
+          </defs>
+          <!-- Axes -->
+          <line x1="40" y1="155" x2="490" y2="155" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-mb)"/>
+          <line x1="40" y1="155" x2="40" y2="15" stroke="#415A77" stroke-width="1.5" marker-end="url(#arr-mb)"/>
+          <text x="492" y="159" font-size="10" fill="#778DA9" font-family="monospace">v</text>
+          <text x="20" y="13" font-size="8.5" fill="#778DA9">f(v)</text>
+          <!-- T1 (rendah) curve -->
+          <path d="M40,155 Q80,100 120,55 Q155,20 190,45 Q230,70 280,130 Q340,150 420,155 Q460,155 490,155" stroke="#C96060" stroke-width="2.5" fill="none"/>
+          <text x="125" y="42" font-size="9" fill="#C96060" font-weight="700">T₁ (rendah)</text>
+          <!-- T2 (tinggi) curve -->
+          <path d="M40,155 Q100,130 160,100 Q210,72 260,75 Q320,78 380,110 Q430,135 490,152" stroke="#4E9E9E" stroke-width="2.5" fill="none"/>
+          <text x="265" y="68" font-size="9" fill="#4E9E9E" font-weight="700">T₂ (tinggi)</text>
+          <!-- vp, vbar, vrms markers for T1 -->
+          <line x1="190" y1="45" x2="190" y2="155" stroke="#C96060" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="185" y="170" font-size="8" fill="#C96060" text-anchor="middle">vₚ</text>
+          <line x1="215" y1="155" x2="215" y2="90" stroke="#C9A84C" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="212" y="170" font-size="8" fill="#C9A84C">v̄</text>
+          <line x1="235" y1="155" x2="235" y2="118" stroke="#778DA9" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="232" y="170" font-size="8" fill="#778DA9">v_rms</text>
+          <!-- Legend box -->
+          <rect x="370" y="18" width="140" height="95" rx="6" fill="rgba(13,27,42,0.7)" stroke="#415A77" stroke-width="1"/>
+          <text x="440" y="36" font-size="9" fill="#778DA9" text-anchor="middle" font-weight="700">Kecepatan (T₁)</text>
+          <line x1="380" y1="52" x2="395" y2="52" stroke="#C96060" stroke-width="2"/>
+          <text x="400" y="55" font-size="8.5" fill="#C96060">vₚ = √(2RT/M)</text>
+          <line x1="380" y1="68" x2="395" y2="68" stroke="#C9A84C" stroke-width="2"/>
+          <text x="400" y="71" font-size="8.5" fill="#C9A84C">v̄ = √(8RT/πM)</text>
+          <line x1="380" y1="84" x2="395" y2="84" stroke="#778DA9" stroke-width="2"/>
+          <text x="400" y="87" font-size="8.5" fill="#778DA9">v_rms= √(3RT/M)</text>
+          <text x="440" y="104" font-size="8" fill="#415A77" text-anchor="middle">vₚ &lt; v̄ &lt; v_rms</text>
+          <!-- Area note -->
+          <text x="90" y="140" font-size="8" fill="#778DA9">Luas di bawah kurva</text>
+          <text x="90" y="151" font-size="8" fill="#778DA9">= 1 (normalisasi)</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="hukum-termo">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book"></i></span> Hukum-Hukum Termodinamika</h2>
+    </section>
+
+    <section class="content-section" id="hukum-0">
+      <h3 class="sub-heading">Hukum ke-0 Termodinamika</h3>
+      <div class="definition">
+        <strong>Jika sistem A berada dalam keseimbangan termal dengan sistem B, dan sistem B berada dalam keseimbangan termal dengan sistem C, maka A dan C juga berada dalam keseimbangan termal.</strong>
+      </div>
+      <p>Hukum ini mendefinisikan suhu secara operasional dan menjadi dasar termometer.</p>
+    </section>
+
+    <section class="content-section" id="hukum-1">
+      <h3 class="sub-heading">Hukum I Termodinamika</h3>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Hukum I — Kekekalan Energi</div>
+        <div class="formula-main">\[ \Delta U = Q - W \]</div>
+        <div class="formula-vars">
+          <span>ΔU</span> = perubahan energi dalam &nbsp;|&nbsp;
+          <span>Q</span> = kalor yang diserap sistem (positif jika masuk) &nbsp;|&nbsp;
+          <span>W</span> = kerja yang dilakukan sistem (positif jika sistem bekerja)
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Kerja Ekspansi Gas</div>
+        <div class="formula-main">\[ W = \int_{V_1}^{V_2} P\,dV \]</div>
+        <div class="formula-vars">Untuk gas ideal: W = luas di bawah kurva P-V</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="hukum-2">
+      <h3 class="sub-heading">Hukum II Termodinamika</h3>
+      <div class="two-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Pernyataan Kelvin-Planck</div>
+          <p>Tidak mungkin membuat mesin yang bekerja dalam siklus yang semata-mata menyerap kalor dari reservoir dan mengubahnya seluruhnya menjadi kerja.</p>
+        </div>
+        <div class="info-card pink">
+          <div class="info-card-title">Pernyataan Clausius</div>
+          <p>Tidak mungkin membuat mesin yang bekerja dalam siklus yang semata-mata memindahkan kalor dari benda dingin ke benda panas.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px;">Kedua pernyataan ini ekuivalen. Implikasinya: tidak ada mesin yang 100% efisien.</p>
+    </section>
+
+    <section class="content-section" id="hukum-3">
+      <h3 class="sub-heading">Hukum III Termodinamika</h3>
+      <div class="definition">
+        <strong>Entropi sistem murni kristal sempurna pada suhu nol mutlak (0 K) adalah nol.</strong>
+      </div>
+      <p>Implikasi: mustahil mencapai suhu nol mutlak (0 K) melalui proses terbatas.</p>
+    </section>
+
+    <!-- PROSES -->
+    <section class="content-section" id="proses">
+      <h2 class="section-heading"><span class="icon"><i data-feather="bar-chart"></i></span> Proses Termodinamika</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Proses</th><th>Kondisi</th><th>W</th><th>Q</th><th>ΔU</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Isotermal</td><td>T = konstan</td><td>\(nRT\ln\frac{V_2}{V_1}\)</td><td>= W</td><td>0</td></tr>
+          <tr><td>Isobarik</td><td>P = konstan</td><td>\(P\Delta V = nR\Delta T\)</td><td>\(nC_p\Delta T\)</td><td>\(nC_v\Delta T\)</td></tr>
+          <tr><td>Isokhorik</td><td>V = konstan</td><td>0</td><td>\(nC_v\Delta T\)</td><td>= Q</td></tr>
+          <tr><td>Adiabatik</td><td>Q = 0</td><td>\(-\Delta U\)</td><td>0</td><td>= −W</td></tr>
+        </tbody>
+      </table>
+
+      <h4 class="mini-heading">Proses Adiabatik (Detail)</h4>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Persamaan Adiabatik</div>
+          <div class="formula-main">\[ PV^\gamma = \text{konstan} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Versi Lain</div>
+          <div class="formula-main">\[ TV^{\gamma-1} = \text{konstan} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Kerja Adiabatik</div>
+          <div class="formula-main">\[ W = \frac{P_1V_1 - P_2V_2}{\gamma - 1} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="diagram-pv">
+      <h3 class="sub-heading">Diagram P-V</h3>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 480 300" width="480" height="300">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#7a84a3"/>
+            </marker>
+          </defs>
+          <!-- Axes -->
+          <line x1="50" y1="260" x2="440" y2="260" stroke="#7a84a3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <line x1="50" y1="260" x2="50" y2="20" stroke="#7a84a3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <text x="445" y="264" fill="#7a84a3" font-size="14" font-family="JetBrains Mono,monospace">V</text>
+          <text x="36" y="16" fill="#7a84a3" font-size="14" font-family="JetBrains Mono,monospace">P</text>
+          <!-- Isotermal (hyperbola) -->
+          <path d="M 80 60 Q 160 90 200 130 Q 250 180 340 240" stroke="#f0b429" stroke-width="2.5" fill="none"/>
+          <text x="90" y="50" fill="#f0b429" font-size="12" font-family="Syne,sans-serif" font-weight="700">Isotermal (T konstan)</text>
+          <!-- Isobarik -->
+          <line x1="100" y1="140" x2="340" y2="140" stroke="#38bdf8" stroke-width="2.5"/>
+          <text x="345" y="136" fill="#38bdf8" font-size="12" font-family="Syne,sans-serif" font-weight="700">Isobarik</text>
+          <!-- Isokhorik -->
+          <line x1="200" y1="260" x2="200" y2="60" stroke="#2dd4bf" stroke-width="2.5"/>
+          <text x="204" y="56" fill="#2dd4bf" font-size="12" font-family="Syne,sans-serif" font-weight="700">Isokhorik</text>
+          <!-- Adiabatik (steeper hyperbola) -->
+          <path d="M 100 50 Q 180 100 220 150 Q 270 210 360 255" stroke="#f472b6" stroke-width="2.5" fill="none" stroke-dasharray="6,3"/>
+          <text x="362" y="260" fill="#f472b6" font-size="12" font-family="Syne,sans-serif" font-weight="700">Adiabatik</text>
+        </svg>
+      </div>
+      <p class="diagram-caption">Kurva P-V untuk keempat proses termodinamika. Luas di bawah kurva = Kerja yang dilakukan gas.</p>
+    </section>
+
+    <!-- MESIN KALOR -->
+
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Luas daerah di bawah kurva P-V = <strong>kerja yang dilakukan gas</strong>. Proses adiabatik lebih curam dari isotermal karena γ &gt; 1.</div>
+      </div>
+
+    <section class="content-section" id="mesin-kalor">
+      <h2 class="section-heading"><span class="icon"><i data-feather="tool"></i></span> Mesin Kalor & Siklus Carnot</h2>
+      <div class="formula-box" style="border-left-color:var(--accent-gold)">
+        <div class="formula-label">Efisiensi Mesin Kalor</div>
+        <div class="formula-main">\[ \eta = \frac{W}{Q_H} = 1 - \frac{Q_C}{Q_H} \]</div>
+        <div class="formula-vars">
+          <span>W</span> = kerja yang dihasilkan &nbsp;|&nbsp;
+          <span>Q_H</span> = kalor yang diserap dari sumber panas &nbsp;|&nbsp;
+          <span>Q_C</span> = kalor yang dibuang ke reservoir dingin
+        </div>
+      </div>
+
+      <h3 class="sub-heading">Siklus Carnot</h3>
+      <p>Siklus Carnot adalah siklus ideal yang paling efisien, terdiri dari 2 proses isotermal dan 2 proses adiabatik.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-teal)">
+        <div class="formula-label">Efisiensi Carnot (Maksimum)</div>
+        <div class="formula-main">\[ \eta_{Carnot} = 1 - \frac{T_C}{T_H} \]</div>
+        <div class="formula-vars">
+          <span>T_H</span> = suhu sumber panas (K) &nbsp;|&nbsp;
+          <span>T_C</span> = suhu reservoir dingin (K)
+        </div>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="thermometer"></i></div>
+        <div>Tidak ada mesin nyata yang bisa melampaui efisiensi Carnot. Efisiensi Carnot hanya bisa dicapai oleh mesin yang beroperasi secara quasi-statik (sangat lambat, tak nyata).</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="efisiensi">
+      <h3 class="sub-heading">Efisiensi Berbagai Mesin</h3>
+      <table class="data-table">
+        <thead><tr><th>Jenis Mesin</th><th>Siklus</th><th>Efisiensi Teoritis</th></tr></thead>
+        <tbody>
+          <tr><td>Mesin Carnot</td><td>Carnot</td><td>\(\eta = 1 - T_C/T_H\)</td></tr>
+          <tr><td>Mesin Bensin</td><td>Otto</td><td>\(\eta = 1 - r^{1-\gamma}\) (r = rasio kompresi)</td></tr>
+          <tr><td>Mesin Diesel</td><td>Diesel</td><td>\(\eta = 1 - \frac{r_c^\gamma - 1}{\gamma r_c(r_c - 1)}\)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="pendingin">
+      <h3 class="sub-heading">Mesin Pendingin & Pompa Kalor</h3>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Koefisien Kinerja (Pendingin)</div>
+          <div class="formula-main">\[ COP_R = \frac{Q_C}{W} = \frac{T_C}{T_H - T_C} \text{ (Carnot)} \]</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Koefisien Kinerja (Pompa Kalor)</div>
+          <div class="formula-main">\[ COP_{HP} = \frac{Q_H}{W} = \frac{T_H}{T_H - T_C} \text{ (Carnot)} \]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENTROPI -->
+    <section class="content-section" id="entropi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="shuffle"></i></span> Entropi</h2>
+      <div class="definition">
+        <strong>Entropi (S)</strong> adalah ukuran ketidakteraturan atau "disorder" suatu sistem. Semakin acak konfigurasi mikroskopik, semakin tinggi entropi.
+      </div>
+      <div class="formula-grid">
+        <div class="formula-box">
+          <div class="formula-label">Perubahan Entropi</div>
+          <div class="formula-main">\[ \Delta S = \int \frac{dQ_{rev}}{T} \]</div>
+          <div class="formula-vars">Untuk proses isotermal: \(\Delta S = Q/T\)</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Entropi Boltzmann</div>
+          <div class="formula-main">\[ S = k_B \ln W \]</div>
+          <div class="formula-vars"><span>W</span> = jumlah konfigurasi mikro</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon"><i data-feather="refresh-cw"></i></div>
+        <div><strong>Hukum II (versi Entropi):</strong> Entropi total alam semesta (sistem + lingkungan) selalu meningkat untuk proses ireversibel: \(\Delta S_{total} \geq 0\)</div>
+      </div>
+    </section>
+
+    <!-- TRANSFER KALOR -->
+    <section class="content-section" id="transfer-kalor">
+      <h2 class="section-heading"><span class="icon"><i data-feather="thermometer"></i></span> Transfer Kalor</h2>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Konduksi</div>
+          <p>Perpindahan kalor melalui kontak langsung tanpa aliran materi.</p>
+          <p>\[ \frac{dQ}{dt} = -kA\frac{dT}{dx} \]</p>
+          <p><em>k</em> = konduktivitas termal (W/m·K)</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Konveksi</div>
+          <p>Perpindahan kalor melalui aliran fluida.</p>
+          <p>\[ P = hA(T_s - T_f) \]</p>
+          <p><em>h</em> = koefisien konveksi (W/m²·K)</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Radiasi</div>
+          <p>Perpindahan kalor melalui gelombang elektromagnetik.</p>
+          <p>\[ P = \varepsilon\sigma A T^4 \]</p>
+          <p>σ = 5,67 × 10⁻⁸ W/m²·K⁴ (Stefan-Boltzmann)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="osn-soal">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span>Contoh Soal</h2>
+    <div class="osn-soal">
+      <div class="osn-header">
+        <span class="osn-badge">Contoh Soal</span>
+        <span class="osn-meta">Termodinamika · Siklus & Entropi</span>
+      </div>
+      <div class="osn-title">Siklus Gabungan & Produksi Entropi</div>
+      <div class="osn-body">
+        <p>Sebuah mesin kalor menjalankan siklus yang terdiri dari empat proses berikut pada 2 mol gas ideal monoatomik (\(C_v = \tfrac{3}{2}R\)):</p>
+        <div class="osn-poin"><span class="osn-poin-label">1→2</span><span>Ekspansi isotermal pada \(T_H = 600\text{ K}\), volume berlipat dua (\(V_2 = 2V_1\))</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">2→3</span><span>Ekspansi adiabatik reversibel hingga \(T_C = 300\text{ K}\)</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">3→4</span><span>Kompresi isotermal pada \(T_C = 300\text{ K}\)</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">4→1</span><span>Kompresi adiabatik reversibel kembali ke keadaan awal</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Hitunglah kalor \(Q_H\) yang diserap pada proses 1→2.</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Tunjukkan bahwa siklus ini identik dengan siklus Carnot dan hitunglah efisiensi termalnya.</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Hitunglah perubahan entropi total alam semesta per siklus. Jelaskan hasilnya secara termodinamika.</span></div>
+        <div class="osn-poin"><span class="osn-poin-label">(d)</span><span>Jika mesin beroperasi pada daya keluaran 5 kW, berapa banyak siklus per detik yang dijalankan mesin?</span></div>
+        <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+        <div class="solution-body">
+          <p><strong>(a)</strong> Proses isotermal 1→2: energi dalam tidak berubah (\(\Delta U = 0\)), sehingga \(Q_H = W_{12}\).</p>
+          <p>\[ Q_H = nRT_H\ln\frac{V_2}{V_1} = 2(8{,}314)(600)\ln 2 \approx \mathbf{6917 \text{ J}} \]</p>
+          <p><strong>(b)</strong> Siklus terdiri dari dua isotermal dan dua adiabatik — persis definisi siklus Carnot. Efisiensi Carnot:</p>
+          <p>\[ \eta_C = 1 - \frac{T_C}{T_H} = 1 - \frac{300}{600} = \mathbf{50\%} \]</p>
+          <p><strong>(c)</strong> Dalam siklus Carnot reversibel, perubahan entropi total alam semesta = 0 per siklus:</p>
+          <p>\[ \Delta S_{univ} = \frac{Q_C}{T_C} - \frac{Q_H}{T_H} = \frac{Q_H(1-\eta)}{T_C} - \frac{Q_H}{T_H} = Q_H\!\left(\frac{1}{2T_H} - \frac{1}{T_H}\right) = 0 \]</p>
+          <p>Ini konsisten dengan Hukum II Termodinamika: proses reversibel tidak memproduksi entropi. \(\boxed{\Delta S_{univ} = 0}\)</p>
+          <p><strong>(d)</strong> Kerja per siklus: \(W = \eta \cdot Q_H = 0{,}5 \times 6917 \approx 3459 \text{ J}\). Jumlah siklus per detik:</p>
+          <p>\[ f = \frac{P}{W} = \frac{5000}{3459} \approx \mathbf{1{,}45 \text{ siklus/s}} \]</p>
+        </div>
+      </div>
+    </div>
+    </section>
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

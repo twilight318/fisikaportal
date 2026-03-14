@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisika Partikel — FisikaPortal</title>
+  <meta name="description" content="Jelajahi fisika partikel, model standar, quark, lepton, boson, gaya fundamental, antimateri, dan kosmologi Big Bang." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+<canvas id="star-canvas"></canvas>
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div class="header-bg" style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(138, 43, 226, 0.05) 100%);"></div>
+  <div class="header-ghost">PARTIKEL</div>
+  <div class="breadcrumb">
+    <a href="../index.html"><i data-feather="home"></i> Beranda</a>
+    <span class="sep"><i data-feather="chevron-right"></i></span>
+    <span>Fisika Partikel</span>
+  </div>
+  <h1 class="page-title"><span class="hl">Fisika Partikel</span></h1>
+  <p class="page-desc">Model standar, quark, lepton, boson, gaya fundamental, antimateri, dan kosmologi.</p>
+  <div class="page-tags">
+    <span class="page-tag"><i data-feather="layers"></i>Model Standar</span>
+        <span class="page-tag"><i data-feather="package"></i>Quark</span>
+        <span class="page-tag"><i data-feather="zap"></i>Gaya</span>
+        <span class="page-tag"><i data-feather="star"></i>Higgs</span>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header"><i data-feather="list"></i><span class="sidebar-title">Daftar Isi</span></div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="layers"></i>Model Standar</div>
+      <a class="sb-link" href="#model-standar"><i data-feather="layers"></i>Ikhtisar Model Standar</a>
+      <a class="sb-link" href="#klasifikasi"><i data-feather="grid"></i>Klasifikasi Partikel</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="package"></i>Fermion</div>
+      <a class="sb-link" href="#quark-lepton"><i data-feather="package"></i>Quark</a>
+      <a class="sb-link" href="#lepton"><i data-feather="circle"></i>Lepton</a>
+      <a class="sb-link" href="#generasi"><i data-feather="layers"></i>Tiga Generasi</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="zap"></i>Boson & Gaya</div>
+      <a class="sb-link" href="#boson"><i data-feather="zap"></i>Boson Gauge</a>
+      <a class="sb-link" href="#gaya-fundamental"><i data-feather="zap"></i>Empat Gaya Fundamental</a>
+      <a class="sb-link" href="#higgs"><i data-feather="zap"></i>Boson Higgs</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="box"></i>Hadron & Lainnya</div>
+      <a class="sb-link" href="#hadron"><i data-feather="box"></i>Hadron (Meson & Barion)</a>
+      <a class="sb-link" href="#antimateri"><i data-feather="refresh-cw"></i>Antimateri</a>
+      <a class="sb-link" href="#simetri"><i data-feather="book"></i>Simetri & Hukum Kekekalan</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="globe"></i>Kosmologi</div>
+      <a class="sb-link" href="#kosmologi"><i data-feather="chevron-right"></i>Big Bang & Partikel</a>
+      <a class="sb-link" href="#materi-gelap"><i data-feather="battery-charging"></i>Materi Gelap & Energi Gelap</a>
+      <a class="sb-link" href="#akselerator"><i data-feather="chevrons-right"></i>Akselerator Partikel</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-group-title"><i data-feather="pen-tool"></i>Latihan</div>
+      <a class="sb-link" href="#osn-partikel"><i data-feather="package"></i>Contoh Soal</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- MODEL STANDAR -->
+    <section class="content-section" id="model-standar">
+      <h2 class="section-heading"><span class="icon"><i data-feather="zoom-in"></i></span> Model Standar Partikel Elementer</h2>
+      <div class="definition">
+        <strong>Model Standar</strong> adalah teori fisika partikel yang mendeskripsikan partikel elementer dan tiga dari empat interaksi fundamental (elektromagnetik, lemah, kuat). Ia dikembangkan pada 1970-an dan telah diuji dengan presisi luar biasa.
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="info"></i></div>
+        <div>Model Standar adalah teori fisika yang paling berhasil dalam sejarah sains, namun belum mencakup gravitasi dan tidak menjelaskan materi gelap, energi gelap, atau asimetri materi-antimateri.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="klasifikasi">
+      <h3 class="sub-heading">Klasifikasi Partikel</h3>
+      <div class="two-col">
+        <div class="info-card blue">
+          <div class="info-card-title">Fermion (Spin ½)</div>
+          <p>Partikel materi — mengikuti statistik Fermi-Dirac dan asas larangan Pauli.</p>
+          <ul class="content-list">
+            <li><strong>Quark:</strong> u, d, s, c, b, t</li>
+            <li><strong>Lepton:</strong> e⁻, μ⁻, τ⁻ dan neutrino mereka</li>
+          </ul>
+        </div>
+        <div class="info-card gold">
+          <div class="info-card-title">Boson (Spin Bulat)</div>
+          <p>Partikel gaya — perantara interaksi. Mengikuti statistik Bose-Einstein.</p>
+          <ul class="content-list">
+            <li><strong>Foton (γ):</strong> gaya EM (spin 1)</li>
+            <li><strong>Gluon (g):</strong> gaya kuat (spin 1)</li>
+            <li><strong>W⁺, W⁻, Z⁰:</strong> gaya lemah (spin 1)</li>
+            <li><strong>Higgs (H):</strong> pemberi massa (spin 0)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUARK -->
+
+      <div class="diagram-wrap">
+        <div class="diagram-title"><i data-feather="layers"></i> Model Standar — Partikel Elementer</div>
+        <svg viewBox="0 0 540 220" class="diagram-svg" aria-label="Model standar partikel">
+          <!-- Title blocks -->
+          <text x="20" y="18" font-size="10" fill="#778DA9" font-weight="700">FERMION (Materi)</text>
+          <text x="370" y="18" font-size="10" fill="#C9A84C" font-weight="700">BOSON (Pembawa Gaya)</text>
+          <!-- Quark header -->
+          <rect x="20" y="25" width="150" height="18" rx="4" fill="rgba(78,158,158,0.2)" stroke="#4E9E9E" stroke-width="1"/>
+          <text x="95" y="38" font-size="9" fill="#4E9E9E" text-anchor="middle" font-weight="700">QUARK</text>
+          <!-- Quark gen 1 -->
+          <rect x="20" y="47" width="68" height="50" rx="5" fill="rgba(78,158,158,0.12)" stroke="#4E9E9E" stroke-width="1"/>
+          <text x="54" y="65" font-size="8.5" fill="#4E9E9E" text-anchor="middle" font-weight="700">up (u)</text>
+          <text x="54" y="78" font-size="7.5" fill="#E0E1DD" text-anchor="middle">+2/3 e</text>
+          <text x="54" y="90" font-size="7" fill="#778DA9" text-anchor="middle">2.2 MeV</text>
+          <rect x="102" y="47" width="68" height="50" rx="5" fill="rgba(78,158,158,0.12)" stroke="#4E9E9E" stroke-width="1"/>
+          <text x="136" y="65" font-size="8.5" fill="#4E9E9E" text-anchor="middle" font-weight="700">down (d)</text>
+          <text x="136" y="78" font-size="7.5" fill="#E0E1DD" text-anchor="middle">−1/3 e</text>
+          <text x="136" y="90" font-size="7" fill="#778DA9" text-anchor="middle">4.7 MeV</text>
+          <!-- Quark gen 2 -->
+          <rect x="20" y="102" width="68" height="50" rx="5" fill="rgba(78,158,158,0.08)" stroke="#4E9E9E" stroke-width="1" opacity="0.7"/>
+          <text x="54" y="120" font-size="8" fill="#4E9E9E" text-anchor="middle" font-weight="700">charm (c)</text>
+          <text x="54" y="133" font-size="7.5" fill="#E0E1DD" text-anchor="middle">+2/3 e</text>
+          <text x="54" y="145" font-size="7" fill="#778DA9" text-anchor="middle">1.28 GeV</text>
+          <rect x="102" y="102" width="68" height="50" rx="5" fill="rgba(78,158,158,0.08)" stroke="#4E9E9E" stroke-width="1" opacity="0.7"/>
+          <text x="136" y="120" font-size="8" fill="#4E9E9E" text-anchor="middle" font-weight="700">strange (s)</text>
+          <text x="136" y="133" font-size="7.5" fill="#E0E1DD" text-anchor="middle">−1/3 e</text>
+          <text x="136" y="145" font-size="7" fill="#778DA9" text-anchor="middle">96 MeV</text>
+          <!-- Quark gen 3 -->
+          <rect x="20" y="157" width="68" height="50" rx="5" fill="rgba(78,158,158,0.06)" stroke="#4E9E9E" stroke-width="1" opacity="0.5"/>
+          <text x="54" y="175" font-size="8" fill="#4E9E9E" text-anchor="middle" font-weight="700">top (t)</text>
+          <text x="54" y="188" font-size="7.5" fill="#E0E1DD" text-anchor="middle">+2/3 e</text>
+          <text x="54" y="200" font-size="7" fill="#778DA9" text-anchor="middle">173 GeV</text>
+          <rect x="102" y="157" width="68" height="50" rx="5" fill="rgba(78,158,158,0.06)" stroke="#4E9E9E" stroke-width="1" opacity="0.5"/>
+          <text x="136" y="175" font-size="8" fill="#4E9E9E" text-anchor="middle" font-weight="700">bottom (b)</text>
+          <text x="136" y="188" font-size="7.5" fill="#E0E1DD" text-anchor="middle">−1/3 e</text>
+          <text x="136" y="200" font-size="7" fill="#778DA9" text-anchor="middle">4.18 GeV</text>
+          <!-- Generation labels -->
+          <text x="54" y="215" font-size="7.5" fill="#415A77" text-anchor="middle">Gen I</text>
+          <text x="136" y="215" font-size="7.5" fill="#415A77" text-anchor="middle">Gen II/III</text>
+          <!-- Lepton header -->
+          <rect x="200" y="25" width="155" height="18" rx="4" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="277" y="38" font-size="9" fill="#C9A84C" text-anchor="middle" font-weight="700">LEPTON</text>
+          <!-- Leptons -->
+          <rect x="200" y="47" width="68" height="50" rx="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="234" y="65" font-size="8.5" fill="#C9A84C" text-anchor="middle" font-weight="700">elektron (e)</text>
+          <text x="234" y="78" font-size="7.5" fill="#E0E1DD" text-anchor="middle">−1 e</text>
+          <text x="234" y="90" font-size="7" fill="#778DA9" text-anchor="middle">0.511 MeV</text>
+          <rect x="282" y="47" width="68" height="50" rx="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+          <text x="316" y="65" font-size="8.5" fill="#C9A84C" text-anchor="middle" font-weight="700">νₑ (neutrino)</text>
+          <text x="316" y="78" font-size="7.5" fill="#E0E1DD" text-anchor="middle">0</text>
+          <text x="316" y="90" font-size="7" fill="#778DA9" text-anchor="middle">~0</text>
+          <rect x="200" y="102" width="68" height="50" rx="5" fill="rgba(201,168,76,0.07)" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+          <text x="234" y="120" font-size="8" fill="#C9A84C" text-anchor="middle" font-weight="700">muon (μ)</text>
+          <text x="234" y="133" font-size="7.5" fill="#E0E1DD" text-anchor="middle">−1 e</text>
+          <text x="234" y="145" font-size="7" fill="#778DA9" text-anchor="middle">105.7 MeV</text>
+          <rect x="282" y="102" width="68" height="50" rx="5" fill="rgba(201,168,76,0.07)" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+          <text x="316" y="120" font-size="8" fill="#C9A84C" text-anchor="middle" font-weight="700">ν_μ</text>
+          <text x="316" y="133" font-size="7.5" fill="#E0E1DD" text-anchor="middle">0</text>
+          <rect x="200" y="157" width="68" height="50" rx="5" fill="rgba(201,168,76,0.04)" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+          <text x="234" y="175" font-size="8" fill="#C9A84C" text-anchor="middle" font-weight="700">tau (τ)</text>
+          <text x="234" y="188" font-size="7.5" fill="#E0E1DD" text-anchor="middle">−1 e</text>
+          <text x="234" y="200" font-size="7" fill="#778DA9" text-anchor="middle">1.78 GeV</text>
+          <rect x="282" y="157" width="68" height="50" rx="5" fill="rgba(201,168,76,0.04)" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+          <text x="316" y="175" font-size="8" fill="#C9A84C" text-anchor="middle" font-weight="700">ν_τ</text>
+          <text x="316" y="188" font-size="7.5" fill="#E0E1DD" text-anchor="middle">0</text>
+          <!-- Boson blocks -->
+          <rect x="370" y="47" width="78" height="50" rx="5" fill="rgba(201,96,60,0.15)" stroke="#C96060" stroke-width="1.5"/>
+          <text x="409" y="65" font-size="9" fill="#C96060" text-anchor="middle" font-weight="700">γ (foton)</text>
+          <text x="409" y="78" font-size="7.5" fill="#E0E1DD" text-anchor="middle">EM</text>
+          <text x="409" y="90" font-size="7" fill="#778DA9" text-anchor="middle">massa 0</text>
+          <rect x="458" y="47" width="75" height="50" rx="5" fill="rgba(201,96,60,0.12)" stroke="#C96060" stroke-width="1"/>
+          <text x="495" y="65" font-size="9" fill="#C96060" text-anchor="middle" font-weight="700">W±, Z</text>
+          <text x="495" y="78" font-size="7.5" fill="#E0E1DD" text-anchor="middle">Gaya Lemah</text>
+          <text x="495" y="90" font-size="7" fill="#778DA9" text-anchor="middle">80–91 GeV</text>
+          <rect x="370" y="102" width="78" height="50" rx="5" fill="rgba(119,141,169,0.15)" stroke="#778DA9" stroke-width="1.5"/>
+          <text x="409" y="120" font-size="9" fill="#E0E1DD" text-anchor="middle" font-weight="700">gluon (g)</text>
+          <text x="409" y="133" font-size="7.5" fill="#4E9E9E" text-anchor="middle">Gaya Kuat</text>
+          <text x="409" y="145" font-size="7" fill="#778DA9" text-anchor="middle">massa 0</text>
+          <rect x="458" y="102" width="75" height="50" rx="5" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="1.5"/>
+          <text x="495" y="120" font-size="9" fill="#C9A84C" text-anchor="middle" font-weight="700">Higgs (H°)</text>
+          <text x="495" y="133" font-size="7.5" fill="#E0E1DD" text-anchor="middle">Boson Higgs</text>
+          <text x="495" y="145" font-size="7" fill="#778DA9" text-anchor="middle">125 GeV</text>
+        </svg>
+      </div>
+
+    <section class="content-section" id="quark-lepton">
+      <h2 class="section-heading"><span class="icon"><i data-feather="package"></i></span> Quark</h2>
+      <p>Quark adalah partikel elementer penyusun hadron. Tidak pernah ditemukan bebas (confinement). Memiliki muatan warna (merah, hijau, biru) dan muatan listrik fraksional.</p>
+      <table class="data-table">
+        <thead><tr><th>Quark</th><th>Simbol</th><th>Muatan Listrik</th><th>Massa Approx</th><th>Generasi</th></tr></thead>
+        <tbody>
+          <tr><td>Up</td><td>u</td><td>+2/3 e</td><td>2,3 MeV/c²</td><td>I</td></tr>
+          <tr><td>Down</td><td>d</td><td>−1/3 e</td><td>4,8 MeV/c²</td><td>I</td></tr>
+          <tr><td>Charm</td><td>c</td><td>+2/3 e</td><td>1,28 GeV/c²</td><td>II</td></tr>
+          <tr><td>Strange</td><td>s</td><td>−1/3 e</td><td>95 MeV/c²</td><td>II</td></tr>
+          <tr><td>Top</td><td>t</td><td>+2/3 e</td><td>173 GeV/c²</td><td>III</td></tr>
+          <tr><td>Bottom</td><td>b</td><td>−1/3 e</td><td>4,18 GeV/c²</td><td>III</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="sliders"></i></div>
+        <div><strong>Muatan warna:</strong> Quark memiliki "muatan warna" (merah/R, hijau/G, biru/B). Hadron harus selalu berwarna netral (putih): barion = R+G+B, meson = warna + anti-warna.</div>
+      </div>
+    </section>
+
+    <!-- LEPTON -->
+    <section class="content-section" id="lepton">
+      <h3 class="sub-heading">Lepton</h3>
+      <p>Lepton tidak berinteraksi melalui gaya kuat — hanya melalui gaya elektromagnetik (jika bermuatan) dan gaya lemah.</p>
+      <table class="data-table">
+        <thead><tr><th>Lepton</th><th>Simbol</th><th>Muatan</th><th>Massa</th><th>Generasi</th></tr></thead>
+        <tbody>
+          <tr><td>Elektron</td><td>e⁻</td><td>−e</td><td>0,511 MeV/c²</td><td>I</td></tr>
+          <tr><td>Neutrino elektron</td><td>νe</td><td>0</td><td>&lt;2 eV/c²</td><td>I</td></tr>
+          <tr><td>Muon</td><td>μ⁻</td><td>−e</td><td>105,7 MeV/c²</td><td>II</td></tr>
+          <tr><td>Neutrino muon</td><td>νμ</td><td>0</td><td>&lt;0,19 MeV/c²</td><td>II</td></tr>
+          <tr><td>Tau</td><td>τ⁻</td><td>−e</td><td>1776,9 MeV/c²</td><td>III</td></tr>
+          <tr><td>Neutrino tau</td><td>ντ</td><td>0</td><td>&lt;18,2 MeV/c²</td><td>III</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="generasi">
+      <h3 class="sub-heading">Tiga Generasi (Keluarga) Fermion</h3>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Generasi I (Paling Ringan)</div>
+          <p>Quark: up, down</p>
+          <p>Lepton: elektron, νe</p>
+          <p>Menyusun semua materi stabil di alam semesta.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Generasi II</div>
+          <p>Quark: charm, strange</p>
+          <p>Lepton: muon, νμ</p>
+          <p>Partikel tidak stabil, hanya ada dalam kondisi energi tinggi.</p>
+        </div>
+        <div class="info-card teal">
+          <div class="info-card-title">Generasi III (Paling Berat)</div>
+          <p>Quark: top, bottom</p>
+          <p>Lepton: tau, ντ</p>
+          <p>Paling berat, masa hidup paling singkat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOSON & GAYA -->
+    <section class="content-section" id="boson">
+      <h2 class="section-heading"><span class="icon"><i data-feather="zap"></i></span> Boson Gauge</h2>
+      <table class="data-table">
+        <thead><tr><th>Boson</th><th>Simbol</th><th>Gaya</th><th>Jangkauan</th><th>Massa</th></tr></thead>
+        <tbody>
+          <tr><td>Foton</td><td>γ</td><td>Elektromagnetik</td><td>∞</td><td>0</td></tr>
+          <tr><td>Gluon</td><td>g</td><td>Kuat</td><td>~10⁻¹⁵ m</td><td>0</td></tr>
+          <tr><td>W-boson</td><td>W±</td><td>Lemah</td><td>~10⁻¹⁸ m</td><td>80,4 GeV/c²</td></tr>
+          <tr><td>Z-boson</td><td>Z⁰</td><td>Lemah</td><td>~10⁻¹⁸ m</td><td>91,2 GeV/c²</td></tr>
+          <tr><td>Graviton (hipotetis)</td><td>G</td><td>Gravitasi</td><td>∞</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="gaya-fundamental">
+      <h3 class="sub-heading">Empat Gaya Fundamental</h3>
+      <table class="data-table">
+        <thead><tr><th>Gaya</th><th>Kekuatan Relatif</th><th>Jangkauan</th><th>Perantara</th><th>Bekerja pada</th></tr></thead>
+        <tbody>
+          <tr><td>Kuat (Nuklir)</td><td>1</td><td>~10⁻¹⁵ m</td><td>Gluon</td><td>Quark & gluon</td></tr>
+          <tr><td>Elektromagnetik</td><td>10⁻²</td><td>∞</td><td>Foton</td><td>Partikel bermuatan</td></tr>
+          <tr><td>Lemah</td><td>10⁻⁵</td><td>~10⁻¹⁸ m</td><td>W±, Z⁰</td><td>Semua fermion</td></tr>
+          <tr><td>Gravitasi</td><td>10⁻³⁹</td><td>∞</td><td>Graviton (?)</td><td>Semua massa/energi</td></tr>
+        </tbody>
+      </table>
+      <div class="two-col">
+        <div class="info-card teal">
+          <div class="info-card-title">Gaya Kuat — Kromodinamika Kuantum (QCD)</div>
+          <p>Gluon membawa "muatan warna" — berbeda dengan foton yang netral secara elektromagnetik. Ada 8 gluon berbeda. Kekuatan gaya kuat <em>meningkat</em> dengan jarak (asymptotic freedom & confinement).</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Gaya Lemah — Penyebab Peluruhan Beta</div>
+          <p>Gaya lemah melanggar simetri P (paritas) dan C (charge conjugation). W-boson memediasi perubahan flavor quark: d → u + W⁻ (peluruhan beta). Bersatu dengan EM pada ~100 GeV (teori elektrolemah).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="higgs">
+      <h3 class="sub-heading">Boson Higgs & Mekanisme Higgs</h3>
+      <p>Boson Higgs adalah partikel terakhir Model Standar yang ditemukan, dikonfirmasi oleh LHC CERN pada <strong>4 Juli 2012</strong>.</p>
+      <div class="formula-box" style="border-left-color:var(--accent-pink)">
+        <div class="formula-label">Massa Boson Higgs</div>
+        <div class="formula-main">\[ m_H \approx 125{,}09 \text{ GeV}/c^2 \]</div>
+      </div>
+      <div class="info-card pink">
+        <div class="info-card-title">Mekanisme Higgs</div>
+        <p>Medan Higgs memenuhi seluruh ruang. Partikel yang berinteraksi dengan medan Higgs mendapatkan massa — semakin kuat interaksinya, semakin besar massanya. Foton tidak berinteraksi dengan Higgs, sehingga massanya nol.</p>
+      </div>
+    </section>
+
+    <!-- HADRON -->
+    <section class="content-section" id="hadron">
+      <h2 class="section-heading"><span class="icon"><i data-feather="circle"></i></span> Hadron</h2>
+      <p>Hadron adalah partikel yang tersusun dari quark dan terikat oleh gaya kuat. Terbagi dua:</p>
+      <div class="two-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Barion (3 Quark)</div>
+          <p>Spin setengah bilangan → fermion. Contoh:</p>
+          <ul class="content-list">
+            <li>Proton (p) = uud</li>
+            <li>Neutron (n) = udd</li>
+            <li>Lambda (Λ) = uds</li>
+            <li>Sigma (Σ+) = uus</li>
+          </ul>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Meson (Quark + Antiquark)</div>
+          <p>Spin bulat → boson. Contoh:</p>
+          <ul class="content-list">
+            <li>Pion (π+) = u d̄</li>
+            <li>Pion (π⁰) = (uū − dd̄)/√2</li>
+            <li>Kaon (K+) = u s̄</li>
+            <li>J/ψ = c c̄</li>
+          </ul>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="formula-label">Muatan Listrik Barion</div>
+        <div class="formula-main">\[ Q = \frac{2}{3}n_u - \frac{1}{3}n_d - \frac{1}{3}n_s \]</div>
+        <div class="formula-vars">Proton (uud): Q = 2/3 + 2/3 - 1/3 = +1 &nbsp;|&nbsp; Neutron (udd): Q = 2/3 - 1/3 - 1/3 = 0</div>
+      </div>
+    </section>
+
+    <!-- ANTIMATERI -->
+    <section class="content-section" id="antimateri">
+      <h2 class="section-heading"><span class="icon"><i data-feather="shuffle"></i></span> Antimateri</h2>
+      <p>Setiap partikel memiliki antipartikel dengan massa sama tetapi muatan berlawanan (dan bilangan kuantum lainnya terbalik).</p>
+      <table class="data-table">
+        <thead><tr><th>Partikel</th><th>Antipartikel</th><th>Muatan</th></tr></thead>
+        <tbody>
+          <tr><td>Elektron (e⁻)</td><td>Positron (e⁺)</td><td>+e</td></tr>
+          <tr><td>Proton (p)</td><td>Antiproton (p̄)</td><td>−e</td></tr>
+          <tr><td>Neutron (n)</td><td>Antineutron (n̄)</td><td>0</td></tr>
+          <tr><td>Quark up (u)</td><td>Anti-up (ū)</td><td>−2/3 e</td></tr>
+          <tr><td>Neutrino elektron (νe)</td><td>Antineutrino (ν̄e)</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <div class="formula-box" style="border-left-color:var(--accent-pink)">
+        <div class="formula-label">Anihilasi Partikel-Antipartikel</div>
+        <div class="formula-main">\[ e^- + e^+ \to 2\gamma \quad (E_\gamma = m_e c^2 = 0{,}511 \text{ MeV each}) \]</div>
+        <div class="formula-vars">Seluruh massa diubah menjadi energi foton (E = mc²)</div>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i data-feather="help-circle"></i></div>
+        <div><strong>Asimetri Barion:</strong> Big Bang seharusnya menghasilkan partikel dan antipartikel dalam jumlah sama, namun alam semesta didominasi materi. Penyebab asimetri ini (violasi CP) masih menjadi misteri besar fisika.</div>
+      </div>
+    </section>
+
+    <!-- SIMETRI -->
+    <section class="content-section" id="simetri">
+      <h3 class="sub-heading">Simetri & Hukum Kekekalan</h3>
+      <div class="definition">
+        <strong>Teorema Noether:</strong> Setiap simetri kontinu alam semesta berkorespondensi dengan hukum kekekalan.
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Simetri</th><th>Hukum Kekekalan</th></tr></thead>
+        <tbody>
+          <tr><td>Translasi waktu</td><td>Kekekalan energi</td></tr>
+          <tr><td>Translasi ruang</td><td>Kekekalan momentum linear</td></tr>
+          <tr><td>Rotasi ruang</td><td>Kekekalan momentum sudut</td></tr>
+          <tr><td>Transformasi gauge (EM)</td><td>Kekekalan muatan listrik</td></tr>
+          <tr><td>Transformasi gauge (warna)</td><td>Kekekalan muatan warna</td></tr>
+        </tbody>
+      </table>
+      <h4 class="mini-heading">Bilangan Kuantum yang Dikekalkan dalam Reaksi Partikel</h4>
+      <ul class="content-list check">
+        <li>Nomor barion (B) dan nomor lepton (L)</li>
+        <li>Muatan listrik total (Q)</li>
+        <li>Strangeness (S) — oleh gaya kuat & EM, dilanggar gaya lemah</li>
+        <li>Isospin (oleh gaya kuat)</li>
+        <li>Paritas (P) — dilanggar gaya lemah</li>
+      </ul>
+    </section>
+
+    <!-- KOSMOLOGI -->
+    <section class="content-section" id="kosmologi">
+      <h2 class="section-heading"><span class="icon"><i data-feather="globe"></i></span> Kosmologi Partikel</h2>
+      <h3 class="sub-heading">Big Bang & Kronologi Alam Semesta Awal</h3>
+      <table class="data-table">
+        <thead><tr><th>Waktu Sejak Big Bang</th><th>Suhu (K)</th><th>Peristiwa</th></tr></thead>
+        <tbody>
+          <tr><td>&lt; 10⁻⁴³ s (Planck)</td><td>&gt;10³² </td><td>Semua gaya bersatu (?), mekanika kuantum gravitasi</td></tr>
+          <tr><td>10⁻³⁶ — 10⁻³² s</td><td>~10²⁷</td><td>Inflasi kosmik — ekspansi eksponensial</td></tr>
+          <tr><td>10⁻¹² s</td><td>~10¹⁵</td><td>Transisi elektrolemah, W & Z mendapat massa</td></tr>
+          <tr><td>10⁻⁶ s</td><td>~10¹³</td><td>Quark-gluon plasma membeku → hadron (confinement)</td></tr>
+          <tr><td>1 s — 3 min</td><td>~10¹⁰</td><td>Nukleosintesis Big Bang: H, He, Li</td></tr>
+          <tr><td>380.000 tahun</td><td>~3000</td><td>Rekombinasi: elektron + proton → atom H; CMB terpancar</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" id="materi-gelap">
+      <h3 class="sub-heading">Materi Gelap & Energi Gelap</h3>
+      <div class="three-col">
+        <div class="info-card gold">
+          <div class="info-card-title">Materi Biasa</div>
+          <p>~5% kandungan alam semesta. Terdiri dari atom (barion), bintang, gas, planet.</p>
+        </div>
+        <div class="info-card blue">
+          <div class="info-card-title">Materi Gelap</div>
+          <p>~27% kandungan alam semesta. Tidak memancarkan/menyerap cahaya, namun berinteraksi gravitasi. Kandidat: WIMP, axion. Belum terdeteksi langsung.</p>
+        </div>
+        <div class="info-card pink">
+          <div class="info-card-title">Energi Gelap</div>
+          <p>~68% kandungan alam semesta. Menyebabkan ekspansi alam semesta yang semakin cepat. Dikaitkan dengan konstanta kosmologis Λ Einstein.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="akselerator">
+      <h2 class="section-heading"><span class="icon"><i data-feather="refresh-cw"></i></span> Akselerator Partikel</h2>
+      <p>Akselerator partikel adalah alat yang mempercepat partikel bermuatan hingga energi sangat tinggi, digunakan untuk menyelidiki struktur materi pada skala terkecil.</p>
+      <table class="data-table">
+        <thead><tr><th>Akselerator</th><th>Lokasi</th><th>Energi Puncak</th><th>Penemuan Penting</th></tr></thead>
+        <tbody>
+          <tr><td>LHC (Large Hadron Collider)</td><td>CERN, Swiss</td><td>13,6 TeV</td><td>Boson Higgs (2012)</td></tr>
+          <tr><td>Tevatron</td><td>Fermilab, AS</td><td>1,96 TeV</td><td>Quark top (1995)</td></tr>
+          <tr><td>LEP</td><td>CERN</td><td>209 GeV</td><td>Pengukuran presisi Z & W</td></tr>
+          <tr><td>SLAC</td><td>AS</td><td>50 GeV</td><td>Quark charm, bottom</td></tr>
+        </tbody>
+      </table>
+      <div class="callout note">
+        <div class="callout-icon"><i data-feather="globe"></i></div>
+        <div>World Wide Web (WWW) diciptakan oleh Tim Berners-Lee di CERN pada 1989 untuk berbagi data antara fisikawan partikel di seluruh dunia. Ini adalah salah satu dampak tidak langsung dari fisika partikel terhadap kehidupan manusia.</div>
+      </div>
+
+      <div class="info-card teal" style="margin-top:24px">
+        <div class="info-card-title">Fisika Partikel — Pertanyaan Terbuka</div>
+        <ul class="content-list">
+          <li>Mengapa ada 3 generasi fermion?</li>
+          <li>Mengapa massa neutrino tidak nol?</li>
+          <li>Apa itu materi gelap dan energi gelap?</li>
+          <li>Bagaimana menyatukan gravitasi dengan Model Standar (Teori Segalanya)?</li>
+          <li>Mengapa alam semesta didominasi materi, bukan antimateri?</li>
+          <li>Apakah proton benar-benar stabil? (T₁/₂ &gt; 10³⁴ tahun)</li>
+          <li>Apakah ada dimensi tambahan (Teori String/M-Theory)?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="osn-partikel">
+      <h2 class="section-heading"><span class="icon"><i data-feather="book-open"></i></span> Contoh Soal</h2>
+      <div class="osn-soal">
+        <div class="osn-header">
+          <span class="osn-badge">Contoh Soal</span>
+          <span class="osn-meta">Fisika Partikel · Model Standar & Kinematika Relativistik</span>
+        </div>
+        <div class="osn-title">Peluruhan Pion & Neutrino Ultrarelativistik</div>
+        <div class="osn-body">
+          <p>Pion bermuatan \(\pi^+\) meluruh menjadi muon dan neutrino muon: \(\pi^+ \to \mu^+ + \nu_\mu\). Data massa: \(m_\pi = 139{,}6 \text{ MeV}/c^2\), \(m_\mu = 105{,}7 \text{ MeV}/c^2\), \(m_\nu \approx 0\). Anggap pion diam sebelum meluruh.</p>
+          <div class="osn-poin"><span class="osn-poin-label">(a)</span><span>Gunakan kekekalan energi-momentum 4-vektor untuk menentukan energi kinetik muon \(K_\mu\) dan energi neutrino \(E_\nu\) dalam kerangka diam pion.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(b)</span><span>Hitung faktor Lorentz \(\gamma\) dan kecepatan \(\beta = v/c\) muon yang dihasilkan.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(c)</span><span>Muon memiliki waktu hidup \(\tau_0 = 2{,}197\;\mu\text{s}\) dalam kerangka diamnya. Jika muon bergerak vertikal ke bawah dari ketinggian \(h = 10 \text{ km}\) di atmosfer, apakah muon mencapai permukaan Bumi sebelum meluruh? Analisis dalam dua kerangka: Bumi dan muon.</span></div>
+          <div class="osn-poin"><span class="osn-poin-label">(d)</span><span>Seseorang mengusulkan percobaan untuk mendeteksi pelanggaran CP dengan membandingkan laju peluruhan \(\pi^+ \to \mu^+ + \nu_\mu\) dan \(\pi^- \to \mu^- + \bar{\nu}_\mu\). Berdasarkan Model Standar, apakah kedua laju ini sama? Jelaskan mengapa.</span></div>
+          <button class="solution-toggle"><i data-feather="chevron-right"></i> Lihat Solusi</button>
+          <div class="solution-body">
+            <p><strong>(a)</strong> Kekekalan 4-momentum: \(p_\pi = p_\mu + p_\nu\). Dalam kerangka diam pion \((p_\pi = (m_\pi c, \vec{0}))\):</p>
+            <p>Kekekalan energi: \(m_\pi c^2 = E_\mu + E_\nu\)</p>
+            <p>Kekekalan momentum: \(|\vec{p}_\mu| = |\vec{p}_\nu| = p\) (berlawanan arah).</p>
+            <p>Kuadratkan \(E_\nu = pc\) dan \(E_\mu^2 = p^2c^2 + m_\mu^2 c^4\):</p>
+            <p>\[E_\mu = \frac{m_\pi^2 c^4 + m_\mu^2 c^4}{2m_\pi c^2} = \frac{(139{,}6)^2 + (105{,}7)^2}{2 \times 139{,}6} = \frac{19488 + 11172}{279{,}2} \approx 109{,}8 \text{ MeV}\]</p>
+            <p>\[K_\mu = E_\mu - m_\mu c^2 = 109{,}8 - 105{,}7 = \mathbf{4{,}1 \text{ MeV}}\]</p>
+            <p>\[E_\nu = m_\pi c^2 - E_\mu = 139{,}6 - 109{,}8 = \mathbf{29{,}8 \text{ MeV}}\]</p>
+            <p><strong>(b)</strong> \(\gamma = \dfrac{E_\mu}{m_\mu c^2} = \dfrac{109{,}8}{105{,}7} \approx \mathbf{1{,}0388}\)</p>
+            <p>\[\beta = \sqrt{1 - 1/\gamma^2} = \sqrt{1 - (1/1{,}0388)^2} \approx \mathbf{0{,}271}\quad (v \approx 0{,}271c)\]</p>
+            <p><em>Catatan:</em> Muon dari peluruhan pion diam bergerak relatif lambat. Muon kosmik pada soal-soal tingkat lanjut biasanya berasal dari pion berenergi tinggi (GeV) sehingga lebih relativistik.</p>
+            <p><strong>(c)</strong> Jarak yang dapat ditempuh muon (kerangka Bumi):</p>
+            <p>\[d = v \cdot \gamma\tau_0 = 0{,}271c \times 1{,}039 \times 2{,}197\;\mu\text{s} \approx 0{,}271 \times 3\times10^8 \times 2{,}283\times10^{-6} \approx \mathbf{185 \text{ m}}\]</p>
+            <p>Muon ini (dari pion diam) <strong>tidak</strong> mencapai permukaan. Namun muon kosmik nyata memiliki \(\gamma \sim 10{-}100\) (dari pion berenergi beberapa GeV), sehingga \(d \sim 10{-}100 \text{ km}\).</p>
+            <p><em>Kerangka muon:</em> Bumi mendekati muon dengan kecepatan \(v\). Jarak 10 km terkontraksi menjadi \(L = h/\gamma \sim 9{,}6 \text{ km}\) (untuk muon ini). Dengan \(\tau_0\) dan kecepatan yang sama, muon melihat jarak yang perlu ditempuh menjadi lebih pendek — kedua penjelasan konsisten (kovarian Lorentz).</p>
+            <p><strong>(d)</strong> Menurut Model Standar, interaksi kuat dan elektromagnetik mematuhi simetri CP dengan sempurna. Peluruhan \(\pi^\pm\) terjadi melalui interaksi lemah, yang memang melanggar CP secara kecil (parameter \(\epsilon\)), tetapi untuk peluruhan \(\pi \to \mu\nu\) secara langsung, laju peluruhan keduanya <strong>sama</strong> karena CPT invariance menjamin kesetaraan lebar total peluruhan partikel dan antipartikel. Pelanggaran CP muncul dalam sistem neutral kaon (\(K^0\)) dan meson B, bukan pada pion bermuatan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/nav.js"></script>
+<script src="../js/search-index.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
